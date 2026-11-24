@@ -1,0 +1,41 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "grid4",
+   "n": 4,
+   "network": "grid",
+   "rho": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009
+   ]
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "Runtime and convergence of FW on 4x4 grids across demand levels. EXPLORATORY (M2 planning measurement; exploratory seeds only; not a finding).",
+ "experiment_id": "X-TIMING-4x4",
+ "label": "exploratory",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "max_iter": 20000,
+  "tol": 1e-06
+ }
+}

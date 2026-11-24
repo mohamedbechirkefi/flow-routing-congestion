@@ -1,0 +1,48 @@
+{
+ "config_version": "flow.config/1",
+ "experiment_id": "X-SPREAD-6x6-FW",
+ "label": "exploratory",
+ "description": "Seed spread and nonconvergence share in the 6x6 rho=2 cell with the draft FW solver. EXPLORATORY (M2 planning measurement; exploratory seeds only; not a finding).",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "tol": 1e-06,
+  "max_iter": 20000
+ },
+ "cells": [
+  {
+   "cell": "grid6-rho2",
+   "network": "grid",
+   "n": 6,
+   "rho": [
+    2.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009,
+    9010,
+    9011,
+    9012,
+    9013,
+    9014,
+    9015,
+    9016,
+    9017,
+    9018,
+    9019
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ]
+  }
+ ]
+}

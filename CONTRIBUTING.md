@@ -40,7 +40,10 @@ Never commit an e-mail address, a name or any other personal identifier in code,
 
 Requires Python 3.12 and uv. Dependencies are locked in `uv.lock` (only releases published on or before 2026-11-10 are resolved; see `pyproject.toml`).
 
-    uv sync                               # install locked dependencies
-    uv run pytest                         # run the test suite (none at M0)
+    uv sync --all-groups                  # install locked dependencies (dev and report groups included)
+    uv run pytest                         # run the test suite (or: uv run flow test)
     uv lock                               # refresh the lockfile after a dependency change
     sh scripts/build_manuscript_tex.sh    # regenerate research/paper/manuscript.tex with pandoc
+    uv run flow smoke                     # EXPLORATORY smoke matrix -> results/exploratory/<run_id>/ with report
+    uv run flow run <EXP-id|config.json>  # confirmatory configs are refused until the owner's freeze is recorded
+    uv run flow report <run_dir>          # tables, figures, report.md and report.pdf from results.json

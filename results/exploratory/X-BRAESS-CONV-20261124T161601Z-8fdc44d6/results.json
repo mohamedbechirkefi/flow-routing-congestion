@@ -1,0 +1,2008 @@
+{
+ "config_hash": "8fdc44d6f3c2ee32bd88001457455dd05bc5cc0b30f17df2dc7aa893f9282407",
+ "experiment_id": "X-BRAESS-CONV",
+ "generated_utc": "2026-11-24T16:16:51.260414+00:00",
+ "label": "exploratory",
+ "records": [
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 1.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 3.466351994815385e-16,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 56.05000000000004,
+    "max_vc": null,
+    "mean_trip_time": 56.05,
+    "min_link_time": 5.499999999999962,
+    "n_used_paths": 2,
+    "p95_trip_time": 56.05000000000004,
+    "share_links_over_capacity": null,
+    "total_demand": 1.1,
+    "tstt": 61.655
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d1.1/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 1.2482085828021084e-15,
+    "runtime_s": 0.0006152499991003424,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 1.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.10793933987511162,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 62.1,
+    "max_vc": null,
+    "mean_trip_time": 62.099999999999994,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 62.1,
+    "share_links_over_capacity": null,
+    "total_demand": 1.1,
+    "tstt": 68.31
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d1.1/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 8.100000013655517e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 1.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 3.466351994815385e-16,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 56.05000000000004,
+    "max_vc": null,
+    "mean_trip_time": 56.05,
+    "min_link_time": 5.499999999999962,
+    "n_used_paths": 2,
+    "p95_trip_time": 56.05000000000004,
+    "share_links_over_capacity": null,
+    "total_demand": 1.1,
+    "tstt": 61.655
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d1.1/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 5.762247471900901e-16,
+    "runtime_s": 0.00040862499918148387,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 2.6,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 8.201492017059867e-16,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 64.30000000000011,
+    "max_vc": null,
+    "mean_trip_time": 64.3,
+    "min_link_time": 12.999999999999908,
+    "n_used_paths": 2,
+    "p95_trip_time": 64.30000000000011,
+    "share_links_over_capacity": null,
+    "total_demand": 2.6,
+    "tstt": 167.18
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d2.6/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 2.642456836845156e-15,
+    "runtime_s": 0.0004712919999292353,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 2.6,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.2223950233281493,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 78.6,
+    "max_vc": null,
+    "mean_trip_time": 78.60000000000001,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 78.6,
+    "share_links_over_capacity": null,
+    "total_demand": 2.6,
+    "tstt": 204.36
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d2.6/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 5.962500108580571e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 2.6,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 8.201492017059867e-16,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 64.30000000000011,
+    "max_vc": null,
+    "mean_trip_time": 64.3,
+    "min_link_time": 12.999999999999908,
+    "n_used_paths": 2,
+    "p95_trip_time": 64.30000000000011,
+    "share_links_over_capacity": null,
+    "total_demand": 2.6,
+    "tstt": 167.18
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d2.6/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 1.5300597252879296e-15,
+    "runtime_s": 0.00038195900015125517,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.3,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 9.36725222537733e-16,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 68.15000000000013,
+    "max_vc": null,
+    "mean_trip_time": 68.14999999999999,
+    "min_link_time": 16.499999999999883,
+    "n_used_paths": 2,
+    "p95_trip_time": 68.15000000000013,
+    "share_links_over_capacity": null,
+    "total_demand": 3.3,
+    "tstt": 224.89499999999998
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d3.3/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 2.993964966860214e-15,
+    "runtime_s": 0.0004047499987791525,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.3,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.2663242846661775,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 86.3,
+    "max_vc": null,
+    "mean_trip_time": 86.3,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 86.3,
+    "share_links_over_capacity": null,
+    "total_demand": 3.3,
+    "tstt": 284.78999999999996
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d3.3/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 5.2999999752501026e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.3,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 9.36725222537733e-16,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 68.15000000000013,
+    "max_vc": null,
+    "mean_trip_time": 68.14999999999999,
+    "min_link_time": 16.499999999999883,
+    "n_used_paths": 2,
+    "p95_trip_time": 68.15000000000013,
+    "share_links_over_capacity": null,
+    "total_demand": 3.3,
+    "tstt": 224.89499999999998
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d3.3/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 1.769287587654933e-15,
+    "runtime_s": 0.0003799999994953396,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.7,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.0257924179194768e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 70.35000000000015,
+    "max_vc": null,
+    "mean_trip_time": 70.35,
+    "min_link_time": 18.49999999999987,
+    "n_used_paths": 2,
+    "p95_trip_time": 70.35000000000015,
+    "share_links_over_capacity": null,
+    "total_demand": 3.7,
+    "tstt": 260.295
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d3.7/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 3.3876706016751398e-15,
+    "runtime_s": 0.00039245799962372985,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.7,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.2892679459843639,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 90.7,
+    "max_vc": null,
+    "mean_trip_time": 90.7,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 90.7,
+    "share_links_over_capacity": null,
+    "total_demand": 3.7,
+    "tstt": 335.59000000000003
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d3.7/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 4.837500091525726e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.7,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.0257924179194768e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 70.35000000000015,
+    "max_vc": null,
+    "mean_trip_time": 70.35,
+    "min_link_time": 18.49999999999987,
+    "n_used_paths": 2,
+    "p95_trip_time": 70.35000000000015,
+    "share_links_over_capacity": null,
+    "total_demand": 3.7,
+    "tstt": 260.295
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d3.7/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 2.183807559146661e-15,
+    "runtime_s": 0.00035704100082512014,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 5.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.2802059220533516e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 78.0500000000002,
+    "max_vc": null,
+    "mean_trip_time": 78.05,
+    "min_link_time": 25.499999999999815,
+    "n_used_paths": 2,
+    "p95_trip_time": 78.0500000000002,
+    "share_links_over_capacity": null,
+    "total_demand": 5.1,
+    "tstt": 398.05499999999995
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d5.1/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 3.781787582911218e-15,
+    "runtime_s": 0.0003772910004045116,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 5.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.3593850096092248,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 106.1,
+    "max_vc": null,
+    "mean_trip_time": 106.1,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 106.1,
+    "share_links_over_capacity": null,
+    "total_demand": 5.1,
+    "tstt": 541.1099999999999
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d5.1/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 4.875000013271347e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 5.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.2802059220533516e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 78.0500000000002,
+    "max_vc": null,
+    "mean_trip_time": 78.05,
+    "min_link_time": 25.499999999999815,
+    "n_used_paths": 2,
+    "p95_trip_time": 78.0500000000002,
+    "share_links_over_capacity": null,
+    "total_demand": 5.1,
+    "tstt": 398.05499999999995
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d5.1/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 2.570452674867906e-15,
+    "runtime_s": 0.00035362499875191133,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 7.7,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.6530120832264104e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 92.3500000000003,
+    "max_vc": null,
+    "mean_trip_time": 92.35,
+    "min_link_time": 38.49999999999972,
+    "n_used_paths": 2,
+    "p95_trip_time": 92.3500000000003,
+    "share_links_over_capacity": null,
+    "total_demand": 7.7,
+    "tstt": 711.095
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d7.7/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 4.603637891136506e-15,
+    "runtime_s": 0.0003745419999177102,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 7.7,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.4585814834867352,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 134.7,
+    "max_vc": null,
+    "mean_trip_time": 134.70000000000002,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 134.7,
+    "share_links_over_capacity": null,
+    "total_demand": 7.7,
+    "tstt": 1037.19
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d7.7/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 4.749999970954377e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 7.7,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.6530120832264104e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 92.3500000000003,
+    "max_vc": null,
+    "mean_trip_time": 92.35,
+    "min_link_time": 38.49999999999972,
+    "n_used_paths": 2,
+    "p95_trip_time": 92.3500000000003,
+    "share_links_over_capacity": null,
+    "total_demand": 7.7,
+    "tstt": 711.095
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d7.7/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 3.3573904923448155e-15,
+    "runtime_s": 0.0003540839989000233,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 8.9,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.79520650773143e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 98.95000000000036,
+    "max_vc": null,
+    "mean_trip_time": 98.95,
+    "min_link_time": 44.49999999999968,
+    "n_used_paths": 2,
+    "p95_trip_time": 98.95000000000036,
+    "share_links_over_capacity": null,
+    "total_demand": 8.9,
+    "tstt": 880.6550000000001
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d8.9/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 4.836598455083147e-15,
+    "runtime_s": 0.00037324999902921263,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 8.9,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.4946942900454774,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 147.9,
+    "max_vc": null,
+    "mean_trip_time": 147.89999999999998,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 147.9,
+    "share_links_over_capacity": null,
+    "total_demand": 8.9,
+    "tstt": 1316.31
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d8.9/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 4.724999962490983e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 8.9,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.79520650773143e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 98.95000000000036,
+    "max_vc": null,
+    "mean_trip_time": 98.95,
+    "min_link_time": 44.49999999999968,
+    "n_used_paths": 2,
+    "p95_trip_time": 98.95000000000036,
+    "share_links_over_capacity": null,
+    "total_demand": 8.9,
+    "tstt": 880.6550000000001
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d8.9/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 3.614618047027779e-15,
+    "runtime_s": 0.0003685410010803025,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 9.3,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.865921049790179e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 101.15000000000038,
+    "max_vc": null,
+    "mean_trip_time": 101.15,
+    "min_link_time": 46.49999999999967,
+    "n_used_paths": 2,
+    "p95_trip_time": 101.15000000000038,
+    "share_links_over_capacity": null,
+    "total_demand": 9.3,
+    "tstt": 940.6950000000002
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d9.3/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 4.976442885603677e-15,
+    "runtime_s": 0.0003708750009536743,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 9.3,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.5056846267918931,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 152.3,
+    "max_vc": null,
+    "mean_trip_time": 152.3,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 152.3,
+    "share_links_over_capacity": null,
+    "total_demand": 9.3,
+    "tstt": 1416.39
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d9.3/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 5.620800038741436e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 9.3,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.865921049790179e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 101.15000000000038,
+    "max_vc": null,
+    "mean_trip_time": 101.15,
+    "min_link_time": 46.49999999999967,
+    "n_used_paths": 2,
+    "p95_trip_time": 101.15000000000038,
+    "share_links_over_capacity": null,
+    "total_demand": 9.3,
+    "tstt": 940.6950000000002
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d9.3/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 3.746476774480672e-15,
+    "runtime_s": 0.00035237500014773104,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 11.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.9995011699687647e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 111.05000000000044,
+    "max_vc": null,
+    "mean_trip_time": 111.05,
+    "min_link_time": 55.49999999999961,
+    "n_used_paths": 2,
+    "p95_trip_time": 111.05000000000044,
+    "share_links_over_capacity": null,
+    "total_demand": 11.1,
+    "tstt": 1232.655
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d11.1/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 4.99902862290191e-15,
+    "runtime_s": 0.00037275000067893416,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 11.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.5497523638000901,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 172.1,
+    "max_vc": null,
+    "mean_trip_time": 172.1,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 172.1,
+    "share_links_over_capacity": null,
+    "total_demand": 11.1,
+    "tstt": 1910.31
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d11.1/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 4.6499999371008016e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 11.1,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.9995011699687647e-15,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 111.05000000000044,
+    "max_vc": null,
+    "mean_trip_time": 111.05,
+    "min_link_time": 55.49999999999961,
+    "n_used_paths": 2,
+    "p95_trip_time": 111.05000000000044,
+    "share_links_over_capacity": null,
+    "total_demand": 11.1,
+    "tstt": 1232.655
+   },
+   "network": "braess-without-e",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl0-d11.1/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 3.873628212523272e-15,
+    "runtime_s": 0.0003541250007401686,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 1.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 33.1,
+    "max_vc": null,
+    "mean_trip_time": 33.1,
+    "min_link_time": 11.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 33.1,
+    "share_links_over_capacity": null,
+    "total_demand": 1.1,
+    "tstt": 36.410000000000004
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d1.1/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 7.454099977621809e-05,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 1.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 33.1,
+    "max_vc": null,
+    "mean_trip_time": 33.1,
+    "min_link_time": 11.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 33.1,
+    "share_links_over_capacity": null,
+    "total_demand": 1.1,
+    "tstt": 36.410000000000004
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d1.1/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 4.9416999900131486e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 1.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 33.1,
+    "max_vc": null,
+    "mean_trip_time": 33.1,
+    "min_link_time": 11.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 33.1,
+    "share_links_over_capacity": null,
+    "total_demand": 1.1,
+    "tstt": 36.410000000000004
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d1.1/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 6.729199958499521e-05,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 2.6,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0829975817518894,
+    "max_node_imbalance": 4.440892098500626e-16,
+    "max_trip_time": 70.04619367162948,
+    "max_vc": null,
+    "mean_trip_time": 60.22366863913937,
+    "min_link_time": 11.276928254223716,
+    "n_used_paths": 3,
+    "p95_trip_time": 70.04619367162948,
+    "share_links_over_capacity": null,
+    "total_demand": 2.6,
+    "tstt": 156.58153846176236
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d2.6/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 19,
+    "max_iter": 20000,
+    "rel_gap": 7.338077390621697e-07,
+    "runtime_s": 0.006010916999002802,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 2.6,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.07266796360553274,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 64.6,
+    "max_vc": null,
+    "mean_trip_time": 64.60000000000001,
+    "min_link_time": 12.6,
+    "n_used_paths": 1,
+    "p95_trip_time": 64.6,
+    "share_links_over_capacity": null,
+    "total_demand": 2.6,
+    "tstt": 167.96000000000004
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d2.6/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 6.741700053680688e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 2.6,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.07266796360553274,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 64.6,
+    "max_vc": null,
+    "mean_trip_time": 64.60000000000001,
+    "min_link_time": 12.6,
+    "n_used_paths": 1,
+    "p95_trip_time": 64.6,
+    "share_links_over_capacity": null,
+    "total_demand": 2.6,
+    "tstt": 167.96000000000004
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d2.6/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 3.384342632817814e-16,
+    "runtime_s": 0.00015883299965935294,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.3,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.05453312557952574,
+    "max_node_imbalance": 1.7763568394002505e-15,
+    "max_trip_time": 71.71546957851666,
+    "max_vc": null,
+    "mean_trip_time": 66.91351981393323,
+    "min_link_time": 10.792321711156262,
+    "n_used_paths": 3,
+    "p95_trip_time": 71.71546957851666,
+    "share_links_over_capacity": null,
+    "total_demand": 3.3,
+    "tstt": 220.81461538597966
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d3.3/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 72,
+    "max_iter": 20000,
+    "rel_gap": 9.366624670290956e-07,
+    "runtime_s": 0.028069332998711616,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.3,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.1851117714403594,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 79.3,
+    "max_vc": null,
+    "mean_trip_time": 79.3,
+    "min_link_time": 13.3,
+    "n_used_paths": 1,
+    "p95_trip_time": 79.3,
+    "share_links_over_capacity": null,
+    "total_demand": 3.3,
+    "tstt": 261.69
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d3.3/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 7.283300146809779e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.3,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.1851117714403594,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 79.3,
+    "max_vc": null,
+    "mean_trip_time": 79.3,
+    "min_link_time": 13.3,
+    "n_used_paths": 1,
+    "p95_trip_time": 79.3,
+    "share_links_over_capacity": null,
+    "total_demand": 3.3,
+    "tstt": 261.69
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d3.3/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 8.137500117300078e-05,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.7,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.034312885289671996,
+    "max_node_imbalance": 4.440892098500626e-15,
+    "max_trip_time": 72.66936964042719,
+    "max_vc": null,
+    "mean_trip_time": 69.8833679845541,
+    "min_link_time": 10.515410306336523,
+    "n_used_paths": 3,
+    "p95_trip_time": 72.66936964042719,
+    "share_links_over_capacity": null,
+    "total_demand": 3.7,
+    "tstt": 258.5684615428502
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d3.7/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 193,
+    "max_iter": 20000,
+    "rel_gap": 9.759689713119337e-07,
+    "runtime_s": 0.05937354200068512,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.7,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.2549481018056228,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 87.7,
+    "max_vc": null,
+    "mean_trip_time": 87.7,
+    "min_link_time": 13.7,
+    "n_used_paths": 1,
+    "p95_trip_time": 87.7,
+    "share_links_over_capacity": null,
+    "total_demand": 3.7,
+    "tstt": 324.49
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d3.7/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 6.899999971210491e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 3.7,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.2379281696439759,
+    "flow_weighted_vc": null,
+    "gini_stretch": 9.63737323591222e-07,
+    "max_node_imbalance": 4.440892098500626e-16,
+    "max_trip_time": 86.51618713580626,
+    "max_vc": null,
+    "mean_trip_time": 86.51058981767548,
+    "min_link_time": 13.591864105942417,
+    "n_used_paths": 3,
+    "p95_trip_time": 86.5105051653666,
+    "share_links_over_capacity": null,
+    "total_demand": 3.7,
+    "tstt": 320.0891823253993
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d3.7/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 8,
+    "max_iter": 20000,
+    "rel_gap": 9.785196132088456e-07,
+    "runtime_s": 0.0023831250000512227,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 5.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 5.54994145016093e-05,
+    "max_node_imbalance": 2.1316282072803006e-14,
+    "max_trip_time": 78.05606096219387,
+    "max_vc": null,
+    "mean_trip_time": 78.0513820966785,
+    "min_link_time": 10.001193110706406,
+    "n_used_paths": 3,
+    "p95_trip_time": 78.05606096219387,
+    "share_links_over_capacity": null,
+    "total_demand": 5.1,
+    "tstt": 398.0620486930603
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d5.1/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 2.60842588923573e-05,
+    "runtime_s": 6.230210749999969,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 5.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.5002937405381733,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 117.1,
+    "max_vc": null,
+    "mean_trip_time": 117.1,
+    "min_link_time": 15.1,
+    "n_used_paths": 1,
+    "p95_trip_time": 117.1,
+    "share_links_over_capacity": null,
+    "total_demand": 5.1,
+    "tstt": 597.2099999999999
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d5.1/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 7.854100113036111e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 5.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.15121524600881853,
+    "flow_weighted_vc": null,
+    "gini_stretch": 2.7170154260593885e-07,
+    "max_node_imbalance": 8.881784197001252e-16,
+    "max_trip_time": 89.85397923379634,
+    "max_vc": null,
+    "mean_trip_time": 89.85394104175603,
+    "min_link_time": 12.623089021254213,
+    "n_used_paths": 3,
+    "p95_trip_time": 89.85397923379634,
+    "share_links_over_capacity": null,
+    "total_demand": 5.1,
+    "tstt": 458.25509931295574
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d5.1/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 17,
+    "max_iter": 20000,
+    "rel_gap": 9.002635081947896e-07,
+    "runtime_s": 0.00492945900077757,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 7.7,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 9.893183268445946e-06,
+    "max_node_imbalance": 1.4849341374578717e-14,
+    "max_trip_time": 92.35355485450259,
+    "max_vc": null,
+    "mean_trip_time": 92.35211283910415,
+    "min_link_time": 10.000555175928394,
+    "n_used_paths": 3,
+    "p95_trip_time": 92.35355485450259,
+    "share_links_over_capacity": null,
+    "total_demand": 7.7,
+    "tstt": 711.111268861102
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d7.7/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 3.1373632086313973e-05,
+    "runtime_s": 6.304500500000358,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 7.7,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.8591886500651666,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 171.7,
+    "max_vc": null,
+    "mean_trip_time": 171.7,
+    "min_link_time": 17.7,
+    "n_used_paths": 1,
+    "p95_trip_time": 171.7,
+    "share_links_over_capacity": null,
+    "total_demand": 7.7,
+    "tstt": 1322.09
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d7.7/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 7.012500100245234e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 7.7,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.040086619645045785,
+    "flow_weighted_vc": null,
+    "gini_stretch": 6.309340364373387e-07,
+    "max_node_imbalance": 8.881784197001252e-15,
+    "max_trip_time": 96.05458876566203,
+    "max_vc": null,
+    "mean_trip_time": 96.05419685990167,
+    "min_link_time": 10.823144433242007,
+    "n_used_paths": 3,
+    "p95_trip_time": 96.05458876566203,
+    "share_links_over_capacity": null,
+    "total_demand": 7.7,
+    "tstt": 739.6173158212429
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d7.7/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": true,
+    "iterations": 310,
+    "max_iter": 20000,
+    "rel_gap": 9.767467575149685e-07,
+    "runtime_s": 0.09104737500092597,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 8.9,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 6.205667359841431e-06,
+    "max_node_imbalance": 2.3092638912203256e-14,
+    "max_trip_time": 99.00596440084277,
+    "max_vc": null,
+    "mean_trip_time": 98.9524432735468,
+    "min_link_time": 10.000542218258413,
+    "n_used_paths": 3,
+    "p95_trip_time": 98.95366174154339,
+    "share_links_over_capacity": null,
+    "total_demand": 8.9,
+    "tstt": 880.6767451345665
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d8.9/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 3.3041213960213856e-05,
+    "runtime_s": 6.421772875000897,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 8.9,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.9898447525513274,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 196.9,
+    "max_vc": null,
+    "mean_trip_time": 196.9,
+    "min_link_time": 18.9,
+    "n_used_paths": 1,
+    "p95_trip_time": 196.9,
+    "share_links_over_capacity": null,
+    "total_demand": 8.9,
+    "tstt": 1752.41
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d8.9/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 6.795799890824128e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 8.9,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0011889947255407929,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.000703777462266e-05,
+    "max_node_imbalance": 3.656797087359109e-15,
+    "max_trip_time": 99.29194887831699,
+    "max_vc": null,
+    "mean_trip_time": 99.07009720667843,
+    "min_link_time": 10.02654080711973,
+    "n_used_paths": 3,
+    "p95_trip_time": 99.07009720667831,
+    "share_links_over_capacity": null,
+    "total_demand": 8.9,
+    "tstt": 881.723865139438
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d8.9/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 1.3396063157319328e-05,
+    "runtime_s": 6.102499624999837,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 9.3,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 7.380934269982195e-06,
+    "max_node_imbalance": 5.4450801506567e-15,
+    "max_trip_time": 103.00597668899341,
+    "max_vc": null,
+    "mean_trip_time": 101.15255333017713,
+    "min_link_time": 10.000543335363032,
+    "n_used_paths": 3,
+    "p95_trip_time": 101.15372179332346,
+    "share_links_over_capacity": null,
+    "total_demand": 9.3,
+    "tstt": 940.7187459706473
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d9.3/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 3.353176075196987e-05,
+    "runtime_s": 6.428430291000041,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 9.3,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 1.0296076889910033,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 205.3,
+    "max_vc": null,
+    "mean_trip_time": 205.3,
+    "min_link_time": 19.3,
+    "n_used_paths": 1,
+    "p95_trip_time": 205.3,
+    "share_links_over_capacity": null,
+    "total_demand": 9.3,
+    "tstt": 1909.2900000000002
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d9.3/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 7.245899905683473e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 9.3,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.00024941902815012185,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.7768315141900955e-05,
+    "max_node_imbalance": 9.063930161978817e-16,
+    "max_trip_time": 103.06498106115015,
+    "max_vc": null,
+    "mean_trip_time": 101.17778270172364,
+    "min_link_time": 10.005907369195468,
+    "n_used_paths": 3,
+    "p95_trip_time": 101.17778270172371,
+    "share_links_over_capacity": null,
+    "total_demand": 9.3,
+    "tstt": 940.95337912603
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d9.3/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 2.3711536506219703e-05,
+    "runtime_s": 5.993166917000053,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 11.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 1.1422877966128967e-05,
+    "max_node_imbalance": 2.1316282072803006e-14,
+    "max_trip_time": 121.00621325867161,
+    "max_vc": null,
+    "mean_trip_time": 111.0530483345871,
+    "min_link_time": 10.0005648416974,
+    "n_used_paths": 3,
+    "p95_trip_time": 111.05406606737526,
+    "share_links_over_capacity": null,
+    "total_demand": 11.1,
+    "tstt": 1232.6888365139168
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d11.1/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 3.542609446641874e-05,
+    "runtime_s": 6.287469082999451,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 11.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 1.189043917710157,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 243.1,
+    "max_vc": null,
+    "mean_trip_time": 243.1,
+    "min_link_time": 21.1,
+    "n_used_paths": 1,
+    "p95_trip_time": 243.1,
+    "share_links_over_capacity": null,
+    "total_demand": 11.1,
+    "tstt": 2698.41
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d11.1/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 8.795800022198819e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-offgrid",
+   "error": null,
+   "factors": {
+    "demand": 11.1,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 5.4660705777198615e-05,
+    "flow_weighted_vc": null,
+    "gini_stretch": 2.04726117463371e-05,
+    "max_node_imbalance": 7.44434895671997e-15,
+    "max_trip_time": 121.01858379033433,
+    "max_vc": null,
+    "mean_trip_time": 111.05911857258778,
+    "min_link_time": 10.001689435484932,
+    "n_used_paths": 3,
+    "p95_trip_time": 111.05911857258793,
+    "share_links_over_capacity": null,
+    "total_demand": 11.1,
+    "tstt": 1232.7562161557244
+   },
+   "network": "braess",
+   "record_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6/braess-offgrid/braess-wl1-d11.1/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "frank-wolfe",
+    "converged": false,
+    "iterations": 20000,
+    "max_iter": 20000,
+    "rel_gap": 2.7302808182092857e-05,
+    "runtime_s": 5.842705083998226,
+    "tol": 1e-06
+   },
+   "status": "nonconverged"
+  }
+ ],
+ "run_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6",
+ "schema_version": "flow.result/1.0.0"
+}

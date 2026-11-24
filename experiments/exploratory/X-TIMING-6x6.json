@@ -1,0 +1,36 @@
+{
+ "config_version": "flow.config/1",
+ "experiment_id": "X-TIMING-6x6",
+ "label": "exploratory",
+ "description": "Runtime and convergence of FW on 6x6 grids across demand levels. EXPLORATORY (M2 planning measurement; exploratory seeds only; not a finding).",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "tol": 1e-06,
+  "max_iter": 20000
+ },
+ "cells": [
+  {
+   "cell": "grid6",
+   "network": "grid",
+   "n": 6,
+   "rho": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ]
+  }
+ ]
+}

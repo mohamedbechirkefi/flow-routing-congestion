@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "flow.result/1.0.0",
+  "title": "FLOW run result",
+  "type": "object",
+  "required": ["schema_version", "run_id", "label", "experiment_id", "config_hash", "generated_utc", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["flow.result/1.0.0"]},
+    "run_id": {"type": "string"},
+    "label": {"type": "string", "enum": ["exploratory", "confirmatory"]},
+    "experiment_id": {"type": ["string", "null"]},
+    "config_hash": {"type": "string"},
+    "generated_utc": {"type": "string"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["record_id", "cell", "network", "seed", "factors", "arm", "solver", "status", "metrics", "error"],
+        "additionalProperties": false,
+        "properties": {
+          "record_id": {"type": "string"},
+          "cell": {"type": "string"},
+          "network": {"type": "string"},
+          "seed": {"type": ["integer", "null"]},
+          "factors": {"type": "object"},
+          "arm": {"type": "string"},
+          "solver": {
+            "type": "object",
+            "required": ["algorithm", "tol", "max_iter", "iterations", "rel_gap", "converged", "runtime_s"],
+            "additionalProperties": false,
+            "properties": {
+              "algorithm": {"type": "string"},
+              "tol": {"type": ["number", "null"]},
+              "max_iter": {"type": ["integer", "null"]},
+              "iterations": {"type": ["integer", "null"]},
+              "rel_gap": {"type": ["number", "null"]},
+              "converged": {"type": "boolean"},
+              "runtime_s": {"type": "number", "minimum": 0}
+            }
+          },
+          "status": {"type": "string", "enum": ["ok", "nonconverged", "failed"]},
+          "metrics": {"type": ["object", "null"]},
+          "error": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

@@ -44,3 +44,38 @@ Append-only. Each entry: id, date, decision, context, alternatives, rationale, d
 - **Decision.** `pyproject.toml` sets `[tool.uv] exclude-newer = "2026-11-10T00:00:00Z"`, so `uv lock` only resolves package versions published on or before 2026-11-10.
 - **Rationale.** Session brief rule; reduces supply-chain risk from very recent releases.
 - **Decided by.** Session brief (owner's standing rule).
+
+## D-006 (2026-11-24): M2 engine design choices
+
+- **Decision.** (1) One cost model `t(x) = A + B x^P` covers the linear Braess costs (`P = 1`) and BPR (`A = t0`, `B = t0 alpha / c^beta`, `P = beta`). (2) The protocol tie-breaking rule is implemented as label setting on the pair (cost, node sequence) with exact floating-point comparison; near-ties that differ by rounding are decided by the computed cost. (3) The grid generator draw order (t0, then capacity, then OD pairs, then Dirichlet weights; undirected pairs by node id, right neighbour first) is fixed as generator version `grid-v1`. (4) EXP-004 capacity scaling multiplies capacities after the draws and keeps total demand at the capacity-scale 1.0 calibration, as the EXP-004 protocol states. (5) R is reported only when both the arm and the SO reference of the same instance converged.
+- **Context.** The draft protocol leaves these implementation details open.
+- **Alternatives.** Separate cost classes; tolerance-based tie detection; redrawing instances per capacity scale.
+- **Rationale.** Fewer code paths; a tie rule that is exactly testable against brute-force enumeration (property test); matched instances across factors.
+- **Decided by.** The assistant (implementation choices within the draft protocol); the owner may revisit before the freeze.
+- **Consequences.** Recorded in code docstrings and tests; generator version stored in every record.
+
+## D-007 (2026-11-24): Freeze guard in the runner
+
+- **Decision.** `flow run` refuses a confirmatory config (exit code 3, nothing written) unless this file contains lines `FREEZE <relative path> sha256:<hex>` for `research/protocol.md` and the experiment's protocol, with hashes equal to the current files. Exploratory configs may only use seeds 9000-9019 and write under `results/exploratory/`.
+- **Context.** G-FREEZE and protocol section 5 (confirmatory seeds not run before the freeze).
+- **Alternatives.** A manual check only; a separate freeze file.
+- **Rationale.** Makes an accidental confirmatory run impossible and any post-freeze edit of a protocol detectable.
+- **Decided by.** The assistant; the format is a proposal (amendment proposal A8) and the owner may change it.
+- **Consequences.** No FREEZE line exists; every confirmatory config is currently refused (verified: `flow run EXP-003` printed `REFUSED: ... no FREEZE record for research/protocol.md ...`, exit 3).
+
+## D-008 (2026-11-24): Candidate path-based solver implemented as a reference, not adopted
+
+- **Decision.** `gradient_projection` (path-based, unit step) is implemented and tested as a differential reference and as the basis of amendment proposal A1. All configs mirroring the draft protocol keep Frank-Wolfe.
+- **Context.** Exploratory runs showed Frank-Wolfe at `RG <= 1e-6` with a 20,000-iteration cap does not converge on most congested grid solves and on corner Braess solutions (`research/protocol_amendment_proposals.md`, A1).
+- **Alternatives.** Silently switching the solver (rejected: it would change the draft protocol without the owner); doing nothing (rejected: the primary analysis would fail by construction).
+- **Rationale.** The owner needs a measured alternative to decide before the freeze.
+- **Decided by.** The assistant (implementation); adoption is the owner's decision.
+- **Consequences.** MIX(c) with GP is not implemented; the runner rejects that combination explicitly.
+
+## D-009 (2026-11-24): Exploratory planning runs on exploratory seeds, with disclosure
+
+- **Decision.** Seven exploratory runs (journal J-0002 to J-0008) on seeds 9000-9019 measured runtime, convergence, seed spread and degenerate cells, as the M2 brief requires. They include the 6x6, rho = 2 analogue of the primary cell.
+- **Context.** Protocol section 5 allows exploratory seeds 9000-9019 before the freeze.
+- **Rationale.** The owner needs measured planning values (feasibility section 4 was a guess).
+- **Decided by.** The assistant under the session brief.
+- **Consequences.** The assistant has seen exploratory R values in the primary-cell analogue. No amendment proposal changes `delta`, the primary cell or the hypotheses; this is disclosed in the proposals file. None of these numbers is a finding or may be cited as evidence.

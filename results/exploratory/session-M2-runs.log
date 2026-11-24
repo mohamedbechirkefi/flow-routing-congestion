@@ -1,0 +1,70 @@
++(eval):1> c=smoke
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795536949 
++(eval):1> [ smoke '=' smoke ']'
++(eval):1> .venv/bin/flow smoke --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/SMOKE-20261124T161549Z-94d06582
+{
+ "report_md": "/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/SMOKE-20261124T161549Z-94d06582/report.md",
+ "figures": [
+  "R_grid3-rho1.png"
+ ],
+ "pdf": "/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/SMOKE-20261124T161549Z-94d06582/report.pdf"
+}
++(eval):1> date +%s
++(eval):1> echo 'smoke exit=0 wall=12s'
+smoke exit=0 wall=12s
++(eval):1> c=X-BRAESS-CONV
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795536961 
++(eval):1> [ X-BRAESS-CONV '=' smoke ']'
++(eval):1> .venv/bin/flow run experiments/exploratory/X-BRAESS-CONV.json --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/X-BRAESS-CONV-20261124T161601Z-8fdc44d6
++(eval):1> date +%s
++(eval):1> echo 'X-BRAESS-CONV exit=0 wall=50s'
+X-BRAESS-CONV exit=0 wall=50s
++(eval):1> c=X-SPREAD-6x6-GP
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795537011 
++(eval):1> [ X-SPREAD-6x6-GP '=' smoke ']'
++(eval):1> .venv/bin/flow run experiments/exploratory/X-SPREAD-6x6-GP.json --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/X-SPREAD-6x6-GP-20261124T161651Z-e2c25681
++(eval):1> date +%s
++(eval):1> echo 'X-SPREAD-6x6-GP exit=0 wall=1s'
+X-SPREAD-6x6-GP exit=0 wall=1s
++(eval):1> c=X-MIX-6x6
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795537012 
++(eval):1> [ X-MIX-6x6 '=' smoke ']'
++(eval):1> .venv/bin/flow run experiments/exploratory/X-MIX-6x6.json --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/X-MIX-6x6-20261124T161652Z-702080f8
++(eval):1> date +%s
++(eval):1> echo 'X-MIX-6x6 exit=0 wall=227s'
+X-MIX-6x6 exit=0 wall=227s
++(eval):1> c=X-TIMING-4x4
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795537239 
++(eval):1> [ X-TIMING-4x4 '=' smoke ']'
++(eval):1> .venv/bin/flow run experiments/exploratory/X-TIMING-4x4.json --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/X-TIMING-4x4-20261124T162039Z-2bce20f0
++(eval):1> date +%s
++(eval):1> echo 'X-TIMING-4x4 exit=0 wall=334s'
+X-TIMING-4x4 exit=0 wall=334s
++(eval):1> c=X-TIMING-6x6
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795537573 
++(eval):1> [ X-TIMING-6x6 '=' smoke ']'
++(eval):1> .venv/bin/flow run experiments/exploratory/X-TIMING-6x6.json --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/X-TIMING-6x6-20261124T162613Z-5f27dc7d
++(eval):1> date +%s
++(eval):1> echo 'X-TIMING-6x6 exit=0 wall=224s'
+X-TIMING-6x6 exit=0 wall=224s
++(eval):1> c=X-SPREAD-6x6-FW
++(eval):1> s=+(eval):1> date +%s
++(eval):1> s=1795537797 
++(eval):1> [ X-SPREAD-6x6-FW '=' smoke ']'
++(eval):1> .venv/bin/flow run experiments/exploratory/X-SPREAD-6x6-FW.json --quiet
+/Users/bechir/research/labs/flow-routing-congestion/results/exploratory/X-SPREAD-6x6-FW-20261124T162957Z-d64cb70a
++(eval):1> date +%s
++(eval):1> echo 'X-SPREAD-6x6-FW exit=0 wall=383s'
+X-SPREAD-6x6-FW exit=0 wall=383s

@@ -1,0 +1,41 @@
+{
+ "config_hash": "8fdc44d6f3c2ee32bd88001457455dd05bc5cc0b30f17df2dc7aa893f9282407",
+ "config_path": "config.json",
+ "environment": {
+  "cpu": "Apple M1 Pro",
+  "logical_cpus": 10,
+  "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+  "packages": {
+   "flow": "0.0.1",
+   "matplotlib": "3.11.2",
+   "numpy": "2.5.4",
+   "typst": "0.15.2"
+  },
+  "python": "3.12.1"
+ },
+ "experiment_id": "X-BRAESS-CONV",
+ "files": {
+  "config.json": "8a72da999851cf97ce1e319708cd7e16682cef1472d01ed617921ae42a187dc2",
+  "metrics.csv": "896cdfbafcf813c6c00426ec83cd5531098edc5bfaa6f9067ec0af06a9b09467",
+  "results.json": "b05daa68c02e4ce3c3c12ddaa0097c57a9187a79e08d56af4026e55f1e88692e"
+ },
+ "finished_utc": "2026-11-24T16:16:51.311380+00:00",
+ "git": {
+  "dirty": true,
+  "revision": "340725156ae0728d7d0041427abd90cfda038c99"
+ },
+ "label": "exploratory",
+ "manifest_version": "flow.manifest/1",
+ "n_records": 54,
+ "peak_rss_bytes": 34160640,
+ "peak_rss_note": "process-wide maximum resident set size from getrusage; includes interpreter and imports",
+ "run_id": "X-BRAESS-CONV-20261124T161601Z-8fdc44d6",
+ "runtime_s": 49.812328041,
+ "seeds": [],
+ "started_utc": "2026-11-24T16:16:01.448135+00:00",
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 8,
+  "ok": 46
+ }
+}

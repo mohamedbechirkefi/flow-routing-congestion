@@ -1,0 +1,47 @@
+{
+ "config_hash": "5f27dc7d14b427310ff503fb9cae17587b677a0175d2d36d3143acf2e0d78a22",
+ "config_path": "config.json",
+ "environment": {
+  "cpu": "Apple M1 Pro",
+  "logical_cpus": 10,
+  "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+  "packages": {
+   "flow": "0.0.1",
+   "matplotlib": "3.11.2",
+   "numpy": "2.5.4",
+   "typst": "0.15.2"
+  },
+  "python": "3.12.1"
+ },
+ "experiment_id": "X-TIMING-6x6",
+ "files": {
+  "config.json": "2fd8493336940dc2a5b5438e87f5b530cacb9b4886dfdb8ffb0dee464831b965",
+  "metrics.csv": "7c1cf3e0fef57b98c66cd5589d458117f0952e6085801a2c8d408c63cc4291e5",
+  "results.json": "e8813429fc3b2996351e351e249bb4e3388c2d321b84ba4170b0844e4180cf18"
+ },
+ "finished_utc": "2026-11-24T16:29:57.888904+00:00",
+ "git": {
+  "dirty": true,
+  "revision": "340725156ae0728d7d0041427abd90cfda038c99"
+ },
+ "label": "exploratory",
+ "manifest_version": "flow.manifest/1",
+ "n_records": 60,
+ "peak_rss_bytes": 36487168,
+ "peak_rss_note": "process-wide maximum resident set size from getrusage; includes interpreter and imports",
+ "run_id": "X-TIMING-6x6-20261124T162613Z-5f27dc7d",
+ "runtime_s": 223.91525762499987,
+ "seeds": [
+  9000,
+  9001,
+  9002,
+  9003,
+  9004
+ ],
+ "started_utc": "2026-11-24T16:26:13.929229+00:00",
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 17,
+  "ok": 43
+ }
+}

@@ -11,6 +11,9 @@ dependencies = [
     "numpy>=2.1",
 ]
 
+[project.scripts]
+flow = "flow.cli:main"
+
 [dependency-groups]
 dev = [
     "pytest>=8.3",

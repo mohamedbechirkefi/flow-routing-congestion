@@ -1,0 +1,37 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "braess-offgrid",
+   "demand": [
+    1.1,
+    2.6,
+    3.3,
+    3.7,
+    5.1,
+    7.7,
+    8.9,
+    9.3,
+    11.1
+   ],
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ]
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "FW convergence status on the Braess network at demand values deliberately off the EXP-002 sweep grid (one per regime and near boundaries). EXPLORATORY (M2 planning measurement; not a finding).",
+ "experiment_id": "X-BRAESS-CONV",
+ "label": "exploratory",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "max_iter": 20000,
+  "tol": 1e-06
+ }
+}

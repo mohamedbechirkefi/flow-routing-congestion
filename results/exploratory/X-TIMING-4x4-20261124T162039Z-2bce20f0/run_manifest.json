@@ -1,0 +1,52 @@
+{
+ "config_hash": "2bce20f02d6a08ed5535b0987f0923b0ee66083011c98d69df3a3d21775ee731",
+ "config_path": "config.json",
+ "environment": {
+  "cpu": "Apple M1 Pro",
+  "logical_cpus": 10,
+  "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+  "packages": {
+   "flow": "0.0.1",
+   "matplotlib": "3.11.2",
+   "numpy": "2.5.4",
+   "typst": "0.15.2"
+  },
+  "python": "3.12.1"
+ },
+ "experiment_id": "X-TIMING-4x4",
+ "files": {
+  "config.json": "4a90754e013a9ce1133cbc3128ceafb1ea5b70d287776759ba20bd62cc6c01bc",
+  "metrics.csv": "78cc025f56b4b202154209834ef45441b25b82923df1c9af7be36c8a8228bceb",
+  "results.json": "46abfd2c36a1192980daee1c331b984a4e11f676f380a4408c7b4f05be6ac921"
+ },
+ "finished_utc": "2026-11-24T16:26:13.834524+00:00",
+ "git": {
+  "dirty": true,
+  "revision": "340725156ae0728d7d0041427abd90cfda038c99"
+ },
+ "label": "exploratory",
+ "manifest_version": "flow.manifest/1",
+ "n_records": 120,
+ "peak_rss_bytes": 36913152,
+ "peak_rss_note": "process-wide maximum resident set size from getrusage; includes interpreter and imports",
+ "run_id": "X-TIMING-4x4-20261124T162039Z-2bce20f0",
+ "runtime_s": 333.97907241699977,
+ "seeds": [
+  9000,
+  9001,
+  9002,
+  9003,
+  9004,
+  9005,
+  9006,
+  9007,
+  9008,
+  9009
+ ],
+ "started_utc": "2026-11-24T16:20:39.805753+00:00",
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 34,
+  "ok": 86
+ }
+}

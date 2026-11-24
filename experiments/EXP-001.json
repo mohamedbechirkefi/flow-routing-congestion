@@ -1,0 +1,29 @@
+{
+ "config_version": "flow.config/1",
+ "label": "confirmatory",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "tol": 1e-06,
+  "max_iter": 20000
+ },
+ "experiment_id": "EXP-001",
+ "description": "Analytic Braess example. Mirrors DRAFT protocol v0.1; refused by `flow run` until the owner records the freeze.",
+ "cells": [
+  {
+   "cell": "braess-d6",
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ],
+   "demand": [
+    6.0
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ]
+  }
+ ]
+}

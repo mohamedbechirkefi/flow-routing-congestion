@@ -1,0 +1,37 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "SO",
+    "MIX(0)",
+    "MIX(0.5)",
+    "MIX(1)"
+   ],
+   "capacity_scale": [
+    0.8,
+    1.0,
+    1.2
+   ],
+   "cell": "mix6",
+   "n": 6,
+   "network": "grid",
+   "rho": [
+    2.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002
+   ]
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "Runtime and convergence of MIX(c) on 6x6 rho=2, capacity scale 0.8/1.0/1.2. EXPLORATORY (M2 planning measurement; exploratory seeds only; not a finding).",
+ "experiment_id": "X-MIX-6x6",
+ "label": "exploratory",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "max_iter": 20000,
+  "tol": 1e-06
+ }
+}

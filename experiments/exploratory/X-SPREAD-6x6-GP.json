@@ -1,0 +1,85 @@
+{
+ "config_version": "flow.config/1",
+ "experiment_id": "X-SPREAD-6x6-GP",
+ "label": "exploratory",
+ "description": "Same instances as X-SPREAD-6x6-FW with the candidate gradient-projection solver (not in the draft protocol), at tol 1e-6 and 1e-8. EXPLORATORY (M2 planning measurement; exploratory seeds only; not a finding).",
+ "solver": {
+  "algorithm": "gradient-projection",
+  "tol": 1e-06,
+  "max_iter": 2000
+ },
+ "cells": [
+  {
+   "cell": "grid6-rho2-gp-1e-6",
+   "network": "grid",
+   "n": 6,
+   "rho": [
+    2.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009,
+    9010,
+    9011,
+    9012,
+    9013,
+    9014,
+    9015,
+    9016,
+    9017,
+    9018,
+    9019
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ]
+  },
+  {
+   "cell": "grid6-rho2-gp-1e-8",
+   "network": "grid",
+   "n": 6,
+   "rho": [
+    2.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009,
+    9010,
+    9011,
+    9012,
+    9013,
+    9014,
+    9015,
+    9016,
+    9017,
+    9018,
+    9019
+   ],
+   "arms": [
+    "UE",
+    "SO"
+   ],
+   "solver": {
+    "tol": 1e-08
+   }
+  }
+ ]
+}
