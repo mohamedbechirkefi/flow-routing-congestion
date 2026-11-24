@@ -46,7 +46,7 @@ wheels = [
 ]
 
 [[package]]
-name = "flow-research"
+name = "flow-routing-congestion"
 version = "0.0.1"
 source = { editable = "." }
 dependencies = [

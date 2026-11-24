@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0
 [project]
-name = "flow-research"
+name = "flow-routing-congestion"
 version = "0.0.1"
 description = "FLOW: can individually optimal routing worsen collective travel time? Offline simulation study on synthetic networks."
 readme = "README.md"

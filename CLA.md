@@ -14,9 +14,9 @@ and
 **Contributor:** The individual accepting this Agreement.
 
 The Agreement concerns contributions intentionally submitted
-for inclusion in FLOW (research repository), planned at:
+for inclusion in FLOW (research repository), at:
 
-https://github.com/mohamedbechirkefi/flow-research
+https://github.com/mohamedbechirkefi/flow-routing-congestion
 
 ## 1. Ownership of contributions
 
