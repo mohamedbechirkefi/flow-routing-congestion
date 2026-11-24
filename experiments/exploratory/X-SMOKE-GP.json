@@ -1,0 +1,50 @@
+{
+ "config_version": "flow.config/1",
+ "experiment_id": "SMOKE-GP",
+ "label": "exploratory",
+ "description": "Protocol section 8 smoke matrix with the solver of record (gradient projection, amendment A1). Exploratory: pipeline, schemas, timing and metric validation on known cases (M3, 2026-11-25).",
+ "solver": {
+  "algorithm": "gradient-projection",
+  "tol": 1e-06,
+  "max_iter": 20000
+ },
+ "cells": [
+  {
+   "cell": "braess-d6",
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ],
+   "demand": [
+    6.0
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ]
+  },
+  {
+   "cell": "grid3-rho1",
+   "network": "grid",
+   "n": 3,
+   "rho": [
+    1.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO",
+    "MIX(0.5)"
+   ]
+  }
+ ]
+}

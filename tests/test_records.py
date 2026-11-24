@@ -123,7 +123,7 @@ def test_confirmatory_refused_without_freeze(tmp_path):
     with pytest.raises(FreezeError):
         run_config(cfg, out_root=tmp_path, root=ROOT)
     assert not any(tmp_path.iterdir())  # nothing written
-    assert cli.main(["run", "EXP-005", "--out", str(tmp_path), "--quiet"]) == 2  # no config file
+    assert cli.main(["run", "EXP-098", "--out", str(tmp_path), "--quiet"]) == 2  # no config file
 
 
 def test_freeze_status_requires_matching_hashes(tmp_path):
@@ -160,7 +160,7 @@ def test_freeze_status_requires_matching_hashes(tmp_path):
     assert not ok and "changed" in reason
 
 
-FROZEN = ("EXP-001", "EXP-002", "EXP-003", "EXP-004", "EXP-006")
+FROZEN = ("EXP-001", "EXP-002", "EXP-003", "EXP-004", "EXP-005", "EXP-006")
 
 
 class _Stop(Exception):
@@ -211,8 +211,14 @@ def test_guard_refuses_edited_frozen_files(tmp_path):
     assert not freeze_status(root, "EXP-001")[0]
 
 
-def test_exp005_is_refused(tmp_path):
-    ok, reason = freeze_status(ROOT, "EXP-005")
+def test_exp005_config_added_before_data_is_accepted(tmp_path):
+    # M3 (2026-11-25): config implementing the frozen EXP-005 protocol, hash recorded in D-012
+    assert freeze_status(ROOT, "EXP-005") == (True, "frozen")
+    root = tmp_path / "repo"
+    shutil.copytree(ROOT / "research", root / "research")
+    shutil.copytree(ROOT / "experiments", root / "experiments")
+    (root / "experiments" / "EXP-005.json").unlink()
+    ok, reason = freeze_status(root, "EXP-005")
     assert not ok and "EXP-005.json" in reason
 
 

@@ -99,11 +99,10 @@
   "EXP-002",
   "EXP-003",
   "EXP-004",
+  "EXP-005 (optional)",
   "EXP-006"
  ],
- "not_runnable": {
-  "EXP-005": "optional; protocol frozen; no runner mode or config, so `flow run EXP-005` is refused until a config is added and its hash recorded with the owner's approval"
- },
+ "not_runnable": {},
  "guard": "flow.runner.freeze_status reads the FREEZE lines of decision D-011 in research/decision_log.md; it requires research/protocol.md, the experiment protocol and experiments/<EXP>.json to match, and the config being run to equal the frozen file.",
  "reproduction": [
   ".venv/bin/python scripts/download_tntp.py",
@@ -112,5 +111,12 @@
   "uv run flow run EXP-003",
   "uv run flow run EXP-004",
   "uv run flow run EXP-006"
- ]
+ ],
+ "added_after_freeze": {
+  "experiments/EXP-005.json": {
+   "sha256": "7b58a93390e30d7f38e4d18899bba77b4dbc841d5d6487536fecbd4e3fca7e0b",
+   "date": "2026-11-25",
+   "note": "implements frozen EXP-005, added before any EXP-005 data (M3 brief, decision D-012); FREEZE line in D-012. See D-013 for an accidental test-suite execution of this config whose output was not inspected."
+  }
+ }
 }

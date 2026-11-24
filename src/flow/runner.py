@@ -158,6 +158,8 @@ def validate_config(cfg: dict) -> None:
                     raise ConfigError(f"{name}: demand level must be 'published' or a positive rho")
         for arm in cell.get("arms", []):
             parse_arm(arm)
+        if "mode" in cell:
+            validate_removal_cell(cell)
         if cell["network"] == "grid":
             seeds = cell.get("seeds", [])
             if not seeds:
@@ -168,6 +170,24 @@ def validate_config(cfg: dict) -> None:
                 raise ConfigError(f"{name}: calibration must be 'ff' or 'absolute'")
             if cell.get("calibration") == "absolute" and "absolute_share" not in cell:
                 raise ConfigError(f"{name}: absolute calibration needs absolute_share")
+
+
+def validate_removal_cell(cell: dict) -> None:
+    """EXP-005 link-removal cells (protocol EXP-005): grid, UE only, one demand level, recheck block."""
+    name = cell.get("cell")
+    if cell.get("mode") != "link-removal":
+        raise ConfigError(f"{name}: unknown mode {cell.get('mode')!r}")
+    if cell.get("network") != "grid":
+        raise ConfigError(f"{name}: link-removal cells need a grid network")
+    if cell.get("arms") != ["UE"]:
+        raise ConfigError(f"{name}: link-removal cells solve UE only")
+    if cell.get("capacity_scale", [1.0]) != [1.0] or len(cell.get("rho", [])) != 1:
+        raise ConfigError(f"{name}: link-removal cells need one rho and no capacity scaling")
+    rc = cell.get("recheck")
+    if not isinstance(rc, dict) or set(rc) != {"tol", "flag_threshold"}:
+        raise ConfigError(f"{name}: link-removal cells need recheck = {{tol, flag_threshold}}")
+    if not (float(rc["tol"]) > 0 and float(rc["flag_threshold"]) > 0):
+        raise ConfigError(f"{name}: recheck tol and flag_threshold must be positive")
 
 
 def validate_bpr(cfg: dict) -> tuple[float, float]:
@@ -390,8 +410,15 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
     solver = cfg.get("solver", {})
     t0 = time.perf_counter()
     records: list[dict] = []
+    skipped: list[dict] = []
     for cell in cfg["cells"]:
         cell_solver = {**solver, **cell.get("solver", {})}
+        if cell.get("mode") == "link-removal":
+            for inst in expand_cell(cell, validate_bpr(cfg), root):
+                recs, skip = run_link_removal(inst, cell, cell_solver, run_id, log)
+                records.extend(recs)
+                skipped.extend(skip)
+            continue
         for inst in expand_cell(cell, validate_bpr(cfg), root):
             so_cache: dict = {}
             arms = list(cell["arms"])
@@ -432,6 +459,14 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
                         m.update(_mix_extra(inst, res))
                         m["follower_converged"] = res.extra.get("follower_converged")
                         m["so_converged"] = res.extra.get("so_converged")
+                    if cell["network"] in ("braess", "tntp"):
+                        # small networks: keep the link flows (and Braess path flows) for exact checks
+                        m["link_flow"] = [float(v) for v in res.link_flow]
+                        if cell["network"] == "braess":
+                            m["path_flows"] = [
+                                [{"path": [int(n) for n in path], "flow": float(f)} for path, f in sorted(pf.items())]
+                                for pf in res.path_flows
+                            ]
                     if arm == "UE" and inst.reference_flow is not None:
                         ref = inst.reference_flow
                         m["ref_flow_max_abs_diff_rel"] = float(np.max(np.abs(res.link_flow - ref)) / np.max(np.abs(ref)))
@@ -460,6 +495,10 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
     }
     dump_result(doc, run_dir / "results.json")
     write_metrics_csv(records, run_dir / "metrics.csv")
+    out_files = ["config.json", "results.json", "metrics.csv"]
+    if any(c.get("mode") == "link-removal" for c in cfg["cells"]):
+        (run_dir / "skipped_removals.json").write_text(json.dumps(skipped, indent=1, sort_keys=True) + "\n")
+        out_files.append("skipped_removals.json")
     manifest = {
         "manifest_version": MANIFEST_VERSION,
         "run_id": run_id,
@@ -477,12 +516,109 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
         "peak_rss_note": "process-wide maximum resident set size from getrusage; includes interpreter and imports",
         "n_records": len(records),
         "status_counts": {s: sum(r["status"] == s for r in records) for s in ("ok", "nonconverged", "failed")},
-        "files": {
-            name: sha256_file(run_dir / name) for name in ("config.json", "results.json", "metrics.csv")
-        },
+        "files": {name: sha256_file(run_dir / name) for name in out_files},
     }
     (run_dir / "run_manifest.json").write_text(json.dumps(clean_json(manifest), indent=1, sort_keys=True) + "\n")
     return run_dir
+
+
+def ods_connected(net: Network, demand: Demand) -> bool:
+    """True if every OD pair with positive demand has a path (free-flow Dijkstra)."""
+    from .paths import shortest_path_tree
+
+    trees: dict[int, list[float]] = {}
+    for p in demand.pairs:
+        if p.demand <= 0:
+            continue
+        if p.origin not in trees:
+            trees[p.origin] = shortest_path_tree(net, net.free_flow_time(), p.origin)[0]
+        if not np.isfinite(trees[p.origin][p.destination]):
+            return False
+    return True
+
+
+def run_link_removal(inst: Instance, cell: dict, solver: dict, run_id: str, log=None) -> tuple[list[dict], list[dict]]:
+    """EXP-005 scan on one instance (protocol EXP-005 items 5, 11, 15, 16).
+
+    1. UE on the full network (tolerance of the solver block).
+    2. UE on the network minus each single directed link, in link-id order, with the
+       instance's demand unchanged. Removals that disconnect an OD pair are skipped
+       and returned in the second list (counted, never solved).
+    3. Every removal whose converged UE lowers the converged full-network TSTT by more
+       than ``recheck.flag_threshold`` (relative) is flagged and re-solved, together
+       with the full network, at ``recheck.tol``.
+    Gradient projection only. No SO is solved, so R is not defined (None).
+    """
+    tol = float(solver.get("tol", 1e-6))
+    max_iter = int(solver.get("max_iter", 20_000))
+    if solver.get("algorithm") != "gradient-projection":
+        raise ConfigError("link-removal cells use the gradient-projection solver")
+    rc = cell["recheck"]
+    net = inst.network
+
+    def one(network: Network, removed: int | None, phase: str, t: float) -> dict:
+        tag = "full" if removed is None else f"rm{removed}"
+        rec = {
+            "record_id": f"{run_id}/{cell['cell']}/{inst.key}/{phase}/{tag}/UE",
+            "cell": cell["cell"],
+            "network": network.name,
+            "seed": inst.seed,
+            "factors": {
+                **inst.factors,
+                "phase": phase,
+                "removed_link": removed,
+                "removed_tail": None if removed is None else int(net.tail[removed]),
+                "removed_head": None if removed is None else int(net.head[removed]),
+                "tol": t,
+            },
+            "arm": "UE",
+            "solver": {"algorithm": "gradient-projection", "tol": t, "max_iter": max_iter, "iterations": None,
+                       "rel_gap": None, "converged": False, "runtime_s": 0.0},
+            "status": "failed",
+            "metrics": None,
+            "error": None,
+        }
+        ts = time.perf_counter()
+        try:
+            res = gradient_projection(network, inst.demand, "ue", tol=t, max_iter=max_iter)
+            m = evaluate(network, inst.demand, res)
+            m["max_node_imbalance"] = float(np.max(np.abs(node_balance(network, inst.demand, res.link_flow))))
+            m["min_link_time"] = float(np.min(network.link_time(res.link_flow)))
+            m["R"] = None
+            rec["metrics"] = m
+            rec["solver"].update(iterations=int(res.iterations),
+                                 rel_gap=None if not np.isfinite(res.rel_gap) else float(res.rel_gap),
+                                 converged=bool(res.converged))
+            rec["status"] = "ok" if res.converged else "nonconverged"
+        except Exception as exc:  # recorded, never dropped silently
+            rec["error"] = "".join(traceback.format_exception(exc))
+        rec["solver"]["runtime_s"] = time.perf_counter() - ts
+        rec = clean_json(rec)
+        if log:
+            log(f"{rec['record_id']} {rec['status']} it={rec['solver']['iterations']} {rec['solver']['runtime_s']:.2f}s")
+        return rec
+
+    records = [one(net, None, "scan", tol)]
+    skipped: list[dict] = []
+    for e in range(net.n_links):
+        reduced = net.without_link(e)
+        if not ods_connected(reduced, inst.demand):
+            skipped.append({"instance": inst.key, "seed": inst.seed, "removed_link": e,
+                            "removed_tail": int(net.tail[e]), "removed_head": int(net.head[e]),
+                            "reason": "removal disconnects an OD pair"})
+            continue
+        records.append(one(reduced, e, "scan", tol))
+    full = records[0]
+    if full["status"] == "ok":
+        base = full["metrics"]["tstt"]
+        flagged = [r["factors"]["removed_link"] for r in records[1:]
+                   if r["status"] == "ok" and (base - r["metrics"]["tstt"]) / base > float(rc["flag_threshold"])]
+        if flagged:
+            rt = float(rc["tol"])
+            records.append(one(net, None, "recheck", rt))
+            for e in flagged:
+                records.append(one(net.without_link(e), e, "recheck", rt))
+    return records, skipped
 
 
 METRIC_COLUMNS = [
