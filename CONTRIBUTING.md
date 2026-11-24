@@ -35,3 +35,12 @@ Mohamed Bechir Kefi is the project owner and lead maintainer, and the only perso
 ## 5. Privacy and disclosure
 
 Never commit an e-mail address, a name or any other personal identifier in code, logs, fixtures or results. Report security issues privately through GitHub's private vulnerability reporting.
+
+## 6. Development commands
+
+Requires Python 3.12 and uv. Dependencies are locked in `uv.lock` (only releases published on or before 2026-11-10 are resolved; see `pyproject.toml`).
+
+    uv sync                               # install locked dependencies
+    uv run pytest                         # run the test suite (none at M0)
+    uv lock                               # refresh the lockfile after a dependency change
+    sh scripts/build_manuscript_tex.sh    # regenerate research/paper/manuscript.tex with pandoc

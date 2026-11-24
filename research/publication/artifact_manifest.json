@@ -1,0 +1,6 @@
+{
+  "schema_version": "0.1",
+  "updated": "2026-11-24",
+  "note": "No artifacts yet. Each figure, table and quantitative claim will map to experiment id, run ids, metric definition, result path, generator script, config or protocol hash and code revision.",
+  "artifacts": []
+}

@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0
+[project]
+name = "flow-research"
+version = "0.0.1"
+description = "FLOW: can individually optimal routing worsen collective travel time? Offline simulation study on synthetic networks."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+authors = [{ name = "Mohamed Bechir Kefi" }]
+dependencies = [
+    "numpy>=2.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "hypothesis>=6.100",
+]
+report = [
+    "matplotlib>=3.9",
+    "typst>=0.13",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/flow"]
+
+[tool.uv]
+exclude-newer = "2026-11-10T00:00:00Z"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

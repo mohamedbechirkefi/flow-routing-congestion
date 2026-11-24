@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0
+# Licence: FLOW Source-Available Non-Commercial Research License v1.0 (custom, see LICENSE).
+# It is not an SPDX-listed licence, so no "license" field is given here.
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below. Status: research in progress, no published results."
+title: "FLOW: Navigation and collective congestion"
+abstract: "An offline, reproducible simulation study of whether individually optimal routing can worsen collective travel time, on a Braess network and seeded grids."
+type: software
+authors:
+  - given-names: "Mohamed Bechir"
+    family-names: "Kefi"
+version: "0.0.1"
+date-released: "2026-11-24"
+keywords:
+  - traffic assignment
+  - user equilibrium
+  - system optimum
+  - Braess paradox
+  - price of anarchy
