@@ -91,3 +91,25 @@ Append-only. Each entry: id, date, decision, context, alternatives, rationale, d
 - **Not applied.** A7 (rewording EXP-002 "to be verified" as "verified") was not in the approved FLOW list; left unchanged. EXP-005 has no runner mode or config; its protocol is frozen but `flow run EXP-005` stays refused until a config is added and its hash recorded with the owner's approval.
 - **Decided by.** The owner (approvals); applied by the assistant.
 - **Consequences.** Protocol v1.0 (section 15); configs updated; EXP-006 registered; tests added (124 passed).
+
+## D-011 (2026-11-24): Protocol v1.0 frozen (G-FREEZE, owner-approved)
+
+- **Decision.** `research/protocol.md` v1.0, the protocols of EXP-001 to EXP-006 and the confirmatory configs of EXP-001, EXP-002, EXP-003, EXP-004 and EXP-006 are frozen at git revision `ca8b750ecff49bd58da0f4dcedf8c8c45dd7e540`. Full record with owner quotes, C1 to C4, C4 disclosure, data manifest hash and fitted values: `research/freeze.json`.
+- **Owner approval.** "yes for all others" (amendment list) and "Approve all" (round 2, real data and amendments), 2026-11-24.
+- **C4.** Exploratory median R(UE) 0.02349 (n = 20, seeds 9000-9019, 6x6, rho = 2) and related values were seen before the freeze; listed in `research/freeze.json`. No confirmatory seed has been solved.
+- **Data manifest.** `data/manifest.json` sha256:81470760e8ec9602eef97998833e3f10fd77b2bc22283fce3580c7da1b15e104.
+- **Guard.** The lines below are read by `flow.runner.freeze_status` (D-007, extended to configs). Any later change of these files makes `flow run` refuse the experiment.
+- **Decided by.** The owner.
+
+FREEZE research/protocol.md sha256:9f629b07b4c8e240c41236ff5c0cfd1abfde9681452c9f662f0175f316ecb97d
+FREEZE research/experiments/EXP-001/protocol.md sha256:c431c303e5d12017b157ec37a722b527492c77a99ab49d6c72029d965bd8d4c7
+FREEZE research/experiments/EXP-002/protocol.md sha256:262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963
+FREEZE research/experiments/EXP-003/protocol.md sha256:b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba
+FREEZE research/experiments/EXP-004/protocol.md sha256:37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22
+FREEZE research/experiments/EXP-005/protocol.md sha256:e8cb938022b1bc2c41af8712b0a3f26938f43ef84c369a77fd077d7b4fd93359
+FREEZE research/experiments/EXP-006/protocol.md sha256:efbca04ab25258af9ae710bc02c09a4e9de4e5f9081ee49444afe284406a37f2
+FREEZE experiments/EXP-001.json sha256:605ee995073ff319de450b9aff00bf1125a90ce1ad0849a053f5f8422d537aae
+FREEZE experiments/EXP-002.json sha256:7b046213b1f1b2de7971b2b2740bf3c79526518c8cebae8d670a91aa91a4d877
+FREEZE experiments/EXP-003.json sha256:51ad8fa44ae3d05e6132a7336b7f7e84fb2aee9855a3921f3db06720cbac8367
+FREEZE experiments/EXP-004.json sha256:2e7b98037c5cede97ec570792f70c48ab18f9e4d58d4fe433e92753ead50988c
+FREEZE experiments/EXP-006.json sha256:a9719a5bdd9e6680be049c4af89a63abae40a3561c89b8f1a9fe7f1488db7d5a

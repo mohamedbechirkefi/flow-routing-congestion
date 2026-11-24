@@ -1,0 +1,116 @@
+{
+ "schema": "flow.freeze_record",
+ "schema_version": "1.0.0",
+ "status": "frozen",
+ "protocol_version": "1.0",
+ "approved_by": "the owner",
+ "approval_date": "2026-11-24",
+ "approval_source": "labs/_shared/owner-approvals-2026-11-24b.md sections 1 and 7 (FLOW) and labs/_shared/owner-approvals-2026-11-24.md (coordinator files outside this repository)",
+ "approval_quote": {
+  "round_1_amendment_list": "Quoted answers: \"2. yes 3. yes 4. yes\", \"yes for all others\"",
+  "round_2": "The owner answered \"Approve all\" to the coordinator's list",
+  "flow_real_data": "FLOW | TNTP networks, for example Sioux Falls (\"academic research only\") | Real road networks; local use only, never redistributed",
+  "flow_amendments": "FLOW | Gradient-projection solver. n = 100 per grid size. Drop rho = 0.5. UE vs SO stays primary. Define MIX convergence. Set the missing share value for S3.",
+  "freeze": "G-FREEZE, owner-approved 2026-11-24 (round 2 session brief: add owner-approved real data, apply amendments, freeze)"
+ },
+ "common_decisions": {
+  "C1_data": "Real data as approved, synthetic otherwise: TNTP Sioux Falls for calibration (BPR alpha, beta) and the second test EXP-006, local only and never redistributed; all other networks synthetic.",
+  "C2_pdfs": "Built with pandoc and Typst (-V mainfont=\"Libertinus Serif\"); there is no LaTeX on the machine.",
+  "C3_authorship": "\"Mohamed Bechir Kefi\", no affiliation. The AI is disclosed as a research and development assistant, not as an author.",
+  "C4_disclosure": "Where exploratory values of the primary contrast were seen before the freeze, the freeze record says so, with the values and where they are stored."
+ },
+ "c4_disclosure": {
+  "statement": "Exploratory values of the primary estimand's analogue (median R(UE), 6x6 grids, rho = 2) were seen before the freeze, on exploratory seeds 9000-9019 only (D-009). No confirmatory seed (1000-1099, 2000-2099) has been solved. On Sioux Falls only UE was solved (J-0012, engine check); no SO and no R was computed on the real network. The amendments did not change delta, the primary cell, the hypotheses or the decision rule; n = 100 was chosen on precision grounds (A2).",
+  "values_seen": [
+   {
+    "run": "J-0004 X-SPREAD-6x6-GP, J-0007/J-0008 FW",
+    "cell": "6x6, rho = 2, seeds 9000-9019 (n = 20)",
+    "quantity": "R(UE)",
+    "solver": "gradient projection 1e-6",
+    "median": 0.02349,
+    "mean": 0.02681,
+    "sd": 0.01688,
+    "range": [
+     0.0044,
+     0.05959
+    ],
+    "path": "results/exploratory/M2-planning-summary.md (seed-spread table); results/exploratory/M2-planning-summary.json"
+   },
+   {
+    "run": "same",
+    "cell": "6x6, rho = 2, seeds 9000-9019",
+    "quantity": "R(FF)",
+    "median": 0.24088,
+    "path": "results/exploratory/M2-planning-summary.md"
+   },
+   {
+    "run": "J-0006/J-0007 timing runs",
+    "cell": "6x6, rho = 2, 5 seeds (FW)",
+    "quantity": "R(UE)",
+    "median": 0.01119,
+    "path": "results/exploratory/M2-planning-summary.md"
+   },
+   {
+    "run": "session check 2026-11-24 (not journaled as a run; code check of MIX with GP)",
+    "cell": "3x3, rho = 2, seed 9000",
+    "quantity": "R(UE) 0.0497, R(MIX(0.5)) 0.0264",
+    "path": "not stored (printed in the session; recorded in progress.md)"
+   }
+  ]
+ },
+ "frozen_files_sha256": {
+  "research/protocol.md": "9f629b07b4c8e240c41236ff5c0cfd1abfde9681452c9f662f0175f316ecb97d",
+  "research/experiments/EXP-001/protocol.md": "c431c303e5d12017b157ec37a722b527492c77a99ab49d6c72029d965bd8d4c7",
+  "research/experiments/EXP-002/protocol.md": "262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963",
+  "research/experiments/EXP-003/protocol.md": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+  "research/experiments/EXP-004/protocol.md": "37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22",
+  "research/experiments/EXP-005/protocol.md": "e8cb938022b1bc2c41af8712b0a3f26938f43ef84c369a77fd077d7b4fd93359",
+  "research/experiments/EXP-006/protocol.md": "efbca04ab25258af9ae710bc02c09a4e9de4e5f9081ee49444afe284406a37f2",
+  "experiments/EXP-001.json": "605ee995073ff319de450b9aff00bf1125a90ce1ad0849a053f5f8422d537aae",
+  "experiments/EXP-002.json": "7b046213b1f1b2de7971b2b2740bf3c79526518c8cebae8d670a91aa91a4d877",
+  "experiments/EXP-003.json": "51ad8fa44ae3d05e6132a7336b7f7e84fb2aee9855a3921f3db06720cbac8367",
+  "experiments/EXP-004.json": "2e7b98037c5cede97ec570792f70c48ab18f9e4d58d4fe433e92753ead50988c",
+  "experiments/EXP-006.json": "a9719a5bdd9e6680be049c4af89a63abae40a3561c89b8f1a9fe7f1488db7d5a"
+ },
+ "data_manifest": {
+  "path": "data/manifest.json",
+  "sha256": "81470760e8ec9602eef97998833e3f10fd77b2bc22283fce3580c7da1b15e104",
+  "dataset": "tntp-siouxfalls, pinned commit d1639b4ef218c17928ba573e806ddf8ba5e7ae6d",
+  "raw_files_sha256": {
+   "SiouxFalls_net.tntp": "ace99b24cec69c273ff0cf3d6d074110177f0cc0ae24b0c7a9f4f4cb5e27635c",
+   "SiouxFalls_trips.tntp": "56f9566857f3f66730fd5c4232258d7ee3ac2931a476526331afd062f4958de7",
+   "SiouxFalls_flow.tntp": "5d0b83a22ecc3ce79dabb2b2972162b78c5eda571dcb5b3687429d8397654fee"
+  }
+ },
+ "fitted_values": {
+  "bpr_alpha": 0.15,
+  "bpr_beta": 4.0,
+  "s3_share": 0.10826,
+  "rho_sf_descriptive": 5.788,
+  "journal": [
+   "J-0010",
+   "J-0011",
+   "J-0012"
+  ]
+ },
+ "git_revision": "ca8b750ecff49bd58da0f4dcedf8c8c45dd7e540",
+ "confirmatory_experiments": [
+  "EXP-001",
+  "EXP-002",
+  "EXP-003",
+  "EXP-004",
+  "EXP-006"
+ ],
+ "not_runnable": {
+  "EXP-005": "optional; protocol frozen; no runner mode or config, so `flow run EXP-005` is refused until a config is added and its hash recorded with the owner's approval"
+ },
+ "guard": "flow.runner.freeze_status reads the FREEZE lines of decision D-011 in research/decision_log.md; it requires research/protocol.md, the experiment protocol and experiments/<EXP>.json to match, and the config being run to equal the frozen file.",
+ "reproduction": [
+  ".venv/bin/python scripts/download_tntp.py",
+  "uv run flow run EXP-001",
+  "uv run flow run EXP-002",
+  "uv run flow run EXP-003",
+  "uv run flow run EXP-004",
+  "uv run flow run EXP-006"
+ ]
+}

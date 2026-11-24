@@ -117,10 +117,13 @@ def test_schema_rejects_malformed(run_dir):
 def test_confirmatory_refused_without_freeze(tmp_path):
     cfg = tiny_config(label="confirmatory", seeds=(2000,))
     cfg["experiment_id"] = "EXP-003"
+    with pytest.raises(FreezeError):  # differs from the frozen EXP-003 config
+        run_config(cfg, out_root=tmp_path, root=ROOT)
+    cfg["experiment_id"] = "EXP-099"  # no freeze record at all
     with pytest.raises(FreezeError):
         run_config(cfg, out_root=tmp_path, root=ROOT)
     assert not any(tmp_path.iterdir())  # nothing written
-    assert cli.main(["run", "EXP-003", "--out", str(tmp_path), "--quiet"]) == 3
+    assert cli.main(["run", "EXP-005", "--out", str(tmp_path), "--quiet"]) == 2  # no config file
 
 
 def test_freeze_status_requires_matching_hashes(tmp_path):
@@ -157,9 +160,60 @@ def test_freeze_status_requires_matching_hashes(tmp_path):
     assert not ok and "changed" in reason
 
 
-def test_real_repository_is_not_frozen():
-    ok, _ = freeze_status(ROOT, "EXP-003")
-    assert not ok
+FROZEN = ("EXP-001", "EXP-002", "EXP-003", "EXP-004", "EXP-006")
+
+
+class _Stop(Exception):
+    pass
+
+
+def _no_solves(monkeypatch):
+    """Make any accidental confirmatory execution impossible: expanding a cell raises."""
+    import flow.runner as runner
+
+    def stop(*a, **k):
+        raise _Stop("guard passed; execution blocked by the test")
+
+    monkeypatch.setattr(runner, "expand_cell", stop)
+
+
+def test_real_repository_is_frozen_and_guard_accepts_frozen_configs(monkeypatch, tmp_path):
+    _no_solves(monkeypatch)
+    for eid in FROZEN:
+        cfg = load_config(ROOT / "experiments" / f"{eid}.json")
+        assert freeze_status(ROOT, eid, cfg) == (True, "frozen"), eid
+        with pytest.raises(_Stop):  # the guard lets the frozen config through
+            run_config(cfg, out_root=tmp_path / eid, root=ROOT)
+
+
+def test_guard_refuses_changed_configs(monkeypatch, tmp_path):
+    _no_solves(monkeypatch)
+    for eid in FROZEN:
+        cfg = load_config(ROOT / "experiments" / f"{eid}.json")
+        changed = copy.deepcopy(cfg)
+        changed["solver"]["tol"] = 1e-5
+        with pytest.raises(FreezeError, match="differs"):
+            run_config(changed, out_root=tmp_path / eid, root=ROOT)
+    assert not any(tmp_path.iterdir())
+
+
+def test_guard_refuses_edited_frozen_files(tmp_path):
+    root = tmp_path / "repo"
+    shutil.copytree(ROOT / "research", root / "research")
+    shutil.copytree(ROOT / "experiments", root / "experiments")
+    assert freeze_status(root, "EXP-003")[0]
+    f = root / "experiments" / "EXP-003.json"
+    f.write_text(f.read_text().replace("0.10826", "0.2"))
+    ok, reason = freeze_status(root, "EXP-003")
+    assert not ok and "changed" in reason
+    p = root / "research" / "protocol.md"
+    p.write_text(p.read_text() + "edit\n")
+    assert not freeze_status(root, "EXP-001")[0]
+
+
+def test_exp005_is_refused(tmp_path):
+    ok, reason = freeze_status(ROOT, "EXP-005")
+    assert not ok and "EXP-005.json" in reason
 
 
 def test_config_validation():

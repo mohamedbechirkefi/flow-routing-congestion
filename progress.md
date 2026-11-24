@@ -114,3 +114,33 @@ FW convergence (now measured, A1); bias from the assistant having seen explorato
 ### Next action
 
 Owner: decide B1-B6, in particular amendment A1, then freeze. Assistant after the freeze: implement the adopted solver option, rerun the smoke, then M3.
+
+## 2026-11-24: Session 3 (real data, approved amendments, freeze)
+
+**Milestone.** M1 gate (freeze) under the owner's round-2 approvals ("Approve all"; amendments "yes for all others"). No confirmatory run, no push, no paid service.
+
+### Starting state
+
+`git status`: clean, HEAD `4227baa`.
+
+### Work and actual outputs
+
+- Licence check: TNTP README "License" section (opened 2026-11-24) says "Data sets are for academic research purposes only"; GitHub API `license: null`. Matches the approval. Recorded in `data/manifest.json` and D-010.
+- `scripts/download_tntp.py` (pinned commit `d1639b4e...`): `SiouxFalls_net.tntp 3136 bytes sha256:ace99b24...`, `SiouxFalls_trips.tntp 10859 bytes sha256:56f95668...`, `SiouxFalls_flow.tntp 3523 bytes sha256:5d0b83a2...`. Files in `data/raw/` (git-ignored). Total under 20 KB.
+- Ingestion `src/flow/tntp.py` (pure): Sioux Falls 76 links read and kept, no missing fields; 576 OD cells, 24 diagonal and 24 zero cells excluded, 528 pairs kept, total 360,600 equal to the header.
+- Protocol section 15 written before fitting; then `scripts/calibrate.py` (J-0010, J-0011): alpha 0.15, beta 4 (all links identical); rho_SF 5.788; S3 share 0.10826. Engine check J-0012 (UE only): objective 42.3133529 versus published 42.31335287; max link-flow difference 1.28e-4 (tol 1e-6), 1.26e-6 (tol 1e-8).
+- During code checks the assistant printed one exploratory value outside the primary cell: 3x3 grid, rho = 2, seed 9000, gradient projection: R(UE) 0.0497, R(MIX(0.5)) 0.0264 (not stored; disclosed in `research/freeze.json`). While checking cell expansion the generator's demand values for confirmatory seed 2000 were printed (no solve).
+- Code: gradient projection with background flow; MIX with gradient projection and the A4 convergence rule; `tntp` network cells; `bpr` config block; freeze guard now also requires the config file hash and that the config run equals it.
+- Configs: all confirmatory configs on gradient projection; EXP-003 seeds 1000-1099 / 2000-2099, rho {1, 2, 3}, S1 Frank-Wolfe reference cell, S3 cell (share 0.10826); EXP-004 seeds 2000-2099; new EXP-006 (Sioux Falls).
+- Tests: `.venv/bin/python -m pytest -q` -> `124 passed in 96.53s` before the freeze record; after the freeze record and guard tests: `127 passed in 95.07s`.
+- Guard: every frozen config (EXP-001 to EXP-004, EXP-006) returns `(True, 'frozen')`; a changed EXP-003 copy via `flow run` -> `REFUSED: ... config differs from the frozen experiments/EXP-003.json`, exit 3; EXP-005 refused (no config).
+- Freeze: `research/freeze.json`, D-011 with FREEZE lines; protocol SHA-256 `9f629b07b4c8e240c41236ff5c0cfd1abfde9681452c9f662f0175f316ecb97d`, frozen revision `ca8b750`.
+
+### Not done, and why
+
+- A7 not applied (not in the approved list). EXP-005 runner mode and config not implemented (optional; needs an owner-approved addendum).
+- No confirmatory run (coordinator schedules M3).
+
+### Next action
+
+M3 after scheduling: download TNTP locally, `uv run flow run EXP-001` ... `EXP-006`, reports as each finishes.
