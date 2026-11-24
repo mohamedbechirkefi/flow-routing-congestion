@@ -4,7 +4,9 @@
 Guards (G-FREEZE, protocol section 5):
 * a confirmatory config runs only if the protocol freeze is recorded in
   ``research/decision_log.md`` with SHA-256 values that match the current
-  ``research/protocol.md`` and the experiment's protocol file;
+  ``research/protocol.md``, the experiment's protocol file and the experiment's
+  config ``experiments/<EXP>.json``, and only if the config being run is
+  identical to that frozen config file;
 * an exploratory config may only use the exploratory seeds 9000-9019 and writes
   under ``results/exploratory/``.
 """
@@ -37,21 +39,35 @@ from .assignment import (
     mixed_compliance,
 )
 from .generators import (
+    BPR_ALPHA,
+    BPR_BETA,
     GRID_GENERATOR_VERSION,
     braess_demand,
     braess_network,
     make_grid,
     reference_demand_absolute,
     reference_demand_ff,
+    reference_demand_ff_network,
 )
 from .metrics import evaluate, node_balance
 from .network import Demand, FlowError, Network
 from .schema import SCHEMA_VERSION, clean_json, dump_result
+from .tntp import build_demand, ingest
 
 CONFIG_VERSION = "flow.config/1"
 MANIFEST_VERSION = "flow.manifest/1"
 EXPLORATORY_SEEDS = range(9000, 9020)
 ALGORITHMS = ("frank-wolfe", "gradient-projection")
+# Real networks (owner approval 2026-11-24, round 2): local files only, never committed.
+TNTP_DATASETS = {
+    "siouxfalls": {
+        "dir": "data/raw/tntp/SiouxFalls",
+        "net": "SiouxFalls_net.tntp",
+        "trips": "SiouxFalls_trips.tntp",
+        "flow": "SiouxFalls_flow.tntp",
+        "manifest_id": "tntp-siouxfalls",
+    }
+}
 
 
 class ConfigError(FlowError):
@@ -78,11 +94,14 @@ def config_hash(config: dict) -> str:
     return hashlib.sha256(json.dumps(config, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
-def freeze_status(root: Path, experiment_id: str | None) -> tuple[bool, str]:
+def freeze_status(root: Path, experiment_id: str | None, cfg: dict | None = None) -> tuple[bool, str]:
     """True only if decision_log records a freeze whose hashes match the current files.
 
     A freeze record is a line ``FREEZE <relative path> sha256:<hex>`` written by the
     owner (or on the owner's recorded instruction) in ``research/decision_log.md``.
+    Required: ``research/protocol.md``, the experiment's protocol and, when an
+    experiment id is given, its config ``experiments/<EXP>.json``. If ``cfg`` is
+    given it must equal the frozen config file (canonical JSON hash).
     """
     log = root / "research" / "decision_log.md"
     if not log.exists():
@@ -92,6 +111,7 @@ def freeze_status(root: Path, experiment_id: str | None) -> tuple[bool, str]:
     needed = ["research/protocol.md"]
     if experiment_id:
         needed.append(f"research/experiments/{experiment_id}/protocol.md")
+        needed.append(f"experiments/{experiment_id}.json")
     for rel in needed:
         f = root / rel
         if not f.exists():
@@ -100,6 +120,10 @@ def freeze_status(root: Path, experiment_id: str | None) -> tuple[bool, str]:
             return False, f"no FREEZE record for {rel} in research/decision_log.md (protocol not frozen; G-FREEZE)"
         if records[rel] != sha256_file(f):
             return False, f"{rel} changed since its recorded freeze (hash mismatch)"
+    if cfg is not None and experiment_id:
+        frozen_cfg = json.loads((root / f"experiments/{experiment_id}.json").read_text())
+        if config_hash(cfg) != config_hash(frozen_cfg):
+            return False, f"config differs from the frozen experiments/{experiment_id}.json"
     return True, "frozen"
 
 
@@ -111,6 +135,7 @@ def validate_config(cfg: dict) -> None:
     solver = cfg.get("solver", {})
     if solver.get("algorithm", "frank-wolfe") not in ALGORITHMS:
         raise ConfigError(f"solver.algorithm must be one of {ALGORITHMS}")
+    validate_bpr(cfg)
     cells = cfg.get("cells")
     if not isinstance(cells, list) or not cells:
         raise ConfigError("config needs a nonempty list of cells")
@@ -120,8 +145,17 @@ def validate_config(cfg: dict) -> None:
         if not name or name in names:
             raise ConfigError(f"cell names must be unique and nonempty: {name!r}")
         names.add(name)
-        if cell.get("network") not in ("braess", "grid"):
-            raise ConfigError(f"{name}: network must be 'braess' or 'grid'")
+        if cell.get("network") not in ("braess", "grid", "tntp"):
+            raise ConfigError(f"{name}: network must be 'braess', 'grid' or 'tntp'")
+        if cell["network"] == "tntp":
+            if cell.get("dataset") not in TNTP_DATASETS:
+                raise ConfigError(f"{name}: tntp cells need dataset in {sorted(TNTP_DATASETS)}")
+            levels = cell.get("demand_levels")
+            if not isinstance(levels, list) or not levels:
+                raise ConfigError(f"{name}: tntp cells need a nonempty demand_levels list")
+            for lv in levels:
+                if lv != "published" and not (isinstance(lv, (int, float)) and lv > 0):
+                    raise ConfigError(f"{name}: demand level must be 'published' or a positive rho")
         for arm in cell.get("arms", []):
             parse_arm(arm)
         if cell["network"] == "grid":
@@ -134,6 +168,17 @@ def validate_config(cfg: dict) -> None:
                 raise ConfigError(f"{name}: calibration must be 'ff' or 'absolute'")
             if cell.get("calibration") == "absolute" and "absolute_share" not in cell:
                 raise ConfigError(f"{name}: absolute calibration needs absolute_share")
+
+
+def validate_bpr(cfg: dict) -> tuple[float, float]:
+    bpr = cfg.get("bpr", {})
+    if not isinstance(bpr, dict) or set(bpr) - {"alpha", "beta", "source"}:
+        raise ConfigError("bpr must be an object with keys alpha, beta, source")
+    alpha = float(bpr.get("alpha", BPR_ALPHA))
+    beta = float(bpr.get("beta", BPR_BETA))
+    if not (alpha >= 0 and beta >= 1):
+        raise ConfigError("bpr needs alpha >= 0 and beta >= 1")
+    return alpha, beta
 
 
 def parse_arm(arm: str) -> tuple[str, float | None]:
@@ -156,10 +201,49 @@ class Instance:
     seed: int | None
     factors: dict
     key: str
+    reference_flow: np.ndarray | None = None
 
 
-def expand_cell(cell: dict) -> list[Instance]:
+def load_tntp(dataset: str, root: Path):
+    """Load a git-ignored TNTP dataset after checking every file's SHA-256 against data/manifest.json."""
+    spec = TNTP_DATASETS[dataset]
+    d = root / spec["dir"]
+    man = json.loads((root / "data" / "manifest.json").read_text())
+    want = {x["file"]: x["sha256"] for x in man.get("downloads", []) if x.get("dataset") == spec["manifest_id"]}
+    texts = {}
+    for key in ("net", "trips", "flow"):
+        f = d / spec[key]
+        if not f.exists():
+            raise ConfigError(f"{f} missing: run scripts/download_tntp.py first")
+        if want.get(spec[key]) != sha256_file(f):
+            raise ConfigError(f"{f} SHA-256 does not match data/manifest.json")
+        texts[key] = f.read_text()
+    return ingest(texts["net"], texts["trips"], texts["flow"], name=dataset)
+
+
+def expand_cell(cell: dict, bpr: tuple[float, float] = (BPR_ALPHA, BPR_BETA), root: Path | None = None) -> list[Instance]:
     out: list[Instance] = []
+    if cell["network"] == "tntp":
+        tn = load_tntp(cell["dataset"], root or repo_root())
+        published = build_demand(list(tn.trips))
+        dref = reference_demand_ff_network(tn.network, published)
+        for lv in cell["demand_levels"]:
+            if lv == "published":
+                dem, rho = published, published.total / dref
+            else:
+                rho = float(lv)
+                dem = published.scaled(rho * dref / published.total)
+            factors = {
+                "dataset": cell["dataset"],
+                "demand_level": lv if lv == "published" else float(lv),
+                "rho": rho,
+                "d_ref": dref,
+                "total_demand": dem.total,
+            }
+            inst = Instance(cell["cell"], tn.network, dem, None, factors, f"{cell['dataset']}-{lv}")
+            inst.reference_flow = tn.reference_flow if lv == "published" else None
+            out.append(inst)
+        return out
     if cell["network"] == "braess":
         for wl in cell.get("with_link", [True]):
             for d in cell["demand"]:
@@ -168,20 +252,22 @@ def expand_cell(cell: dict) -> list[Instance]:
                 out.append(Instance(cell["cell"], net, braess_demand(float(d)), None, factors, f"braess-wl{int(wl)}-d{d}"))
         return out
     n = int(cell["n"])
-    beta = float(cell.get("beta", 4.0))
+    alpha = float(bpr[0])
+    beta = float(cell.get("beta", bpr[1]))
     scales = cell.get("capacity_scale", [1.0])
     for seed in cell["seeds"]:
-        base = make_grid(n, int(seed), beta=beta)
+        base = make_grid(n, int(seed), beta=beta, alpha=alpha)
         if cell.get("calibration", "ff") == "ff":
             dref = reference_demand_ff(base)
         else:
             dref = reference_demand_absolute(base, float(cell["absolute_share"]))
         for scale in scales:
-            inst = base if float(scale) == 1.0 else make_grid(n, int(seed), beta=beta, capacity_scale=float(scale))
+            inst = base if float(scale) == 1.0 else make_grid(n, int(seed), beta=beta, alpha=alpha, capacity_scale=float(scale))
             for rho in cell["rho"]:
                 factors = {
                     "n": n,
                     "rho": float(rho),
+                    "alpha": alpha,
                     "beta": beta,
                     "capacity_scale": float(scale),
                     "calibration": cell.get("calibration", "ff"),
@@ -189,7 +275,7 @@ def expand_cell(cell: dict) -> list[Instance]:
                     "total_demand": float(rho) * dref,
                     "generator": GRID_GENERATOR_VERSION,
                 }
-                key = f"grid{n}-s{seed}-b{beta:g}-cap{float(scale):g}-rho{float(rho):g}"
+                key = f"grid{n}-s{seed}-a{alpha:g}-b{beta:g}-cap{float(scale):g}-rho{float(rho):g}"
                 out.append(Instance(cell["cell"], inst.network, inst.demand(float(rho) * dref), int(seed), factors, key))
     return out
 
@@ -213,14 +299,12 @@ def _solve(inst: Instance, arm: str, solver: dict, so_cache: dict) -> Assignment
         if inst.key not in so_cache:
             so_cache[inst.key] = solve("so")
         return so_cache[inst.key]
-    if algo != "frank-wolfe":
-        raise ConfigError("MIX is defined with Frank-Wolfe only")
     so = None
     if c and c > 0:
         if inst.key not in so_cache:
             so_cache[inst.key] = solve("so")
         so = so_cache[inst.key]
-    return mixed_compliance(inst.network, inst.demand, float(c), so_result=so, tol=tol, max_iter=max_iter)
+    return mixed_compliance(inst.network, inst.demand, float(c), so_result=so, tol=tol, max_iter=max_iter, algorithm=algo)
 
 
 def _mix_extra(inst: Instance, res: AssignmentResult) -> dict:
@@ -291,7 +375,7 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
     root = root or repo_root()
     exp_id = cfg.get("experiment_id")
     if cfg["label"] == "confirmatory":
-        ok, reason = freeze_status(root, exp_id)
+        ok, reason = freeze_status(root, exp_id, cfg)
         if not ok:
             raise FreezeError(f"refusing confirmatory run of {exp_id}: {reason}")
         out_root = out_root or root / "results" / "raw" / str(exp_id)
@@ -308,7 +392,7 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
     records: list[dict] = []
     for cell in cfg["cells"]:
         cell_solver = {**solver, **cell.get("solver", {})}
-        for inst in expand_cell(cell):
+        for inst in expand_cell(cell, validate_bpr(cfg), root):
             so_cache: dict = {}
             arms = list(cell["arms"])
             # SO first so that R can be computed for every arm of the instance
@@ -346,6 +430,11 @@ def run_config(cfg: dict, out_root: Path | None = None, root: Path | None = None
                     m["R"] = (m["tstt"] / so_tstt - 1.0) if so_tstt else None
                     if arm.startswith("MIX"):
                         m.update(_mix_extra(inst, res))
+                        m["follower_converged"] = res.extra.get("follower_converged")
+                        m["so_converged"] = res.extra.get("so_converged")
+                    if arm == "UE" and inst.reference_flow is not None:
+                        ref = inst.reference_flow
+                        m["ref_flow_max_abs_diff_rel"] = float(np.max(np.abs(res.link_flow - ref)) / np.max(np.abs(ref)))
                     rec["metrics"] = m
                     rec["solver"].update(
                         iterations=int(res.iterations),

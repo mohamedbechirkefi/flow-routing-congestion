@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0 -->
 # EXP-001: Analytic Braess example, exact reproduction
 
-**Status: DRAFT protocol v0.1 (2026-11-24), planned, awaiting owner freeze. Not executed.** Umbrella protocol: `research/protocol.md`.
+**Status: protocol v1.0, FROZEN (owner-approved 2026-11-24, round 2), not yet run.** Amendments before the freeze: umbrella `research/protocol.md` section 15. Umbrella protocol: `research/protocol.md`.
 
 1. **Question.** Does the FLOW engine reproduce the published Braess example exactly for the FF, UE and SO arms, with and without the added link?
 2. **Mechanism.** Under UE, each traveller ignores the delay they impose on others. The added link offers a privately cheaper path that loads the two congestible links `a` and `d`, raising every traveller's time.
@@ -23,7 +23,7 @@
 12. **Compute budget.** Under one minute in total (planning estimate).
 13. **Metrics.** As in `research/protocol.md` section 3; time units are the example's abstract units.
 14. **Uncertainty.** None reported; exact comparison with tolerance.
-15. **Exclusion and stopping.** None. Nonconvergence is a failure of the experiment.
-16. **Failure modes.** FW zig-zagging near the boundary of the feasible set; floating point in the line search.
+15. **Exclusion and stopping.** None. Nonconvergence is a failure of the experiment. Solver: gradient projection (umbrella 15.3 item 1).
+16. **Failure modes.** Solver stalling near the boundary of the feasible set (Frank-Wolfe did so in exploratory runs, J-0003, hence the gradient-projection solver); floating point.
 17. **Sensitivity.** Tolerance `1e-6` versus `1e-10`.
 18. **Reproduction (planned).** `uv run flow run EXP-001`; outputs `results/EXP-001/`.

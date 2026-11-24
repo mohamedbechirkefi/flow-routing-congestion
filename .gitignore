@@ -10,3 +10,6 @@ results/raw/
 *.parquet
 .hypothesis/
 .pytest_cache/
+# real data (TNTP): local use only, never redistributed (owner approval 2026-11-24 round 2)
+data/raw/
+data/processed/

@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0 -->
 # EXP-002: Braess demand sweep, when does the added link hurt?
 
-**Status: DRAFT protocol v0.1 (2026-11-24), planned, awaiting owner freeze. Not executed.** Depends on EXP-001 passing.
+**Status: protocol v1.0, FROZEN (owner-approved 2026-11-24, round 2), not yet run.** Amendments before the freeze: umbrella `research/protocol.md` section 15. Depends on EXP-001 passing.
 
 1. **Question.** For which total demands `d` does adding link e raise UE travel time in the Braess network, and how do FF, UE and SO compare across demand?
 2. **Mechanism.** At low demand the added link is a pure shortcut; at high demand the congested links make it unattractive; in between, private and social incentives diverge.
@@ -18,6 +18,6 @@
 13. **Metrics.** TSTT, mean time, R for each arm, `Delta`.
 14. **Uncertainty.** None; exact values with tolerance. Interval endpoints reported analytically, the sweep shows agreement.
 15. **Exclusion and stopping.** None.
-16. **Failure modes.** Degenerate equilibria at regime boundaries (`d = 40/11`, `80/9`).
+16. **Failure modes.** Solver: gradient projection (umbrella 15.3 item 1). Degenerate equilibria at regime boundaries (`d = 40/11`, `80/9`).
 17. **Sensitivity.** Finer step (0.05) around the predicted boundaries.
 18. **Reproduction (planned).** `uv run flow run EXP-002`.

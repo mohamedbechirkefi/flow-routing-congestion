@@ -185,14 +185,26 @@ def mixed_compliance(
     so_result: AssignmentResult | None = None,
     tol: float = DEFAULT_TOL,
     max_iter: int = DEFAULT_MAX_ITER,
+    algorithm: str = "frank-wolfe",
 ) -> AssignmentResult:
     """MIX(c): share c follows the SO path flows (scaled by c); the rest reaches UE
-    with the compliant flow as fixed background flow (protocol section 2)."""
+    with the compliant flow as fixed background flow (protocol section 2).
+
+    Convergence (amendment A4, owner-approved 2026-11-24): MIX(c) is converged only
+    if both the SO reference (for c > 0) and the follower UE meet the tolerance.
+    MIX(0) has no compliant flow and MIX(1) has no follower demand; both are
+    identity checks (MIX(0) = UE, MIX(1) = SO), not independent solves.
+    """
+    if algorithm not in ("frank-wolfe", "gradient-projection"):
+        raise FlowError(f"unknown algorithm {algorithm!r}")
     if not (0.0 <= c <= 1.0) or not np.isfinite(c):
         raise FlowError("compliance c must lie in [0, 1]")
     start = time.perf_counter()
     if so_result is None and c > 0:
-        so_result = system_optimum(net, demand, tol=tol, max_iter=max_iter)
+        if algorithm == "gradient-projection":
+            so_result = gradient_projection(net, demand, "so", tol=tol, max_iter=max_iter)
+        else:
+            so_result = system_optimum(net, demand, tol=tol, max_iter=max_iter)
     if c > 0:
         assert so_result is not None
         comp_x = c * so_result.link_flow
@@ -201,7 +213,10 @@ def mixed_compliance(
         comp_x = np.zeros(net.n_links)
         comp_paths = [{} for _ in demand.pairs]
     follow_demand = Demand(tuple(ODPair(p.origin, p.destination, (1.0 - c) * p.demand) for p in demand.pairs))
-    fol = frank_wolfe(net, follow_demand, "ue", background=comp_x, tol=tol, max_iter=max_iter)
+    if algorithm == "gradient-projection":
+        fol = gradient_projection(net, follow_demand, "ue", tol=tol, max_iter=max_iter, background=comp_x)
+    else:
+        fol = frank_wolfe(net, follow_demand, "ue", background=comp_x, tol=tol, max_iter=max_iter)
     total_paths: list[dict[Path, float]] = []
     for cp, fp in zip(comp_paths, fol.path_flows):
         merged = dict(cp)
@@ -224,6 +239,8 @@ def mixed_compliance(
         "follower_path_flows": fol.path_flows,
         "so_converged": so_ok,
         "so_rel_gap": None if c == 0 else so_result.rel_gap,  # type: ignore[union-attr]
+        "follower_converged": bool(fol.converged),
+        "algorithm": algorithm,
     }
     return res
 
@@ -244,19 +261,26 @@ def gradient_projection(
     objective: str = "ue",
     tol: float = DEFAULT_TOL,
     max_iter: int = 2_000,
+    background: np.ndarray | None = None,
 ) -> AssignmentResult:
     """Path-based gradient projection (Jayakrishnan et al. 1994 style, unit step).
 
-    CANDIDATE SOLVER, NOT PART OF THE DRAFT PROTOCOL (which specifies Frank-Wolfe).
-    Implemented at M2 as a differential reference and as the basis of a proposed
-    amendment, because Frank-Wolfe did not reach RG <= 1e-6 within 20,000
-    iterations on several exploratory instances. Same RG definition and stopping
-    rule as ``frank_wolfe``; one iteration is one Gauss-Seidel sweep over OD pairs.
+    SOLVER OF RECORD for UE, SO and the MIX follower (amendment A1(a), owner-approved
+    2026-11-24); Frank-Wolfe is kept as a differential reference (sensitivity S1).
+    Same RG definition and stopping rule as ``frank_wolfe``; one iteration is one
+    Gauss-Seidel sweep over OD pairs. ``background`` is a fixed link flow added
+    before costs are evaluated (UE only; used by the MIX follower); it does not
+    count in the returned link flow.
     """
     if not (np.isfinite(tol) and tol > 0):
         raise FlowError("tol must be positive")
+    if max_iter < 0:
+        raise FlowError("max_iter must be >= 0")
     start = time.perf_counter()
-    cost_fn = _cost_fn(net, objective, np.zeros(net.n_links))
+    bg = np.zeros(net.n_links) if background is None else np.asarray(background, dtype=float)
+    if bg.shape != (net.n_links,) or np.any(bg < 0) or not np.all(np.isfinite(bg)):
+        raise FlowError("background flow must be a finite nonnegative link vector")
+    cost_fn = _cost_fn(net, objective, bg)
     lookup = LinkLookup(net)
     x, chosen, _ = all_or_nothing(net, cost_fn(np.zeros(net.n_links)), demand, lookup)
     paths: list[dict[Path, float]] = [({c: p.demand} if p.demand > 0 else {}) for p, c in zip(demand.pairs, chosen)]
@@ -286,7 +310,7 @@ def gradient_projection(
                 if path == best or pf[path] <= 0:
                     continue
                 costs = cost_fn(x)
-                deriv = _cost_derivative(net, objective, x)
+                deriv = _cost_derivative(net, objective, x + bg)
                 links = set(lookup.links(path))
                 gap = float(sum(costs[e] for e in links) - sum(costs[e] for e in best_links))
                 if gap <= 0:

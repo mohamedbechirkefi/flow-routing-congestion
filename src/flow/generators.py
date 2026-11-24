@@ -152,3 +152,18 @@ def reference_demand_absolute(inst: GridInstance, share: float) -> float:
     origins = sorted({o for o, _ in inst.od})
     total_cap = sum(float(net.capacity[e]) for o in origins for e in net.out_links[o])
     return share * total_cap
+
+
+def reference_demand_ff_network(net: Network, pattern: Demand) -> float:
+    """D_ref for any network with capacities: the total demand, with the OD shares of
+    ``pattern``, at which FF all-or-nothing loading brings the most loaded link to
+    x/c = 1 (the grid calibration of protocol section 10, applied to a real OD table)."""
+    if net.capacity is None:
+        raise DemandError("network has no capacities; cannot calibrate demand")
+    if pattern.total <= 0:
+        raise DemandError("demand pattern is zero")
+    x, _, _ = all_or_nothing(net, net.free_flow_time(), pattern)
+    peak = float(np.max(x / net.capacity))
+    if peak <= 0:
+        raise DemandError("FF loading is zero; cannot calibrate demand")
+    return pattern.total / peak

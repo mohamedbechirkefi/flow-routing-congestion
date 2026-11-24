@@ -5,6 +5,10 @@
 
 ## Author and affiliation metadata
 
+Mohamed Bechir Kefi (no affiliation). An AI system was used as a research and development assistant; it is not an author.
+
+Data: synthetic networks; TNTP Sioux Falls (Transportation Networks for Research Core Team, https://github.com/bstabler/TransportationNetworks, accessed 2026-11-24), used locally under its "academic research purposes only" terms and not redistributed.
+
 ## Abstract
 
 ## Keywords

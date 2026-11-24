@@ -1,0 +1,3 @@
+{"tol": 1e-06, "converged": true, "iterations": 83, "rel_gap": 9.963236445530641e-07, "runtime_s": 1.1, "max_abs_diff_rel_to_max_ref": 0.00012787727293825222, "beckmann_over_1e5": 42.31335297892152}
+{"tol": 1e-08, "converged": true, "iterations": 183, "rel_gap": 9.512594025315069e-09, "runtime_s": 2.5, "max_abs_diff_rel_to_max_ref": 1.2563462317308283e-06, "beckmann_over_1e5": 42.31335287108484}
+git 4227baa793e59a8060e2dd50abf3461eb5675c84 dirty working tree

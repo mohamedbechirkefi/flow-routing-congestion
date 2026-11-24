@@ -2,12 +2,12 @@
  "config_version": "flow.config/1",
  "label": "confirmatory",
  "solver": {
-  "algorithm": "frank-wolfe",
+  "algorithm": "gradient-projection",
   "tol": 1e-06,
   "max_iter": 20000
  },
  "experiment_id": "EXP-004",
- "description": "Compliance and capacity sweep. Mirrors DRAFT protocol v0.1; refused by `flow run` until the owner records the freeze.",
+ "description": "Compliance and capacity sweep. Gradient projection for SO and the MIX follower (A1), MIX convergence rule A4, n = 100 (A2). Frozen protocol v1.0 (owner-approved 2026-11-24, round 2).",
  "cells": [
   {
    "cell": "mix",
@@ -66,7 +66,57 @@
     2046,
     2047,
     2048,
-    2049
+    2049,
+    2050,
+    2051,
+    2052,
+    2053,
+    2054,
+    2055,
+    2056,
+    2057,
+    2058,
+    2059,
+    2060,
+    2061,
+    2062,
+    2063,
+    2064,
+    2065,
+    2066,
+    2067,
+    2068,
+    2069,
+    2070,
+    2071,
+    2072,
+    2073,
+    2074,
+    2075,
+    2076,
+    2077,
+    2078,
+    2079,
+    2080,
+    2081,
+    2082,
+    2083,
+    2084,
+    2085,
+    2086,
+    2087,
+    2088,
+    2089,
+    2090,
+    2091,
+    2092,
+    2093,
+    2094,
+    2095,
+    2096,
+    2097,
+    2098,
+    2099
    ],
    "capacity_scale": [
     0.8,
@@ -83,5 +133,10 @@
     "MIX(1)"
    ]
   }
- ]
+ ],
+ "bpr": {
+  "alpha": 0.15,
+  "beta": 4.0,
+  "source": "fitted from TNTP Sioux Falls (protocol 15.2, C-BPR; journal J-0010)"
+ }
 }

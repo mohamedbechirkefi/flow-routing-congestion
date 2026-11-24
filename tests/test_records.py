@@ -133,8 +133,25 @@ def test_freeze_status_requires_matching_hashes(tmp_path):
     assert freeze_status(root, "EXP-001")[0] is False
     h1 = sha256_file(root / "research" / "protocol.md")
     h2 = sha256_file(root / "research" / "experiments" / "EXP-001" / "protocol.md")
+    (root / "experiments").mkdir()
+    cfg = tiny_config(label="confirmatory", seeds=(2000,))
+    cfg["experiment_id"] = "EXP-001"
+    (root / "experiments" / "EXP-001.json").write_text(json.dumps(cfg))
     log.write_text(f"# log\nFREEZE research/protocol.md sha256:{h1}\nFREEZE research/experiments/EXP-001/protocol.md sha256:{h2}\n")
+    ok, reason = freeze_status(root, "EXP-001")
+    assert not ok and "experiments/EXP-001.json" in reason  # config hash is required too
+    h3 = sha256_file(root / "experiments" / "EXP-001.json")
+    log.write_text(log.read_text() + f"FREEZE experiments/EXP-001.json sha256:{h3}\n")
     assert freeze_status(root, "EXP-001") == (True, "frozen")
+    assert freeze_status(root, "EXP-001", cfg) == (True, "frozen")
+    changed = copy.deepcopy(cfg)
+    changed["cells"][1]["rho"] = [2.0]
+    ok, reason = freeze_status(root, "EXP-001", changed)
+    assert not ok and "differs" in reason
+    (root / "experiments" / "EXP-001.json").write_text(json.dumps(changed))
+    ok, reason = freeze_status(root, "EXP-001")
+    assert not ok and "changed" in reason
+    (root / "experiments" / "EXP-001.json").write_text(json.dumps(cfg))
     (root / "research" / "protocol.md").write_text("protocol v2\n")
     ok, reason = freeze_status(root, "EXP-001")
     assert not ok and "changed" in reason
@@ -163,20 +180,53 @@ def test_config_validation():
             run_config(cfg, out_root=Path("/nonexistent"), root=ROOT)
 
 
-def test_failed_record_is_kept(tmp_path):
+def test_failed_record_is_kept(tmp_path, monkeypatch):
+    import flow.runner as runner
+
+    def boom(*a, **k):
+        raise RuntimeError("injected failure")
+
+    monkeypatch.setattr(runner, "free_flow", boom)
     cfg = tiny_config()
-    cfg["cells"] = [{"cell": "g", "network": "grid", "n": 3, "rho": [1.0], "seeds": [9000], "arms": ["SO", "MIX(0.5)"],
+    cfg["cells"] = [{"cell": "g", "network": "grid", "n": 3, "rho": [1.0], "seeds": [9000], "arms": ["SO", "FF"],
                      "solver": {"algorithm": "gradient-projection"}}]
     run = run_config(cfg, out_root=tmp_path, root=ROOT)
     recs = load_result(run / "results.json")["records"]
     assert [r["status"] for r in recs] == ["ok", "failed"]
-    assert "MIX is defined with Frank-Wolfe only" in recs[1]["error"]
+    assert "injected failure" in recs[1]["error"]
+
+
+def test_mix_runs_with_gradient_projection(tmp_path):
+    cfg = tiny_config()
+    cfg["solver"] = {"algorithm": "gradient-projection", "tol": 1e-6, "max_iter": 20000}
+    cfg["cells"] = [{"cell": "g", "network": "grid", "n": 3, "rho": [2.0], "seeds": [9000],
+                     "arms": ["SO", "UE", "MIX(0)", "MIX(0.5)", "MIX(1)"]}]
+    recs = load_result(run_config(cfg, out_root=tmp_path, root=ROOT) / "results.json")["records"]
+    by = {r["arm"]: r for r in recs}
+    assert all(r["status"] == "ok" for r in recs)
+    assert by["MIX(1)"]["metrics"]["R"] == pytest.approx(0.0, abs=1e-12)
+    assert by["MIX(0)"]["metrics"]["tstt"] == pytest.approx(by["UE"]["metrics"]["tstt"], rel=1e-9)
+    assert by["MIX(0.5)"]["metrics"]["follower_converged"] is True
 
 
 def test_shipped_experiment_configs_are_valid_and_confirmatory():
-    for eid in ("EXP-001", "EXP-002", "EXP-003", "EXP-004"):
+    for eid in ("EXP-001", "EXP-002", "EXP-003", "EXP-004", "EXP-006"):
         cfg = load_config(ROOT / "experiments" / f"{eid}.json")
         assert cfg["label"] == "confirmatory" and cfg["experiment_id"] == eid
+        assert cfg["solver"]["algorithm"] == "gradient-projection"  # amendment A1
+
+
+def test_frozen_configs_carry_the_approved_amendments():
+    c3 = load_config(ROOT / "experiments" / "EXP-003.json")
+    cells = {c["cell"]: c for c in c3["cells"]}
+    assert cells["grid4"]["seeds"] == list(range(1000, 1100))  # A2
+    assert cells["grid6"]["seeds"] == list(range(2000, 2100))
+    assert cells["grid6"]["rho"] == [1.0, 2.0, 3.0]  # A3
+    assert cells["S3-absolute"]["absolute_share"] == 0.10826  # A5, fitted J-0011
+    assert cells["S1-frank-wolfe-reference"]["solver"]["algorithm"] == "frank-wolfe"
+    assert c3["bpr"]["alpha"] == 0.15 and c3["bpr"]["beta"] == 4.0  # C-BPR, fitted J-0010
+    c4 = load_config(ROOT / "experiments" / "EXP-004.json")
+    assert c4["cells"][0]["seeds"] == list(range(2000, 2100))
     smoke = smoke_config()
     assert smoke["label"] == "exploratory"
 

@@ -268,3 +268,55 @@ def test_braess_ue_is_deterministic(d):
     a = user_equilibrium(net, dem, max_iter=500)
     b = user_equilibrium(net, dem, max_iter=500)
     assert np.array_equal(a.link_flow, b.link_flow)
+
+
+# --- amendments A1 and A4 (owner-approved 2026-11-24): MIX with gradient projection ---
+@pytest.mark.parametrize("seed", [9000, 9004])
+def test_mix_gradient_projection_endpoints_and_order(seed):
+    inst = make_grid(3, seed)
+    net = inst.network
+    dem = inst.demand(2 * reference_demand_ff(inst))
+    ue = gradient_projection(net, dem, "ue", tol=1e-8, max_iter=20000)
+    so = gradient_projection(net, dem, "so", tol=1e-8, max_iter=20000)
+    m0 = mixed_compliance(net, dem, 0.0, tol=1e-8, max_iter=20000, algorithm="gradient-projection")
+    m1 = mixed_compliance(net, dem, 1.0, so_result=so, tol=1e-8, max_iter=20000, algorithm="gradient-projection")
+    mh = mixed_compliance(net, dem, 0.5, so_result=so, tol=1e-8, max_iter=20000, algorithm="gradient-projection")
+    assert m0.converged and m1.converged and mh.converged
+    tu, ts, th = (net.total_travel_time(r.link_flow) for r in (ue, so, mh))
+    assert net.total_travel_time(m0.link_flow) == pytest.approx(tu, rel=1e-6)
+    assert np.allclose(m1.link_flow, so.link_flow, rtol=1e-12, atol=1e-9)
+    assert ts - 1e-6 * ts <= th <= tu + 1e-6 * tu
+    assert np.max(np.abs(node_balance(net, dem, mh.link_flow))) < 1e-8 * dem.total
+    assert mh.extra["algorithm"] == "gradient-projection" and mh.extra["follower_converged"]
+
+
+def test_gradient_projection_background_is_follower_equilibrium():
+    """With background flow b, the follower flow is a UE of costs t(x + b): RG at tolerance, and
+    GP agrees with the Frank-Wolfe follower on the same problem."""
+    inst = make_grid(3, 9001)
+    net = inst.network
+    dem = inst.demand(2 * reference_demand_ff(inst))
+    so = gradient_projection(net, dem, "so", tol=1e-8, max_iter=20000)
+    bg = 0.5 * so.link_flow
+    half = dem.scaled(0.5)
+    gp = gradient_projection(net, half, "ue", tol=1e-9, max_iter=20000, background=bg)
+    fw = frank_wolfe(net, half, "ue", background=bg, tol=1e-6, max_iter=20000)
+    assert gp.converged
+    assert np.max(np.abs(gp.link_flow - fw.link_flow)) < 1e-2 * dem.total
+    with pytest.raises(FlowError):
+        gradient_projection(net, half, "ue", background=-bg - 1.0)
+    with pytest.raises(FlowError):
+        gradient_projection(net, half, "so", background=bg + 1.0)
+
+
+def test_mix_convergence_requires_so_and_follower():
+    """A4: MIX(c > 0) is nonconverged when the SO reference is nonconverged, even if the follower converged."""
+    inst = make_grid(3, 9000)
+    net = inst.network
+    dem = inst.demand(2 * reference_demand_ff(inst))
+    so_bad = gradient_projection(net, dem, "so", tol=1e-12, max_iter=0)
+    assert not so_bad.converged
+    m = mixed_compliance(net, dem, 0.5, so_result=so_bad, tol=1e-6, algorithm="gradient-projection")
+    assert m.extra["follower_converged"] and not m.extra["so_converged"] and not m.converged
+    with pytest.raises(FlowError):
+        mixed_compliance(net, dem, 0.5, algorithm="newton")

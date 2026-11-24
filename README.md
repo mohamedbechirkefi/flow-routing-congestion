@@ -46,12 +46,12 @@ Requires Python 3.12 and uv.
 
 ```sh
 uv sync            # install locked dependencies from uv.lock
-uv run pytest      # no tests exist yet at M0
+uv run pytest      # full test suite (synthetic fixtures only)
 ```
 
 ## Data
 
-No external data. All networks are synthetic; see `data/manifest.json`.
+The primary study uses synthetic networks only. One real network, the TNTP Sioux Falls network (Transportation Networks for Research, https://github.com/bstabler/TransportationNetworks; "academic research purposes only"), is used locally for calibration and a second test. It is not included in this repository and is never redistributed: run `.venv/bin/python scripts/download_tntp.py` to fetch it from a pinned commit; the script checks the SHA-256 values in `data/manifest.json`.
 
 ## Licence
 

@@ -1,0 +1,40 @@
+{
+ "journal": "J-0010 (C-BPR, rho_SF) and J-0011 (C-S3)",
+ "label": "exploratory",
+ "protocol_section": "15.2",
+ "c_bpr": {
+  "alpha": {
+   "n_links": 76,
+   "distinct_values": [
+    0.15
+   ],
+   "rule": "constant",
+   "fitted": 0.15
+  },
+  "beta": {
+   "n_links": 76,
+   "distinct_values": [
+    4.0
+   ],
+   "rule": "constant",
+   "fitted": 4.0
+  },
+  "rho_sf": {
+   "total_published_demand": 360600.0,
+   "d_ref": 62301.897820291815,
+   "rho": 5.787945674466309,
+   "note": "descriptive; FF all-or-nothing loading only"
+  }
+ },
+ "c_s3": {
+  "seeds": [
+   9000,
+   9019
+  ],
+  "grid": "6x6, grid-v1, alpha 0.15, beta 4",
+  "median_rho2_ff_demand": 4161.763921290615,
+  "median_origin_capacity": 38442.4707722034,
+  "share_raw": 0.10825953269111574,
+  "fitted_share": 0.10826
+ }
+}

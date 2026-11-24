@@ -2,12 +2,12 @@
  "config_version": "flow.config/1",
  "label": "confirmatory",
  "solver": {
-  "algorithm": "frank-wolfe",
+  "algorithm": "gradient-projection",
   "tol": 1e-06,
   "max_iter": 20000
  },
  "experiment_id": "EXP-001",
- "description": "Analytic Braess example. Mirrors DRAFT protocol v0.1; refused by `flow run` until the owner records the freeze.",
+ "description": "Analytic Braess example. Solver: gradient projection (amendment A1). Frozen protocol v1.0 (owner-approved 2026-11-24, round 2).",
  "cells": [
   {
    "cell": "braess-d6",
