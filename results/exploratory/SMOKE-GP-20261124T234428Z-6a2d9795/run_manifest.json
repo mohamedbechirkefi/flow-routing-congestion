@@ -1,0 +1,47 @@
+{
+ "config_hash": "6a2d9795a71d3f0a079b229d4ac9c151c23012297af22262d5e88563a3838fe0",
+ "config_path": "config.json",
+ "environment": {
+  "cpu": "Apple M1 Pro",
+  "logical_cpus": 10,
+  "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+  "packages": {
+   "flow": "0.0.1",
+   "matplotlib": "3.11.2",
+   "numpy": "2.5.4",
+   "typst": "0.15.2"
+  },
+  "python": "3.12.1"
+ },
+ "experiment_id": "SMOKE-GP",
+ "files": {
+  "config.json": "3c674eff56079d398a751908bcae25a72853d4a9a677302501a6dc718c48b065",
+  "metrics.csv": "ac59b0dbdde39f153cfddde9d47ac9dcbeb5bf9adc63b5a0019cb579275b9dab",
+  "results.json": "1e4ecf29d0f4600b42cd5372026f7aff8d6fc130d894e6d57fd57c7d6e0e0f9d"
+ },
+ "finished_utc": "2026-11-24T23:44:29.052360+00:00",
+ "git": {
+  "dirty": true,
+  "revision": "5108a16070060558457e9c7e0b71074d706529b7"
+ },
+ "label": "exploratory",
+ "manifest_version": "flow.manifest/1",
+ "n_records": 26,
+ "peak_rss_bytes": 37568512,
+ "peak_rss_note": "process-wide maximum resident set size from getrusage; includes interpreter and imports",
+ "run_id": "SMOKE-GP-20261124T234428Z-6a2d9795",
+ "runtime_s": 0.030570958995667752,
+ "seeds": [
+  9000,
+  9001,
+  9002,
+  9003,
+  9004
+ ],
+ "started_utc": "2026-11-24T23:44:28.847256+00:00",
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 0,
+  "ok": 26
+ }
+}

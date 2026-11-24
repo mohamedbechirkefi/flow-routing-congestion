@@ -1,0 +1,22 @@
+{
+ "run_id": "SMOKE-20261124T234429Z-94d06582",
+ "label": "exploratory",
+ "checks": {
+  "braess_analytic": {
+   "verdict": "contradicted (at least one value outside tolerance or not converged)",
+   "max_abs_diff": 0.0008275438503915211
+  },
+  "tstt_and_mean_recomputed_max_abs_err": 0.0,
+  "ue_p95_minus_mean_max_abs": 8.964971823388623e-05,
+  "R_SO_max_abs": 0.0,
+  "R_min_UE_FF": 0.0,
+  "max_node_imbalance": 1.5006662579253316e-11
+ },
+ "status_counts": {
+  "ok": 25,
+  "nonconverged": 1,
+  "failed": 0
+ },
+ "pass_note": "braess_analytic uses the EXP-001 absolute tolerance 1e-6; it is reported, not part of the metric check",
+ "pass": true
+}

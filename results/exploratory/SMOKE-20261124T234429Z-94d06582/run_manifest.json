@@ -1,0 +1,47 @@
+{
+ "config_hash": "94d06582960efcd773fe786bdb9a7b3efed11e0a777d11368b089952dfc1f513",
+ "config_path": "config.json",
+ "environment": {
+  "cpu": "Apple M1 Pro",
+  "logical_cpus": 10,
+  "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+  "packages": {
+   "flow": "0.0.1",
+   "matplotlib": "3.11.2",
+   "numpy": "2.5.4",
+   "typst": "0.15.2"
+  },
+  "python": "3.12.1"
+ },
+ "experiment_id": "SMOKE",
+ "files": {
+  "config.json": "6e67679b796d04d0747c11b0a11a6375d532dccfb391844f278867bc5d3fdb06",
+  "metrics.csv": "f4069bb623ee3e690945697a64b950ad954e03f7e0d5c8f957550cc225882271",
+  "results.json": "7971d4a6b5d0481128b066046fd80dd479b81321bc5f68f4fa6bb03730f6f53a"
+ },
+ "finished_utc": "2026-11-24T23:44:49.836625+00:00",
+ "git": {
+  "dirty": true,
+  "revision": "5108a16070060558457e9c7e0b71074d706529b7"
+ },
+ "label": "exploratory",
+ "manifest_version": "flow.manifest/1",
+ "n_records": 26,
+ "peak_rss_bytes": 36978688,
+ "peak_rss_note": "process-wide maximum resident set size from getrusage; includes interpreter and imports",
+ "run_id": "SMOKE-20261124T234429Z-94d06582",
+ "runtime_s": 20.486036124995735,
+ "seeds": [
+  9000,
+  9001,
+  9002,
+  9003,
+  9004
+ ],
+ "started_utc": "2026-11-24T23:44:29.175202+00:00",
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 1,
+  "ok": 25
+ }
+}

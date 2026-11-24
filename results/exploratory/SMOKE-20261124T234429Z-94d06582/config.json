@@ -1,0 +1,50 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "braess-d6",
+   "demand": [
+    6.0
+   ],
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ]
+  },
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO",
+    "MIX(0.5)"
+   ],
+   "cell": "grid3-rho1",
+   "n": 3,
+   "network": "grid",
+   "rho": [
+    1.0
+   ],
+   "seeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004
+   ]
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "Protocol section 8 smoke matrix: pipeline, schemas and timing only. Exploratory.",
+ "experiment_id": "SMOKE",
+ "label": "exploratory",
+ "solver": {
+  "algorithm": "frank-wolfe",
+  "max_iter": 20000,
+  "tol": 1e-06
+ }
+}

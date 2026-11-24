@@ -1,0 +1,1290 @@
+{
+ "config_hash": "6a2d9795a71d3f0a079b229d4ac9c151c23012297af22262d5e88563a3838fe0",
+ "experiment_id": "SMOKE-GP",
+ "generated_utc": "2026-11-24T23:44:28.879300+00:00",
+ "label": "exploratory",
+ "records": [
+  {
+   "arm": "SO",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     3.0,
+     3.0,
+     3.0,
+     3.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 83.0,
+    "max_vc": null,
+    "mean_trip_time": 83.0,
+    "min_link_time": 30.0,
+    "n_used_paths": 2,
+    "p95_trip_time": 83.0,
+    "path_flows": [
+     [
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 498.0
+   },
+   "network": "braess-without-e",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/braess-d6/braess-wl0-d6.0/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.0006718329968862236,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.3975903614457832,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     6.0,
+     0.0,
+     6.0,
+     0.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 116.0,
+    "max_vc": null,
+    "mean_trip_time": 116.0,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 116.0,
+    "path_flows": [
+     [
+      {
+       "flow": 6.0,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 696.0
+   },
+   "network": "braess-without-e",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/braess-d6/braess-wl0-d6.0/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.00023691599926678464,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     3.0,
+     3.0,
+     3.0,
+     3.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 83.0,
+    "max_vc": null,
+    "mean_trip_time": 83.0,
+    "min_link_time": 30.0,
+    "n_used_paths": 2,
+    "p95_trip_time": 83.0,
+    "path_flows": [
+     [
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 498.0
+   },
+   "network": "braess-without-e",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/braess-d6/braess-wl0-d6.0/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.0005953750005573966,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     2.9999999999999996,
+     3.0000000000000004,
+     2.9999999999999996,
+     3.0000000000000004,
+     0.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 83.0,
+    "max_vc": null,
+    "mean_trip_time": 83.0,
+    "min_link_time": 10.0,
+    "n_used_paths": 2,
+    "p95_trip_time": 83.0,
+    "path_flows": [
+     [
+      {
+       "flow": 2.9999999999999996,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 3.0000000000000004,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 498.0
+   },
+   "network": "braess",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/braess-d6/braess-wl1-d6.0/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 2,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.000596500001847744,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.6385542168674698,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     6.0,
+     0.0,
+     0.0,
+     6.0,
+     6.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 136.0,
+    "max_vc": null,
+    "mean_trip_time": 136.0,
+    "min_link_time": 16.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 136.0,
+    "path_flows": [
+     [
+      {
+       "flow": 6.0,
+       "path": [
+        0,
+        1,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 816.0
+   },
+   "network": "braess",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/braess-d6/braess-wl1-d6.0/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.00023512500047218055,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.10843361062330015,
+    "flow_weighted_vc": null,
+    "gini_stretch": 2.430026380351734e-08,
+    "link_flow": [
+     3.9999992261298485,
+     2.0000007738701515,
+     2.000000773870151,
+     3.9999992261298494,
+     1.9999984522596974
+    ],
+    "max_node_imbalance": 4.440892098500626e-16,
+    "max_trip_time": 91.99999303516864,
+    "max_vc": null,
+    "mean_trip_time": 91.99998968173391,
+    "min_link_time": 11.999998452259698,
+    "n_used_paths": 3,
+    "p95_trip_time": 91.99999303516864,
+    "path_flows": [
+     [
+      {
+       "flow": 1.9999984522596974,
+       "path": [
+        0,
+        1,
+        2,
+        3
+       ]
+      },
+      {
+       "flow": 2.000000773870151,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 2.0000007738701515,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 551.9999380904035
+   },
+   "network": "braess",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/braess-d6/braess-wl1-d6.0/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 6,
+    "max_iter": 20000,
+    "rel_gap": 7.290084762826174e-08,
+    "runtime_s": 0.0013942090008640662,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3469.3235587153813,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3469.3235587153813
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.5010098247812333,
+    "gini_stretch": 0.01923981550952084,
+    "max_node_imbalance": 1.1368683772161603e-13,
+    "max_trip_time": 6.25461558240281,
+    "max_vc": 1.0000000000000002,
+    "mean_trip_time": 4.4482976595880395,
+    "min_link_time": 1.2753401074674309,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.25461558240281,
+    "share_links_over_capacity": 0.041666666666666664,
+    "total_demand": 3469.3235587153818,
+    "tstt": 15432.58386658728
+   },
+   "network": "grid3x3-seed9000",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9000-a0.15-b4-cap1-rho1/SO",
+   "seed": 9000,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.00035729200317291543,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3469.3235587153813,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3469.3235587153813
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.5010098247812333,
+    "gini_stretch": 0.01923981550952084,
+    "max_node_imbalance": 1.1368683772161603e-13,
+    "max_trip_time": 6.25461558240281,
+    "max_vc": 1.0000000000000002,
+    "mean_trip_time": 4.4482976595880395,
+    "min_link_time": 1.2753401074674309,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.25461558240281,
+    "share_links_over_capacity": 0.041666666666666664,
+    "total_demand": 3469.3235587153818,
+    "tstt": 15432.58386658728
+   },
+   "network": "grid3x3-seed9000",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9000-a0.15-b4-cap1-rho1/FF",
+   "seed": 9000,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.00022083300427766517,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3469.3235587153813,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3469.3235587153813
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.5010098247812333,
+    "gini_stretch": 0.01923981550952084,
+    "max_node_imbalance": 1.1368683772161603e-13,
+    "max_trip_time": 6.25461558240281,
+    "max_vc": 1.0000000000000002,
+    "mean_trip_time": 4.4482976595880395,
+    "min_link_time": 1.2753401074674309,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.25461558240281,
+    "share_links_over_capacity": 0.041666666666666664,
+    "total_demand": 3469.3235587153818,
+    "tstt": 15432.58386658728
+   },
+   "network": "grid3x3-seed9000",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9000-a0.15-b4-cap1-rho1/UE",
+   "seed": 9000,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 1.178668082591216e-16,
+    "runtime_s": 0.0002964589948533103,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "MIX(0.5)",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3469.3235587153813,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3469.3235587153813
+   },
+   "metrics": {
+    "R": 0.0,
+    "compliant_mean_time": 4.44829765958804,
+    "compliant_to_follower_time_ratio": 1.0,
+    "flow_weighted_vc": 0.5010098247812333,
+    "follower_converged": true,
+    "follower_mean_time": 4.44829765958804,
+    "gini_stretch": 0.01923981550952084,
+    "max_node_imbalance": 1.1368683772161603e-13,
+    "max_trip_time": 6.25461558240281,
+    "max_vc": 1.0000000000000002,
+    "mean_trip_time": 4.4482976595880395,
+    "min_link_time": 1.2753401074674309,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.25461558240281,
+    "share_links_over_capacity": 0.041666666666666664,
+    "so_converged": true,
+    "total_demand": 3469.3235587153818,
+    "tstt": 15432.58386658728
+   },
+   "network": "grid3x3-seed9000",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9000-a0.15-b4-cap1-rho1/MIX(0.5)",
+   "seed": 9000,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 1.178668082591216e-16,
+    "runtime_s": 0.0003717090003192425,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1659.121985070739,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1659.121985070739
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.47926690300423175,
+    "gini_stretch": 0.014057195145677359,
+    "max_node_imbalance": 5.684341886080802e-14,
+    "max_trip_time": 6.425970019913923,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.150350617481091,
+    "min_link_time": 1.2018188051872492,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.425970019913923,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 1659.121985070739,
+    "tstt": 6885.937955214795
+   },
+   "network": "grid3x3-seed9001",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9001-a0.15-b4-cap1-rho1/SO",
+   "seed": 9001,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.00027754199982155114,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1659.121985070739,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1659.121985070739
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.47926690300423175,
+    "gini_stretch": 0.014057195145677359,
+    "max_node_imbalance": 5.684341886080802e-14,
+    "max_trip_time": 6.425970019913923,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.150350617481091,
+    "min_link_time": 1.2018188051872492,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.425970019913923,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 1659.121985070739,
+    "tstt": 6885.937955214795
+   },
+   "network": "grid3x3-seed9001",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9001-a0.15-b4-cap1-rho1/FF",
+   "seed": 9001,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.0001952499951585196,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1659.121985070739,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1659.121985070739
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.47926690300423175,
+    "gini_stretch": 0.014057195145677359,
+    "max_node_imbalance": 5.684341886080802e-14,
+    "max_trip_time": 6.425970019913923,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.150350617481091,
+    "min_link_time": 1.2018188051872492,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.425970019913923,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 1659.121985070739,
+    "tstt": 6885.937955214795
+   },
+   "network": "grid3x3-seed9001",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9001-a0.15-b4-cap1-rho1/UE",
+   "seed": 9001,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.0002656249998835847,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "MIX(0.5)",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1659.121985070739,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1659.121985070739
+   },
+   "metrics": {
+    "R": 0.0,
+    "compliant_mean_time": 4.150350617481091,
+    "compliant_to_follower_time_ratio": 1.0,
+    "flow_weighted_vc": 0.47926690300423175,
+    "follower_converged": true,
+    "follower_mean_time": 4.150350617481091,
+    "gini_stretch": 0.014057195145677359,
+    "max_node_imbalance": 5.684341886080802e-14,
+    "max_trip_time": 6.425970019913923,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.150350617481091,
+    "min_link_time": 1.2018188051872492,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.425970019913923,
+    "share_links_over_capacity": 0.0,
+    "so_converged": true,
+    "total_demand": 1659.121985070739,
+    "tstt": 6885.937955214795
+   },
+   "network": "grid3x3-seed9001",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9001-a0.15-b4-cap1-rho1/MIX(0.5)",
+   "seed": 9001,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.0003286659994046204,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3394.394333744488,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3394.394333744488
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.5205387483781424,
+    "gini_stretch": 0.015444180017986428,
+    "max_node_imbalance": 1.2079226507921703e-13,
+    "max_trip_time": 7.429270591561408,
+    "max_vc": 0.8654760267012647,
+    "mean_trip_time": 4.821492807912891,
+    "min_link_time": 1.4277847045810883,
+    "n_used_paths": 14,
+    "p95_trip_time": 6.132400851197661,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 3394.3943337444875,
+    "tstt": 16366.047867369318
+   },
+   "network": "grid3x3-seed9002",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9002-a0.15-b4-cap1-rho1/SO",
+   "seed": 9002,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 4,
+    "max_iter": 20000,
+    "rel_gap": 9.582904857671562e-08,
+    "runtime_s": 0.0014097079983912408,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3394.394333744488,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3394.394333744488
+   },
+   "metrics": {
+    "R": 0.017499246469204754,
+    "flow_weighted_vc": 0.5931805320901813,
+    "gini_stretch": 0.023425118436033447,
+    "max_node_imbalance": 5.684341886080802e-14,
+    "max_trip_time": 7.429270591561408,
+    "max_vc": 1.0,
+    "mean_trip_time": 4.905865298908057,
+    "min_link_time": 1.424191019498534,
+    "n_used_paths": 12,
+    "p95_trip_time": 6.398953355388858,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 3394.3943337444875,
+    "tstt": 16652.441372727215
+   },
+   "network": "grid3x3-seed9002",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9002-a0.15-b4-cap1-rho1/FF",
+   "seed": 9002,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.00020304200006648898,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3394.394333744488,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3394.394333744488
+   },
+   "metrics": {
+    "R": 0.0027634646634493443,
+    "flow_weighted_vc": 0.5429917390769481,
+    "gini_stretch": 0.016510455578998537,
+    "max_node_imbalance": 2.2737367544323206e-13,
+    "max_trip_time": 7.429270591561408,
+    "max_vc": 0.8984790230704198,
+    "mean_trip_time": 4.834816832912634,
+    "min_link_time": 1.4259428304267403,
+    "n_used_paths": 13,
+    "p95_trip_time": 6.197818172940362,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 3394.3943337444875,
+    "tstt": 16411.274862331113
+   },
+   "network": "grid3x3-seed9002",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9002-a0.15-b4-cap1-rho1/UE",
+   "seed": 9002,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 3,
+    "max_iter": 20000,
+    "rel_gap": 7.940222282422665e-09,
+    "runtime_s": 0.0009985419965232722,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "MIX(0.5)",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3394.394333744488,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3394.394333744488
+   },
+   "metrics": {
+    "R": 0.0024996616777182012,
+    "compliant_mean_time": 4.838193533539898,
+    "compliant_to_follower_time_ratio": 1.0019253363718674,
+    "flow_weighted_vc": 0.538575957591041,
+    "follower_converged": true,
+    "follower_mean_time": 4.828896283888552,
+    "gini_stretch": 0.01624782112313612,
+    "max_node_imbalance": 2.2737367544323206e-13,
+    "max_trip_time": 7.429270591561408,
+    "max_vc": 0.8819775248858421,
+    "mean_trip_time": 4.833544908714225,
+    "min_link_time": 1.4259428323045464,
+    "n_used_paths": 14,
+    "p95_trip_time": 6.197818092197611,
+    "share_links_over_capacity": 0.0,
+    "so_converged": true,
+    "total_demand": 3394.3943337444875,
+    "tstt": 16406.95745003908
+   },
+   "network": "grid3x3-seed9002",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9002-a0.15-b4-cap1-rho1/MIX(0.5)",
+   "seed": 9002,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 2,
+    "max_iter": 20000,
+    "rel_gap": 8.537578043992378e-09,
+    "runtime_s": 0.0008667499932926148,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1375.8702762693854,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1375.8702762693854
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.3549902051876119,
+    "gini_stretch": 0.023330574958667923,
+    "max_node_imbalance": 1.9895196601282805e-13,
+    "max_trip_time": 7.016249565386078,
+    "max_vc": 0.8420399873984501,
+    "mean_trip_time": 5.0870977902898655,
+    "min_link_time": 1.1909154056278304,
+    "n_used_paths": 15,
+    "p95_trip_time": 7.016249565386078,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 1375.8702762693854,
+    "tstt": 6999.186642135497
+   },
+   "network": "grid3x3-seed9003",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9003-a0.15-b4-cap1-rho1/SO",
+   "seed": 9003,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 4,
+    "max_iter": 20000,
+    "rel_gap": 5.650547886644929e-07,
+    "runtime_s": 0.0013643750062328763,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1375.8702762693854,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1375.8702762693854
+   },
+   "metrics": {
+    "R": 0.006527724789728628,
+    "flow_weighted_vc": 0.42269059131098063,
+    "gini_stretch": 0.019850305178108256,
+    "max_node_imbalance": 1.9895196601282805e-13,
+    "max_trip_time": 7.01591236289928,
+    "max_vc": 1.0000000000000002,
+    "mean_trip_time": 5.1203049646433145,
+    "min_link_time": 1.1909154056278304,
+    "n_used_paths": 12,
+    "p95_trip_time": 7.01591236289928,
+    "share_links_over_capacity": 0.041666666666666664,
+    "total_demand": 1375.8702762693854,
+    "tstt": 7044.875406287303
+   },
+   "network": "grid3x3-seed9003",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9003-a0.15-b4-cap1-rho1/FF",
+   "seed": 9003,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.00019187500583939254,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1375.8702762693854,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1375.8702762693854
+   },
+   "metrics": {
+    "R": 0.006527724789728628,
+    "flow_weighted_vc": 0.42269059131098063,
+    "gini_stretch": 0.019850305178108256,
+    "max_node_imbalance": 1.9895196601282805e-13,
+    "max_trip_time": 7.01591236289928,
+    "max_vc": 1.0000000000000002,
+    "mean_trip_time": 5.1203049646433145,
+    "min_link_time": 1.1909154056278304,
+    "n_used_paths": 12,
+    "p95_trip_time": 7.01591236289928,
+    "share_links_over_capacity": 0.041666666666666664,
+    "total_demand": 1375.8702762693854,
+    "tstt": 7044.875406287303
+   },
+   "network": "grid3x3-seed9003",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9003-a0.15-b4-cap1-rho1/UE",
+   "seed": 9003,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": -2.5820036532121954e-16,
+    "runtime_s": 0.00026270800299244,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "MIX(0.5)",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 1375.8702762693854,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 1375.8702762693854
+   },
+   "metrics": {
+    "R": 0.0014894855951916863,
+    "compliant_mean_time": 5.1206015318160025,
+    "compliant_to_follower_time_ratio": 1.0102299742545517,
+    "flow_weighted_vc": 0.3832719691307747,
+    "follower_converged": true,
+    "follower_mean_time": 5.068748366523664,
+    "gini_stretch": 0.020531771052207805,
+    "max_node_imbalance": 1.9895196601282805e-13,
+    "max_trip_time": 7.015995523068269,
+    "max_vc": 0.9210199936992252,
+    "mean_trip_time": 5.094674949169834,
+    "min_link_time": 1.1909154056278304,
+    "n_used_paths": 15,
+    "p95_trip_time": 7.015995523068269,
+    "share_links_over_capacity": 0.0,
+    "so_converged": true,
+    "total_demand": 1375.8702762693854,
+    "tstt": 7009.611829817016
+   },
+   "network": "grid3x3-seed9003",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9003-a0.15-b4-cap1-rho1/MIX(0.5)",
+   "seed": 9003,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 1.3041332068864163e-16,
+    "runtime_s": 0.0003329579994897358,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3792.9584460616325,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3792.9584460616325
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": 0.5606317345504022,
+    "gini_stretch": 0.018595727942373092,
+    "max_node_imbalance": 2.2737367544323206e-13,
+    "max_trip_time": 5.81325564506707,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.522172237191768,
+    "min_link_time": 1.044073242990546,
+    "n_used_paths": 15,
+    "p95_trip_time": 5.116743104415635,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 3792.958446061633,
+    "tstt": 17152.411381601945
+   },
+   "network": "grid3x3-seed9004",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9004-a0.15-b4-cap1-rho1/SO",
+   "seed": 9004,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 3,
+    "max_iter": 20000,
+    "rel_gap": 9.668273775888796e-09,
+    "runtime_s": 0.001084040995920077,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3792.9584460616325,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3792.9584460616325
+   },
+   "metrics": {
+    "R": 0.003440118223458022,
+    "flow_weighted_vc": 0.6083089993417653,
+    "gini_stretch": 0.01731651357502925,
+    "max_node_imbalance": 2.2737367544323206e-13,
+    "max_trip_time": 5.824349086343872,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.537729044314547,
+    "min_link_time": 1.044073242990546,
+    "n_used_paths": 12,
+    "p95_trip_time": 5.116743104415635,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 3792.958446061633,
+    "tstt": 17211.417704572043
+   },
+   "network": "grid3x3-seed9004",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9004-a0.15-b4-cap1-rho1/FF",
+   "seed": 9004,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 0.00019308299670228735,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3792.9584460616325,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3792.9584460616325
+   },
+   "metrics": {
+    "R": 0.003440118223458022,
+    "flow_weighted_vc": 0.6083089993417653,
+    "gini_stretch": 0.01731651357502925,
+    "max_node_imbalance": 2.2737367544323206e-13,
+    "max_trip_time": 5.824349086343872,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.537729044314547,
+    "min_link_time": 1.044073242990546,
+    "n_used_paths": 12,
+    "p95_trip_time": 5.116743104415635,
+    "share_links_over_capacity": 0.0,
+    "total_demand": 3792.958446061633,
+    "tstt": 17211.417704572043
+   },
+   "network": "grid3x3-seed9004",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9004-a0.15-b4-cap1-rho1/UE",
+   "seed": 9004,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.00026145899755647406,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "MIX(0.5)",
+   "cell": "grid3-rho1",
+   "error": null,
+   "factors": {
+    "alpha": 0.15,
+    "beta": 4.0,
+    "calibration": "ff",
+    "capacity_scale": 1.0,
+    "d_ref": 3792.9584460616325,
+    "generator": "grid-v1",
+    "n": 3,
+    "rho": 1.0,
+    "total_demand": 3792.9584460616325
+   },
+   "metrics": {
+    "R": 0.0007950640388074692,
+    "compliant_mean_time": 4.536719766740037,
+    "compliant_to_follower_time_ratio": 1.0048516325535246,
+    "flow_weighted_vc": 0.5818698844829513,
+    "follower_converged": true,
+    "follower_mean_time": 4.514815540689669,
+    "gini_stretch": 0.016993802625037968,
+    "max_node_imbalance": 2.2737367544323206e-13,
+    "max_trip_time": 5.817696844165965,
+    "max_vc": 0.9999999999999999,
+    "mean_trip_time": 4.525767653714852,
+    "min_link_time": 1.044073242990546,
+    "n_used_paths": 15,
+    "p95_trip_time": 5.116743104415635,
+    "share_links_over_capacity": 0.0,
+    "so_converged": true,
+    "total_demand": 3792.958446061633,
+    "tstt": 17166.04864707029
+   },
+   "network": "grid3x3-seed9004",
+   "record_id": "SMOKE-GP-20261124T234428Z-6a2d9795/grid3-rho1/grid3-s9004-a0.15-b4-cap1-rho1/MIX(0.5)",
+   "seed": 9004,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.0003281250028521754,
+    "tol": 1e-06
+   },
+   "status": "ok"
+  }
+ ],
+ "run_id": "SMOKE-GP-20261124T234428Z-6a2d9795",
+ "schema_version": "flow.result/1.0.0"
+}
