@@ -18,4 +18,4 @@ Status at M0: no results exist. These are limitations known by design.
 10. **Cost curvature.** With `beta = 1` (S2) the median excess falls to 0.0030, below delta; the primary finding holds for the BPR curvature `beta = 4` only.
 11. **Frank-Wolfe reference.** The S1 Frank-Wolfe reference did not converge on 93 of 100 primary-cell instances; it gives no independent check of the gradient-projection values.
 12. **Untested sensitivities.** EXP-004 item 17 (link-flow instead of path-flow compliant scaling) and EXP-001 item 17 (`1e-10`) have no frozen config and were not run.
-13. **Small effects in EXP-005.** Braess links are common (77 of 100 instances) but their effects are small (median relative decrease 0.003, maximum 0.035).
+13. **Small effects in EXP-005.** Braess links are common (77 of 100 instances) but their effects are small (relative decreases between 1.2e-4 and 0.035).

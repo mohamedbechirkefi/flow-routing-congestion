@@ -138,3 +138,11 @@ FREEZE experiments/EXP-005.json sha256:7b58a93390e30d7f38e4d18899bba77b4dbc841d5
 - **Frozen verdicts.** EXP-001 contradicted (UE with link e outside 1e-6); EXP-002 contradicted (two boundaries outside 1e-6); EXP-003 H0 rejected (median 0.0232, one-sided lower bound 0.0213); EXP-004 H1 supported; EXP-005 H1 supported (77/100); EXP-006 gate passed, direction replicates (R(UE) 0.0145).
 - **Needs the owner.** (a) Whether to rerun EXP-001 and EXP-002 at `RG <= 1e-10` as an amended, separately labelled experiment; (b) whether to add the EXP-004 link-flow sensitivity; (c) the six reports.
 - **Decided by.** The assistant (execution under the M3 brief); items (a) to (c) are the owner's.
+
+## D-015 (2026-11-25): Owner decision on the M3 experiment reports (approvals item 4)
+
+- **Decision.** Owner, 2026-11-25, "approve all recommendations, RIGGED A" (`labs/_shared/owner-approvals-2026-11-25.md`, item 4): "The owner approves writing the missing 11.3/11.6 experiment reports (`report.md`, and `reproduction.md` where the repo uses it). They are written from the committed results, tables and figures only." and "Nothing is recomputed and no numbers change."
+- **Application in FLOW.** The six `report.md` and six `reproduction.md` files of EXP-001 to EXP-006 were composed from the committed results of commit `13d7c64` (analysis.json, run manifests, metrics, figures, journal J-0013 to J-0021) with no rerun and no new computation. Report files are written by the coordinator (the harness refuses report files from the assistant); the assistant returned their full text to the coordinator, which closes deviation 3 of D-014 once they are committed.
+- **Not decided by item 4, still with the owner.** A rerun of EXP-001 and EXP-002 at `RG <= 1e-10` (protocol item 5 states 1e-10 for EXP-001; the frozen config uses 1e-6) and the EXP-004 link-flow sensitivity (item 17, no frozen config). The reports state the frozen verdicts as they stand.
+- **Records correction.** One summary number not stored in any committed result file (a median EXP-005 effect computed in the session) was removed from the claims register (CL-008) and limitation 13 and replaced by the stored range (1.2e-4 to 0.035).
+- **Decided by.** The owner (approval); applied by the assistant.
