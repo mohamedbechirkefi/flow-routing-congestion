@@ -3,7 +3,7 @@
 
 ## 1. Identification
 
-- Experiment EXP-002. Report date 2026-11-25. Report version 1.0.
+- Experiment EXP-002. Report date 2026-11-25. Report version 1.1 (M4: exploratory 1e-10 check added beside the frozen verdict; version 1.0 was the M3 report).
 - **Status: CONFIRMATORY, complete (450 of 450 records, 75 demand points). Verdict under the frozen rule: CONTRADICTED.** Two of three computed regime boundaries lie outside 1e-6; the lower paradox boundary and the paradox sign at all 75 points agree with the derivation.
 - Authorship: Mohamed Bechir Kefi (owner-approved). An AI assistant (Claude) is disclosed and is not an author.
 - Protocol sha256 `262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963`. Umbrella protocol v1.0, sha256 `9f629b07...b97d`.
@@ -30,7 +30,9 @@
 
 The frozen verdict is therefore "contradicted".
 
-**Principal caveat.** The failing residuals are of the size the frozen solver tolerance (`RG <= 1e-6`) allows. The same protocol/config tolerance issue affects EXP-001: the EXP-001 protocol states a relative gap of 1e-10 and its frozen config uses 1e-6. EXP-002's frozen config also uses 1e-6, while its contradiction threshold is 1e-6. A tighter rerun is an owner decision that has not been made.
+**Principal caveat.** The failing residuals are of the size the frozen solver tolerance (`RG <= 1e-6`) allows. The same protocol/config tolerance issue affects EXP-001: the EXP-001 protocol states a relative gap of 1e-10 and its frozen config uses 1e-6. EXP-002's frozen config also uses 1e-6, while its contradiction threshold is 1e-6. The owner decided on 2026-11-25 ("Approve all recommendations, push then next", item 3) that the frozen verdict stands and that a 1e-10 rerun is reported beside it as a labelled exploratory check.
+
+**Exploratory check (M4, J-0022), beside the verdict.** The frozen config rerun with only `solver.tol` changed to 1e-10, analysed with the frozen analysis code: all three boundaries within 1.5e-9 and the sign agreeing at 75 of 75 points; frozen analysis result "derivation confirmed". This is exploratory and post hoc; it does not change the frozen verdict above.
 
 ## 3. Research rationale and literature
 
@@ -103,6 +105,23 @@ UE path time with link e, by regime:
   - Alt text: "Two panels; computed points lie on the analytic curves; Delta is positive exactly inside the shaded band."
 - Full per-point values: `analysis.json` (`points`).
 
+**Exploratory check at `RG <= 1e-10` (M4, J-0022; not confirmatory).**
+- Authority: owner, 2026-11-25, "Approve all recommendations, push then next", item 3.
+- Config `experiments/exploratory/X-EXP-002-TOL1E-10.json`: the frozen config with only `experiment_id`, `label`, `description` and `solver.tol` (1e-10) changed; committed (`01c2b4b`) before the run.
+- Run `X-EXP-002-TOL1E-10-20261125T011841Z-5acef701`, canonical config hash `5acef70144c3e63e956a2ffb54099b74347644c74fccfb122ec006c473a82791`; 450 ok, at most 24 sweeps, largest final RG 9.59e-11. The manifest records `dirty: true` because the untracked analysis script existed at run time; the runner does not import it.
+- Analysis: the frozen `flow.confirmatory.analyse_exp002`, called unchanged by `scripts/analyse_exploratory_tol.py`. Output `results/exploratory/X-EXP-002-TOL1E-10-20261125T011841Z-5acef701/exploratory_analysis.json`.
+
+| Check | Confirmatory, RG 1e-6 | Exploratory, RG 1e-10 | Analytic |
+|---|---|---|---|
+| Lower paradox boundary | 2.580645161290321 | 2.580645161290321 | 80/31 |
+| Upper boundary | 8.888899966300295 (1.11e-5) | 8.888888890418269 (1.5e-9) | 80/9 |
+| Middle boundary | 3.6363548780120354 (8.76e-6) | 3.63636363566172 (7.0e-10) | 40/11 |
+| Sign agreement | 75 of 75 | 75 of 75 | |
+| Largest per-point UE time error | 1.06e-3 at d = 3.64 | 3.37e-6 at d = 3.64 | |
+| Frozen analysis result | contradicted | derivation confirmed | |
+
+The exploratory rerun meets the frozen rule. Per-point time agreement is not part of the rule; the residual 3.37e-6 at d = 3.64, where the outer paths carry very little flow, is consistent with a flow-weighted gap criterion that loosely bounds the time of a nearly unused path (a model-dependent reading). The check was defined after the confirmatory result was seen and **does not replace the frozen verdict**, which stays "contradicted".
+
 **Expected versus observed.**
 - Expected: all three boundaries within 1e-6, and the sign agreeing everywhere.
 - Observed: the sign agrees everywhere and the lower boundary is exact. The two boundaries that come from the middle regime, where UE uses three paths, are off by about 1e-5.
@@ -111,7 +130,8 @@ UE path time with link e, by regime:
 
 - **Measured.** The direction and location of the paradox agree with the derivation at every sweep point. The lower boundary, where the solver finds an exact corner solution, is reproduced to machine precision.
 - **Frozen verdict.** Contradicted, because two boundaries miss 1e-6. The result is reported as such.
-- **Model-dependent reading.** In the middle regime the solver stops at `RG <= 1e-6` with path-flow residuals of order 1e-5 (fit residuals of 3e-5 to 6e-5). The boundary errors are of that size, and the error grows near the regime change at 40/11 (d = 3.64). This pattern fits solver tolerance rather than a wrong derivation, but this run cannot prove that. A tighter-tolerance rerun would decide, and it is the owner's call.
+- **Model-dependent reading.** In the middle regime the solver stops at `RG <= 1e-6` with path-flow residuals of order 1e-5 (fit residuals of 3e-5 to 6e-5). The boundary errors are of that size, and the error grows near the regime change at 40/11 (d = 3.64). This pattern fits solver tolerance rather than a wrong derivation, but this run cannot prove that.
+- **Exploratory evidence (M4).** At `RG <= 1e-10` the boundaries fall within 1.5e-9 (section 8). This favours the solver-tolerance reading. It is post hoc and does not change the frozen verdict.
 
 ## 10. Threats to validity
 
@@ -125,7 +145,7 @@ UE path time with link e, by regime:
 - Adding link e raises UE travel time at exactly the predicted sweep points (2.75 to 8.75 in the main sweep) and at none outside.
 - The lower paradox boundary 80/31 is reproduced to 1.3e-15.
 - Under the frozen rule the registered hypothesis is contradicted, because the upper (80/9) and middle (40/11) boundaries miss 1e-6 by about 1e-5.
-- Follow-up, for the owner: rerun at `RG <= 1e-10`, together with EXP-001.
+- The owner decided (2026-11-25b, item 3) that the frozen verdict stands; the exploratory 1e-10 rerun meets the rule (section 8). A confirmatory check at that tolerance would need a new registered protocol.
 
 ## 12. Reproduction appendix
 

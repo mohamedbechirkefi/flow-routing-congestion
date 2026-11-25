@@ -1,0 +1,89 @@
+{
+ "delta": 0.01,
+ "exp005_materiality": {
+  "k_braess_links_above_1e-2": 25,
+  "k_instances_max_rel_decrease_above_1e-2": 17,
+  "k_instances_max_rel_decrease_above_1e-3": 67,
+  "median_rel_effect_braess_links_1e-4": 0.002997244273354275,
+  "n_braess_links_1e-4": 177,
+  "n_instances": 100,
+  "source": "research/experiments/EXP-005/analysis.json (per_instance)"
+ },
+ "label": "EXPLORATORY (M4, defined after the confirmatory results were seen; never changes a frozen verdict)",
+ "primary_cell_spearman": {
+  "R_UE_vs_flow_weighted_vc_UE": 0.6527092709270926,
+  "R_UE_vs_max_vc_UE": 0.6377797779777976,
+  "R_UE_vs_share_links_over_capacity_UE": 0.6742661824600192,
+  "n": 100
+ },
+ "share_instances_R_UE_above_delta": {
+  "S1-frank-wolfe-reference rho=2": {
+   "k_above": 32,
+   "max": 0.06380074598237617,
+   "min": 0.003855393145218322,
+   "n": 38
+  },
+  "S1-tol1e-4 rho=2": {
+   "k_above": 90,
+   "max": 0.06668088257804605,
+   "min": 0.0039164558137667616,
+   "n": 100
+  },
+  "S1-tol1e-8 rho=2": {
+   "k_above": 90,
+   "max": 0.06666949584003912,
+   "min": 0.0038569587851620124,
+   "n": 100
+  },
+  "S2-beta1 rho=2": {
+   "k_above": 0,
+   "max": 0.009083431904149064,
+   "min": 0.0001104113203702628,
+   "n": 100
+  },
+  "S3-absolute rho=1": {
+   "k_above": 86,
+   "max": 0.0835217620677331,
+   "min": 0.0004873710297725875,
+   "n": 100
+  },
+  "grid4 rho=1": {
+   "k_above": 17,
+   "max": 0.019087016937716417,
+   "min": 0.0,
+   "n": 100
+  },
+  "grid4 rho=2": {
+   "k_above": 94,
+   "max": 0.10277620326146875,
+   "min": 4.4664433085372934e-06,
+   "n": 100
+  },
+  "grid4 rho=3": {
+   "k_above": 97,
+   "max": 0.11398960322090002,
+   "min": 0.0022228180238255124,
+   "n": 100
+  },
+  "grid6 rho=1": {
+   "k_above": 3,
+   "max": 0.012840614788119487,
+   "min": 0.0,
+   "n": 100
+  },
+  "grid6 rho=2": {
+   "k_above": 90,
+   "max": 0.06666972649144531,
+   "min": 0.003857562270367376,
+   "n": 100
+  },
+  "grid6 rho=3": {
+   "k_above": 99,
+   "max": 0.0991792127929596,
+   "min": 0.006966407895642401,
+   "n": 100
+  }
+ },
+ "source": "research/experiments/EXP-003/metrics.csv",
+ "source_run": "EXP-003-20261124T234531Z-6cbcaa47"
+}

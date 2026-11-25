@@ -48,3 +48,13 @@ Novelty is not claimed. Whether grid-specific prevalence results already exist w
 - Full text of Roughgarden and Tardos (journal version), Sheffi (1985) chapters on UE, SO and the relative gap, Roughgarden (2004) and Harker (1988) for the compliance arm.
 - Steinberg and Zangwill (1983) and Valiant and Roughgarden (2010) for prevalence claims.
 - A primary or authoritative source for the BPR function parameters.
+
+## 4. M4 additions (2026-11-25)
+
+| Key | Reference | Access | Level | What it supports in FLOW |
+|---|---|---|---|---|
+| tntp_siouxfalls_readme | Transportation Networks for Research Core Team. `SiouxFalls/README.md` at commit `d1639b4ef218c17928ba573e806ddf8ba5e7ae6d`, https://github.com/bstabler/TransportationNetworks | Fetched 2026-11-25 (4,581 bytes, SHA-256 `ebe1f3dcca4736ca55a059ad82275a2c37489c3c5df915713c518635086054c1`), kept outside the repository | Read | "WARNING: The Sioux-Falls network is not considered as a realistic one. However, this network was used in many publications. It is good for code debugging."; free-flow times in 0.01 hours; the "traditional" BPR value B = 0.15 is assumed; network data taken from LeBlanc, Morlok and Pierskalla (1975). |
+
+**Evidence-audit note.** The quotation "not considered as a realistic one" appeared in `research/limitations.md` and the EXP-006 report from M3 without a recorded access entry. The M4 evidence audit fetched the README at the pinned commit and confirmed the wording (finding F-3 in `research/publication/evidence_audit.md`). The root README (licence text) was read on 2026-11-24 (D-010).
+
+**Manuscript citation levels (M4).** Content statements rest only on sources at level "Read" (braess2005, supernet_braess, roughgarden_tardos2002 preprint abstract and introduction, TNTP READMEs) or "Abstract read" (youn2008, labelled as abstract-only). wardrop1952, beckmann1955, frank_wolfe1956, leblanc1975, roughgarden2004 and harker1988 are cited for attribution only and labelled "metadata verified, text not read". sheffi1985, steinberg_zangwill1983, valiant_roughgarden2010 and the BPR manual are not cited.

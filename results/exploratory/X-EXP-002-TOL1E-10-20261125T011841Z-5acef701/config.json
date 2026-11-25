@@ -1,0 +1,118 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "sweep",
+   "demand": [
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5,
+    2.75,
+    3.0,
+    3.25,
+    3.5,
+    3.75,
+    4.0,
+    4.25,
+    4.5,
+    4.75,
+    5.0,
+    5.25,
+    5.5,
+    5.75,
+    6.0,
+    6.25,
+    6.5,
+    6.75,
+    7.0,
+    7.25,
+    7.5,
+    7.75,
+    8.0,
+    8.25,
+    8.5,
+    8.75,
+    9.0,
+    9.25,
+    9.5,
+    9.75,
+    10.0,
+    10.25,
+    10.5,
+    10.75,
+    11.0,
+    11.25,
+    11.5,
+    11.75,
+    12.0
+   ],
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ]
+  },
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "sweep-fine-boundaries",
+   "demand": [
+    2.38,
+    2.43,
+    2.48,
+    2.53,
+    2.58,
+    2.63,
+    2.68,
+    2.73,
+    2.78,
+    3.44,
+    3.49,
+    3.54,
+    3.59,
+    3.64,
+    3.69,
+    3.74,
+    3.79,
+    3.84,
+    8.69,
+    8.74,
+    8.79,
+    8.84,
+    8.89,
+    8.94,
+    8.99,
+    9.04,
+    9.09
+   ],
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ]
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "EXPLORATORY M4 check (owner, 2026-11-25, \"Approve all recommendations, push then next\", item 3): the frozen EXP-002 config unchanged except solver.tol = 1e-10 (the relative gap stated in EXP-001 protocol item 5). Never replaces the frozen confirmatory verdict of EXP-002.",
+ "experiment_id": "X-EXP-002-TOL1E-10",
+ "label": "exploratory",
+ "solver": {
+  "algorithm": "gradient-projection",
+  "max_iter": 20000,
+  "tol": 1e-10
+ }
+}

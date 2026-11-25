@@ -192,3 +192,37 @@ Owner: decide on a 1e-10 rerun of EXP-001/EXP-002 and on the EXP-004 sensitivity
 ## 2026-11-25: M3 done (coordinator)
 
 The owner approved the experiment reports (owner, 2026-11-25, "approve all recommendations, RIGGED A", item 4). Subagents may not write report files, so the reports were composed by the M3 session from committed results only and written by the coordinator: 6 report(s). The coordinator checked that every decimal number in them appears in a committed file. With the complete matrices (or documented failures) recorded above, the M3 gate holds. M3 is **done**. Next: M4 (interpretation), not started.
+
+## 2026-11-25: Session 5 (M4, interpretation, evidence audit and manuscript)
+
+**Milestone.** M4 under the owner's "Approve all recommendations, push then next" (2026-11-25, `labs/_shared/owner-approvals-2026-11-25b.md`) and the coordinator's M4 brief. No confirmatory rerun, no change to frozen protocols, configs or seeds, no push, no paid service, no large download.
+
+### Starting state
+
+`git status`: clean; HEAD `15e1181` (M3 done).
+
+### Work and actual outputs
+
+- Exploratory 1e-10 configs written from the frozen ones (only id, label, description, `solver.tol` changed) and committed first: `01c2b4b`.
+- `nice -n 10 .venv/bin/flow run experiments/exploratory/X-EXP-001-TOL1E-10.json --quiet` -> `results/exploratory/X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f` (6 ok). Same for EXP-002 -> `X-EXP-002-TOL1E-10-20261125T011841Z-5acef701` (450 ok). Manifests `dirty: true` (untracked analysis script only).
+- `.venv/bin/python scripts/analyse_exploratory_tol.py <both run dirs>` (frozen `flow.confirmatory` unchanged): EXP-001 "reproduced", largest difference 7.53e-9; EXP-002 "derivation confirmed", boundaries within 1.3e-15, 7.0e-10 and 1.5e-9, sign 75/75; largest per-point UE time error 3.37e-6 at d = 3.64. Journal J-0022. Frozen verdicts unchanged (contradicted).
+- `.venv/bin/python scripts/m4_exploratory_checks.py` -> `results/exploratory/M4-confounder-checks.json`: primary cell 90/100 instances above delta (S2 0/100, S3 86/100, 6x6 rho 1 3/100); Spearman R(UE) vs UE flow-weighted v/c 0.653; EXP-005 17/100 instances with an effect above 1e-2, median link effect 0.0030. Journal J-0023.
+- TNTP `SiouxFalls/README.md` fetched at the pinned commit into the session scratchpad (4,581 bytes, sha256 `ebe1f3dc...54c1`) to verify the "not considered as a realistic one" quotation (audit F-3). Not stored in the repository.
+- `.venv/bin/python scripts/evidence_audit.py` -> A1 27/27 hashes match; A2 6/6 metrics copies equal; A3 6/6 counts match; A4 40/40 recomputed estimates match; C 33/33 table rows; B untraced numbers only DOIs and the derived sum 10,626. Findings F-1 to F-8 in `research/publication/evidence_audit.md`. Journal J-0024.
+- Manuscript and supplementary file synthesised (11.4, 5,757 words before the second-pass edits); second review pass written and six revisions applied; `bash scripts/build_manuscript_tex.sh` -> `wrote .../manuscript.tex`; `references.bib` filled.
+- Claims register rebuilt (21 rows, 11 columns); claims audit, artifact manifest (24 entries), limitations 14 to 19, registry statuses, EXP-001 and EXP-002 reports (v1.1), literature review section 4, decision D-016.
+- Tests: `nice -n 10 .venv/bin/python -m pytest -q` -> `138 passed in 98.67s`.
+
+### M4 gate
+
+Every numerical claim in the manuscript maps to a claim row with result id, config hash and figure or table, and to a manifest entry; every content-bearing external claim maps to a source read (one abstract-only source labelled as such; six sources cited for attribution only, labelled "metadata verified, text not read"). M4 is **done**.
+
+### Risks and open items
+
+- The EXP-001 and EXP-002 exact checks remain contradicted under their frozen rule; only exploratory evidence supports the tolerance reading.
+- No independent solver check on grids (Frank-Wolfe reference failed on 93/100).
+- PDFs not compiled (M6).
+
+### Next action
+
+M5 (interactive page) needs the owner's demo-stack choice (B4); M6 after that.

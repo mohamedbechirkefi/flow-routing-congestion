@@ -1,0 +1,554 @@
+{
+ "generator": "scripts/evidence_audit.py",
+ "part_a": {
+  "A1_manifest_hashes": [
+   {
+    "match": true,
+    "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/config.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/metrics.csv"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/results.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/run_manifest.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/config.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/metrics.csv"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/results.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/run_manifest.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/config.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/metrics.csv"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/results.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/run_manifest.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/config.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/metrics.csv"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/results.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/run_manifest.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/config.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/metrics.csv"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/results.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/run_manifest.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/skipped_removals.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/config.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/metrics.csv"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/results.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/run_manifest.json"
+   },
+   {
+    "match": true,
+    "path": "results/raw/logs/worker-A.log"
+   },
+   {
+    "match": true,
+    "path": "results/raw/logs/worker-B.log"
+   }
+  ],
+  "A2_metrics_copy": {
+   "EXP-001": true,
+   "EXP-002": true,
+   "EXP-003": true,
+   "EXP-004": true,
+   "EXP-005": true,
+   "EXP-006": true
+  },
+  "A3_counts": {
+   "EXP-001": {
+    "match": true,
+    "n_records_analysis": 6,
+    "n_rows": 6,
+    "status_counts_analysis": {
+     "failed": 0,
+     "nonconverged": 0,
+     "ok": 6
+    },
+    "status_counts_raw": {
+     "ok": 6
+    }
+   },
+   "EXP-002": {
+    "match": true,
+    "n_records_analysis": 450,
+    "n_rows": 450,
+    "status_counts_analysis": {
+     "failed": 0,
+     "nonconverged": 0,
+     "ok": 450
+    },
+    "status_counts_raw": {
+     "ok": 450
+    }
+   },
+   "EXP-003": {
+    "match": true,
+    "n_records_analysis": 2900,
+    "n_rows": 2900,
+    "status_counts_analysis": {
+     "failed": 0,
+     "nonconverged": 155,
+     "ok": 2745
+    },
+    "status_counts_raw": {
+     "nonconverged": 155,
+     "ok": 2745
+    }
+   },
+   "EXP-004": {
+    "match": true,
+    "n_records_analysis": 2100,
+    "n_rows": 2100,
+    "status_counts_analysis": {
+     "failed": 0,
+     "nonconverged": 0,
+     "ok": 2100
+    },
+    "status_counts_raw": {
+     "ok": 2100
+    }
+   },
+   "EXP-005": {
+    "match": true,
+    "n_records_analysis": 5154,
+    "n_rows": 5154,
+    "status_counts_analysis": {
+     "failed": 0,
+     "nonconverged": 0,
+     "ok": 5154
+    },
+    "status_counts_raw": {
+     "ok": 5154
+    }
+   },
+   "EXP-006": {
+    "match": true,
+    "n_records_analysis": 16,
+    "n_rows": 16,
+    "status_counts_analysis": {
+     "failed": 0,
+     "nonconverged": 0,
+     "ok": 16
+    },
+    "status_counts_raw": {
+     "ok": 16
+    }
+   }
+  },
+  "A4_recomputed": [
+   {
+    "analysis_json": 100.0,
+    "match": true,
+    "quantity": "EXP-003 primary n",
+    "recomputed": 100.0
+   },
+   {
+    "analysis_json": 0.02317254213604536,
+    "match": true,
+    "quantity": "EXP-003 primary median R(UE)",
+    "recomputed": 0.02317254213604536
+   },
+   {
+    "analysis_json": 0.02575497507449069,
+    "match": true,
+    "quantity": "EXP-003 primary mean R(UE)",
+    "recomputed": 0.025754975074490698
+   },
+   {
+    "analysis_json": 0.01406705073663761,
+    "match": true,
+    "quantity": "EXP-003 S1-frank-wolfe-reference rho 2.0 median R(UE)",
+    "recomputed": 0.01406705073663761
+   },
+   {
+    "analysis_json": 0.023050014879567704,
+    "match": true,
+    "quantity": "EXP-003 S1-tol1e-4 rho 2.0 median R(UE)",
+    "recomputed": 0.023050014879567704
+   },
+   {
+    "analysis_json": 0.023172154127660605,
+    "match": true,
+    "quantity": "EXP-003 S1-tol1e-8 rho 2.0 median R(UE)",
+    "recomputed": 0.023172154127660605
+   },
+   {
+    "analysis_json": 0.003037272861879936,
+    "match": true,
+    "quantity": "EXP-003 S2-beta1 rho 2.0 median R(UE)",
+    "recomputed": 0.003037272861879936
+   },
+   {
+    "analysis_json": 0.021359676587423104,
+    "match": true,
+    "quantity": "EXP-003 S3-absolute rho 1.0 median R(UE)",
+    "recomputed": 0.021359676587423104
+   },
+   {
+    "analysis_json": 0.21106585093388153,
+    "match": true,
+    "quantity": "EXP-003 S3-absolute rho 1.0 median R(FF)",
+    "recomputed": 0.21106585093388153
+   },
+   {
+    "analysis_json": 0.004091949038764309,
+    "match": true,
+    "quantity": "EXP-003 grid4 rho 1.0 median R(UE)",
+    "recomputed": 0.004091949038764309
+   },
+   {
+    "analysis_json": 0.008119950296215261,
+    "match": true,
+    "quantity": "EXP-003 grid4 rho 1.0 median R(FF)",
+    "recomputed": 0.008119950296215261
+   },
+   {
+    "analysis_json": 0.034792013049510295,
+    "match": true,
+    "quantity": "EXP-003 grid4 rho 2.0 median R(UE)",
+    "recomputed": 0.034792013049510295
+   },
+   {
+    "analysis_json": 0.33241741701564165,
+    "match": true,
+    "quantity": "EXP-003 grid4 rho 2.0 median R(FF)",
+    "recomputed": 0.33241741701564165
+   },
+   {
+    "analysis_json": 0.04538175129988431,
+    "match": true,
+    "quantity": "EXP-003 grid4 rho 3.0 median R(UE)",
+    "recomputed": 0.04538175129988431
+   },
+   {
+    "analysis_json": 1.6884293440155653,
+    "match": true,
+    "quantity": "EXP-003 grid4 rho 3.0 median R(FF)",
+    "recomputed": 1.6884293440155653
+   },
+   {
+    "analysis_json": 0.0030519134576679763,
+    "match": true,
+    "quantity": "EXP-003 grid6 rho 1.0 median R(UE)",
+    "recomputed": 0.0030519134576679763
+   },
+   {
+    "analysis_json": 0.005313916194165547,
+    "match": true,
+    "quantity": "EXP-003 grid6 rho 1.0 median R(FF)",
+    "recomputed": 0.005313916194165547
+   },
+   {
+    "analysis_json": 0.02317254213604536,
+    "match": true,
+    "quantity": "EXP-003 grid6 rho 2.0 median R(UE)",
+    "recomputed": 0.02317254213604536
+   },
+   {
+    "analysis_json": 0.22745114182653436,
+    "match": true,
+    "quantity": "EXP-003 grid6 rho 2.0 median R(FF)",
+    "recomputed": 0.22745114182653436
+   },
+   {
+    "analysis_json": 0.03744256319736183,
+    "match": true,
+    "quantity": "EXP-003 grid6 rho 3.0 median R(UE)",
+    "recomputed": 0.03744256319736183
+   },
+   {
+    "analysis_json": 1.2372314046146757,
+    "match": true,
+    "quantity": "EXP-003 grid6 rho 3.0 median R(FF)",
+    "recomputed": 1.2372314046146757
+   },
+   {
+    "analysis_json": 0.5923873513586214,
+    "match": true,
+    "quantity": "EXP-004 scale 0.8 median R(FF)",
+    "recomputed": 0.5923873513586214
+   },
+   {
+    "analysis_json": 0.030581566500938462,
+    "match": true,
+    "quantity": "EXP-004 scale 0.8 median R(MIX(0))",
+    "recomputed": 0.030581566500938462
+   },
+   {
+    "analysis_json": 0.025422892409493025,
+    "match": true,
+    "quantity": "EXP-004 scale 0.8 median R(MIX(0.25))",
+    "recomputed": 0.025422892409493025
+   },
+   {
+    "analysis_json": 0.017583800965239926,
+    "match": true,
+    "quantity": "EXP-004 scale 0.8 median R(MIX(0.5))",
+    "recomputed": 0.017583800965239926
+   },
+   {
+    "analysis_json": 0.008683656766238168,
+    "match": true,
+    "quantity": "EXP-004 scale 0.8 median R(MIX(0.75))",
+    "recomputed": 0.008683656766238168
+   },
+   {
+    "analysis_json": 0.0,
+    "match": true,
+    "quantity": "EXP-004 scale 0.8 median R(MIX(1))",
+    "recomputed": 0.0
+   },
+   {
+    "analysis_json": 0.22745114182653436,
+    "match": true,
+    "quantity": "EXP-004 scale 1.0 median R(FF)",
+    "recomputed": 0.22745114182653436
+   },
+   {
+    "analysis_json": 0.02317254213604536,
+    "match": true,
+    "quantity": "EXP-004 scale 1.0 median R(MIX(0))",
+    "recomputed": 0.02317254213604536
+   },
+   {
+    "analysis_json": 0.018238273887472123,
+    "match": true,
+    "quantity": "EXP-004 scale 1.0 median R(MIX(0.25))",
+    "recomputed": 0.018238273887472123
+   },
+   {
+    "analysis_json": 0.012538556105435972,
+    "match": true,
+    "quantity": "EXP-004 scale 1.0 median R(MIX(0.5))",
+    "recomputed": 0.012538556105435972
+   },
+   {
+    "analysis_json": 0.004955264750233779,
+    "match": true,
+    "quantity": "EXP-004 scale 1.0 median R(MIX(0.75))",
+    "recomputed": 0.004955264750233779
+   },
+   {
+    "analysis_json": 0.0,
+    "match": true,
+    "quantity": "EXP-004 scale 1.0 median R(MIX(1))",
+    "recomputed": 0.0
+   },
+   {
+    "analysis_json": 0.09698245671245409,
+    "match": true,
+    "quantity": "EXP-004 scale 1.2 median R(FF)",
+    "recomputed": 0.09698245671245409
+   },
+   {
+    "analysis_json": 0.016507486495441426,
+    "match": true,
+    "quantity": "EXP-004 scale 1.2 median R(MIX(0))",
+    "recomputed": 0.016507486495441426
+   },
+   {
+    "analysis_json": 0.013721733708747741,
+    "match": true,
+    "quantity": "EXP-004 scale 1.2 median R(MIX(0.25))",
+    "recomputed": 0.013721733708747741
+   },
+   {
+    "analysis_json": 0.009068345595587557,
+    "match": true,
+    "quantity": "EXP-004 scale 1.2 median R(MIX(0.5))",
+    "recomputed": 0.009068345595587557
+   },
+   {
+    "analysis_json": 0.0029434757751979346,
+    "match": true,
+    "quantity": "EXP-004 scale 1.2 median R(MIX(0.75))",
+    "recomputed": 0.0029434757751979346
+   },
+   {
+    "analysis_json": 0.0,
+    "match": true,
+    "quantity": "EXP-004 scale 1.2 median R(MIX(1))",
+    "recomputed": 0.0
+   },
+   {
+    "analysis_json": 0.01453171402024167,
+    "match": true,
+    "quantity": "EXP-006 R(UE) rho 2",
+    "recomputed": 0.01453171402024167
+   }
+  ]
+ },
+ "part_b": {
+  "research/claims_register.csv": {
+   "n_checked": 116,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 114,
+   "untraced": [
+    "10,626"
+   ]
+  },
+  "research/experiments/EXP-001/report.md": {
+   "n_checked": 100,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 99,
+   "untraced": [
+    "10.1287"
+   ]
+  },
+  "research/experiments/EXP-002/report.md": {
+   "n_checked": 102,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 102,
+   "untraced": []
+  },
+  "research/experiments/EXP-003/report.md": {
+   "n_checked": 185,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 184,
+   "untraced": [
+    "128701"
+   ]
+  },
+  "research/experiments/EXP-004/report.md": {
+   "n_checked": 176,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 176,
+   "untraced": []
+  },
+  "research/experiments/EXP-005/report.md": {
+   "n_checked": 63,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 63,
+   "untraced": []
+  },
+  "research/experiments/EXP-006/report.md": {
+   "n_checked": 82,
+   "traced_to_protocol_or_config": 1,
+   "traced_to_results": 81,
+   "untraced": []
+  },
+  "research/paper/manuscript.md": {
+   "n_checked": 367,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 357,
+   "untraced": [
+    "10,626",
+    "10.1002",
+    "10.1016",
+    "10.1103",
+    "10.1145",
+    "10.1287",
+    "10.1680",
+    "128701",
+    "90030"
+   ]
+  },
+  "research/paper/supplementary.md": {
+   "n_checked": 236,
+   "traced_to_protocol_or_config": 0,
+   "traced_to_results": 236,
+   "untraced": []
+  }
+ },
+ "part_c": {
+  "missing": [],
+  "rows_checked": 33
+ },
+ "summary": {
+  "A1_checked": 27,
+  "A1_hash_mismatches": [],
+  "A2_all_equal": true,
+  "A3_all_match": true,
+  "A4_checked": 40,
+  "A4_mismatches": [],
+  "B_untraced": {
+   "research/claims_register.csv": [
+    "10,626"
+   ],
+   "research/experiments/EXP-001/report.md": [
+    "10.1287"
+   ],
+   "research/experiments/EXP-003/report.md": [
+    "128701"
+   ],
+   "research/paper/manuscript.md": [
+    "10,626",
+    "10.1002",
+    "10.1016",
+    "10.1103",
+    "10.1145",
+    "10.1287",
+    "10.1680",
+    "128701",
+    "90030"
+   ]
+  },
+  "C_missing": [],
+  "C_rows_checked": 33
+ }
+}

@@ -1,6 +1,662 @@
 {
-  "schema_version": "0.1",
-  "updated": "2026-11-24",
-  "note": "No artifacts yet. Each figure, table and quantitative claim will map to experiment id, run ids, metric definition, result path, generator script, config or protocol hash and code revision.",
-  "artifacts": []
+ "schema_version": "1.0",
+ "updated": "2026-11-25",
+ "note": "M4 artifact manifest (master prompt 11.5). Maps every table, figure and quantitative claim of research/paper/manuscript.md, research/paper/supplementary.md, the experiment reports and research/claims_register.csv to its experiment id, run ids, metric definition, result path, generator script, config or protocol hash and code revision. Audit: research/publication/evidence_audit.md (generator scripts/evidence_audit.py).",
+ "umbrella_protocol_sha256": "9f629b07b4c8e240c41236ff5c0cfd1abfde9681452c9f662f0175f316ecb97d",
+ "freeze_record": "research/freeze.json; research/decision_log.md D-011, D-012",
+ "artifacts": [
+  {
+   "artifact_id": "TAB-1",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-001..EXP-006",
+   "run_ids": [
+    "EXP-001-20261124T234532Z-846e8c0f",
+    "EXP-002-20261124T234533Z-fcb88932",
+    "EXP-003-20261124T234531Z-6cbcaa47",
+    "EXP-004-20261125T002235Z-7a7c2692",
+    "EXP-005-20261124T234554Z-4051f409",
+    "EXP-006-20261124T234536Z-9a9669c8"
+   ],
+   "metric_definition": "see each row: exact differences (EXP-001/002), median R and bootstrap bounds (EXP-003/004), Wilson incidence (EXP-005), gate and R (EXP-006)",
+   "result_path": "research/experiments/EXP-00{1..6}/analysis.json",
+   "result_field": "verdict fields of all six analysis.json",
+   "raw_path": "results/raw/EXP-00{1..6}/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-00{1..6}.json",
+   "config_hash": {
+    "EXP-001": "846e8c0f758caa6f4993798a0b18087b618054b6da44e727a06381cfeb3be6b4",
+    "EXP-002": "fcb88932cbe551ae87741488096fab36a2a071684088c075a47c887bb4fef3be",
+    "EXP-003": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+    "EXP-004": "7a7c26921a0225fce4d79fe05cfa88b874cc5d0d5926e651fbe818e2da3f7245",
+    "EXP-005": "4051f409dd967b2aa465299c94fa02e9b1708d6258fa2366edde565ddee532d7",
+    "EXP-006": "9a9669c8d4189347263dbd2fddcd979a3b4ce707371be85936cf669e828ebb62"
+   },
+   "protocol_sha256": {
+    "EXP-001": "c431c303e5d12017b157ec37a722b527492c77a99ab49d6c72029d965bd8d4c7",
+    "EXP-002": "262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963",
+    "EXP-003": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+    "EXP-004": "37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22",
+    "EXP-005": "e8cb938022b1bc2c41af8712b0a3f26938f43ef84c369a77fd077d7b4fd93359",
+    "EXP-006": "efbca04ab25258af9ae710bc02c09a4e9de4e5f9081ee49444afe284406a37f2"
+   },
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.1 Table 1"
+   ],
+   "claims": [
+    "CL-001",
+    "CL-002",
+    "CL-003",
+    "CL-007",
+    "CL-008",
+    "CL-009"
+   ]
+  },
+  {
+   "artifact_id": "TXT-5.2-EXP001",
+   "kind": "numbers",
+   "label": "confirmatory",
+   "experiment_id": "EXP-001",
+   "run_ids": [
+    "EXP-001-20261124T234532Z-846e8c0f"
+   ],
+   "metric_definition": "absolute difference between computed and analytic TSTT, mean and max path time, path flows; tolerance 1e-6 absolute (D-012)",
+   "result_path": "research/experiments/EXP-001/analysis.json",
+   "result_field": "checks, max_abs_diff",
+   "raw_path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-001.json",
+   "config_hash": "846e8c0f758caa6f4993798a0b18087b618054b6da44e727a06381cfeb3be6b4",
+   "protocol_sha256": "c431c303e5d12017b157ec37a722b527492c77a99ab49d6c72029d965bd8d4c7",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.2",
+    "EXP-001 report 2, 8",
+    "supplementary S4.1"
+   ],
+   "claims": [
+    "CL-001"
+   ]
+  },
+  {
+   "artifact_id": "TXT-5.2-EXP002",
+   "kind": "numbers",
+   "label": "confirmatory",
+   "experiment_id": "EXP-002",
+   "run_ids": [
+    "EXP-002-20261124T234533Z-fcb88932"
+   ],
+   "metric_definition": "regime boundaries from least-squares lines (D-012); sign of Delta(d) = TSTT_UE(with e) - TSTT_UE(without e); per-point |time - analytic|",
+   "result_path": "research/experiments/EXP-002/analysis.json",
+   "result_field": "boundaries, sign_agreement_all_points, max_time_err, computed_paradox_demands_main_sweep, points",
+   "raw_path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-002.json",
+   "config_hash": "fcb88932cbe551ae87741488096fab36a2a071684088c075a47c887bb4fef3be",
+   "protocol_sha256": "262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.2",
+    "EXP-002 report 2, 8",
+    "supplementary S4.1"
+   ],
+   "claims": [
+    "CL-002"
+   ]
+  },
+  {
+   "artifact_id": "FIG-EXP002",
+   "kind": "figure",
+   "label": "confirmatory",
+   "experiment_id": "EXP-002",
+   "run_ids": [
+    "EXP-002-20261124T234533Z-fcb88932"
+   ],
+   "metric_definition": "UE path time and Delta(d) against d",
+   "result_path": "research/experiments/EXP-002/analysis.json",
+   "result_field": "figures",
+   "raw_path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-002.json",
+   "config_hash": "fcb88932cbe551ae87741488096fab36a2a071684088c075a47c887bb4fef3be",
+   "protocol_sha256": "262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.2",
+    "EXP-002 report 8"
+   ],
+   "claims": [
+    "CL-002"
+   ],
+   "path": "research/experiments/EXP-002/figures/exp002_sweep.png"
+  },
+  {
+   "artifact_id": "TAB-2",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "R(arm) = TSTT(arm)/TSTT(SO) - 1; median and 95% percentile bootstrap CI over 100 instances (10,000 resamples, seed 20261124); paired R(FF) - R(UE)",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "per_cell",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.3 Table 2",
+    "EXP-003 report 8"
+   ],
+   "claims": [
+    "CL-003",
+    "CL-006"
+   ]
+  },
+  {
+   "artifact_id": "TAB-3",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "median R(UE), one-sided 95% lower bound, two-sided 95% CI, exclusions; paired change against primary",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "primary, sensitivity",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.3 Table 3",
+    "EXP-003 report 8"
+   ],
+   "claims": [
+    "CL-003",
+    "CL-004",
+    "CL-005"
+   ]
+  },
+  {
+   "artifact_id": "TAB-S2",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "primary-cell summary of R(UE)",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "primary",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "supplementary Table S2",
+    "EXP-003 report 8"
+   ],
+   "claims": [
+    "CL-003"
+   ]
+  },
+  {
+   "artifact_id": "TAB-S3",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "paired UE minus SO: demand-weighted Gini of stretch; demand-weighted p95 path time (min)",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "per_cell",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "supplementary Table S3",
+    "manuscript 5.3"
+   ],
+   "claims": [
+    "CL-016"
+   ]
+  },
+  {
+   "artifact_id": "TXT-5.7",
+   "kind": "numbers",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "wall-clock runtime (s)",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "run_manifest.json runtime_s; analysis.json per_cell runtime_s",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.7"
+   ],
+   "claims": [
+    "CL-015"
+   ]
+  },
+  {
+   "artifact_id": "FIG-EXP003_R_BY_CELL",
+   "kind": "figure",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "per-instance R with median and 95% bootstrap CI",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "figures",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.3",
+    "EXP-003 report 8"
+   ],
+   "claims": [
+    "CL-003",
+    "CL-004",
+    "CL-005"
+   ],
+   "path": "research/experiments/EXP-003/figures/exp003_R_by_cell.png"
+  },
+  {
+   "artifact_id": "FIG-EXP003_SENSITIVITY",
+   "kind": "figure",
+   "label": "confirmatory",
+   "experiment_id": "EXP-003",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47"
+   ],
+   "metric_definition": "per-instance R with median and 95% bootstrap CI",
+   "result_path": "research/experiments/EXP-003/analysis.json",
+   "result_field": "figures",
+   "raw_path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-003.json",
+   "config_hash": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+   "protocol_sha256": "b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.3",
+    "EXP-003 report 8"
+   ],
+   "claims": [
+    "CL-003",
+    "CL-004",
+    "CL-005"
+   ],
+   "path": "research/experiments/EXP-003/figures/exp003_sensitivity.png"
+  },
+  {
+   "artifact_id": "TAB-4",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-004",
+   "run_ids": [
+    "EXP-004-20261125T002235Z-7a7c2692"
+   ],
+   "metric_definition": "median R(MIX(c)) with 95% bootstrap CI per capacity scale",
+   "result_path": "research/experiments/EXP-004/analysis.json",
+   "result_field": "per_scale.*.R",
+   "raw_path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-004.json",
+   "config_hash": "7a7c26921a0225fce4d79fe05cfa88b874cc5d0d5926e651fbe818e2da3f7245",
+   "protocol_sha256": "37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.4 Table 4",
+    "EXP-004 report 8"
+   ],
+   "claims": [
+    "CL-007"
+   ]
+  },
+  {
+   "artifact_id": "TAB-S4",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-004",
+   "run_ids": [
+    "EXP-004-20261125T002235Z-7a7c2692"
+   ],
+   "metric_definition": "consecutive paired median differences, one-sided 95% lower bound, two-sided CI",
+   "result_path": "research/experiments/EXP-004/analysis.json",
+   "result_field": "per_scale.*.steps",
+   "raw_path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-004.json",
+   "config_hash": "7a7c26921a0225fce4d79fe05cfa88b874cc5d0d5926e651fbe818e2da3f7245",
+   "protocol_sha256": "37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "supplementary Table S4",
+    "manuscript 5.4"
+   ],
+   "claims": [
+    "CL-007"
+   ]
+  },
+  {
+   "artifact_id": "TAB-S5",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-004",
+   "run_ids": [
+    "EXP-004-20261125T002235Z-7a7c2692"
+   ],
+   "metric_definition": "compliant to non-compliant mean trip-time ratio",
+   "result_path": "research/experiments/EXP-004/analysis.json",
+   "result_field": "per_scale.*.compliant_to_follower_time_ratio; identity_MIX0_vs_EXP003_UE",
+   "raw_path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-004.json",
+   "config_hash": "7a7c26921a0225fce4d79fe05cfa88b874cc5d0d5926e651fbe818e2da3f7245",
+   "protocol_sha256": "37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "supplementary Table S5",
+    "manuscript 5.4"
+   ],
+   "claims": [
+    "CL-014"
+   ]
+  },
+  {
+   "artifact_id": "FIG-EXP004",
+   "kind": "figure",
+   "label": "confirmatory",
+   "experiment_id": "EXP-004",
+   "run_ids": [
+    "EXP-004-20261125T002235Z-7a7c2692"
+   ],
+   "metric_definition": "median R(MIX(c)) and paired differences",
+   "result_path": "research/experiments/EXP-004/analysis.json",
+   "result_field": "figures",
+   "raw_path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-004.json",
+   "config_hash": "7a7c26921a0225fce4d79fe05cfa88b874cc5d0d5926e651fbe818e2da3f7245",
+   "protocol_sha256": "37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.4"
+   ],
+   "claims": [
+    "CL-007"
+   ],
+   "path": "research/experiments/EXP-004/figures/exp004_compliance.png"
+  },
+  {
+   "artifact_id": "TAB-S6",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-005",
+   "run_ids": [
+    "EXP-005-20261124T234554Z-4051f409"
+   ],
+   "metric_definition": "incidence of instances with a single-link removal lowering TSTT_UE by more than the threshold (relative); Wilson 95%",
+   "result_path": "research/experiments/EXP-005/analysis.json",
+   "result_field": "incidence, per_instance",
+   "raw_path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-005.json",
+   "config_hash": "4051f409dd967b2aa465299c94fa02e9b1708d6258fa2366edde565ddee532d7",
+   "protocol_sha256": "e8cb938022b1bc2c41af8712b0a3f26938f43ef84c369a77fd077d7b4fd93359",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "supplementary Table S6",
+    "manuscript 5.5"
+   ],
+   "claims": [
+    "CL-008"
+   ]
+  },
+  {
+   "artifact_id": "FIG-EXP005",
+   "kind": "figure",
+   "label": "confirmatory",
+   "experiment_id": "EXP-005",
+   "run_ids": [
+    "EXP-005-20261124T234554Z-4051f409"
+   ],
+   "metric_definition": "Braess links per instance; log10 relative decrease",
+   "result_path": "research/experiments/EXP-005/analysis.json",
+   "result_field": "figures",
+   "raw_path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-005.json",
+   "config_hash": "4051f409dd967b2aa465299c94fa02e9b1708d6258fa2366edde565ddee532d7",
+   "protocol_sha256": "e8cb938022b1bc2c41af8712b0a3f26938f43ef84c369a77fd077d7b4fd93359",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.5"
+   ],
+   "claims": [
+    "CL-008"
+   ],
+   "path": "research/experiments/EXP-005/figures/exp005_removals.png"
+  },
+  {
+   "artifact_id": "TAB-5",
+   "kind": "table",
+   "label": "confirmatory",
+   "experiment_id": "EXP-006",
+   "run_ids": [
+    "EXP-006-20261124T234536Z-9a9669c8"
+   ],
+   "metric_definition": "R(UE), R(FF), Gini of stretch, mean trip time (0.01 h), sweeps and final RG per level; validation gate max_e |x_e - x_ref_e| / max_e x_ref_e",
+   "result_path": "research/experiments/EXP-006/analysis.json",
+   "result_field": "levels, validation_gate, replication",
+   "raw_path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-006.json",
+   "config_hash": "9a9669c8d4189347263dbd2fddcd979a3b4ce707371be85936cf669e828ebb62",
+   "protocol_sha256": "efbca04ab25258af9ae710bc02c09a4e9de4e5f9081ee49444afe284406a37f2",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.6 Table 5",
+    "supplementary Table S7",
+    "EXP-006 report 8"
+   ],
+   "claims": [
+    "CL-009",
+    "CL-013"
+   ],
+   "note": "EXP-006 raw results.json is not committed (TNTP-derived per-link flows; hash in results/M3-raw-manifest.json)."
+  },
+  {
+   "artifact_id": "FIG-EXP006",
+   "kind": "figure",
+   "label": "confirmatory",
+   "experiment_id": "EXP-006",
+   "run_ids": [
+    "EXP-006-20261124T234536Z-9a9669c8"
+   ],
+   "metric_definition": "R(UE) and R(FF) by level",
+   "result_path": "research/experiments/EXP-006/analysis.json",
+   "result_field": "figures",
+   "raw_path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/",
+   "generator_script": "scripts/analyse_exp.py (flow.confirmatory, frozen at 5108a16)",
+   "config_path": "experiments/EXP-006.json",
+   "config_hash": "9a9669c8d4189347263dbd2fddcd979a3b4ce707371be85936cf669e828ebb62",
+   "protocol_sha256": "efbca04ab25258af9ae710bc02c09a4e9de4e5f9081ee49444afe284406a37f2",
+   "code_revision": "8dfc66ca5c9635e160f38526843941716aadacd0",
+   "used_in": [
+    "manuscript 5.6"
+   ],
+   "claims": [
+    "CL-009"
+   ],
+   "path": "research/experiments/EXP-006/figures/exp006_R.png"
+  },
+  {
+   "artifact_id": "EXPL-X-EXP-001-TOL1E-10",
+   "kind": "numbers",
+   "label": "exploratory (J-0022)",
+   "experiment_id": "X-EXP-001-TOL1E-10",
+   "run_ids": [
+    "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f"
+   ],
+   "metric_definition": "as the frozen EXP-001/EXP-002 analysis",
+   "result_path": "results/exploratory/X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/exploratory_analysis.json",
+   "raw_path": "results/exploratory/X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/",
+   "generator_script": "scripts/analyse_exploratory_tol.py (calls frozen flow.confirmatory)",
+   "config_path": "experiments/exploratory/X-EXP-001-TOL1E-10.json",
+   "config_hash": "ae793d0fe516436cadbfe736ce002825b0be8b2538a7f4bd26522f466f327dbe",
+   "protocol_sha256": "n/a (exploratory; derived from the frozen EXP-001/EXP-002 configs, tol 1e-10)",
+   "code_revision": "01c2b4b2da68b3339563947b872dde8564fa573e (dirty: untracked analysis script only)",
+   "used_in": [
+    "manuscript 5.2",
+    "supplementary S4.1",
+    "EXP-001/EXP-002 reports 2, 8, 9, 11"
+   ],
+   "claims": [
+    "CL-010"
+   ]
+  },
+  {
+   "artifact_id": "EXPL-X-EXP-002-TOL1E-10",
+   "kind": "numbers",
+   "label": "exploratory (J-0022)",
+   "experiment_id": "X-EXP-002-TOL1E-10",
+   "run_ids": [
+    "X-EXP-002-TOL1E-10-20261125T011841Z-5acef701"
+   ],
+   "metric_definition": "as the frozen EXP-001/EXP-002 analysis",
+   "result_path": "results/exploratory/X-EXP-002-TOL1E-10-20261125T011841Z-5acef701/exploratory_analysis.json",
+   "raw_path": "results/exploratory/X-EXP-002-TOL1E-10-20261125T011841Z-5acef701/",
+   "generator_script": "scripts/analyse_exploratory_tol.py (calls frozen flow.confirmatory)",
+   "config_path": "experiments/exploratory/X-EXP-002-TOL1E-10.json",
+   "config_hash": "5acef70144c3e63e956a2ffb54099b74347644c74fccfb122ec006c473a82791",
+   "protocol_sha256": "n/a (exploratory; derived from the frozen EXP-001/EXP-002 configs, tol 1e-10)",
+   "code_revision": "01c2b4b2da68b3339563947b872dde8564fa573e (dirty: untracked analysis script only)",
+   "used_in": [
+    "manuscript 5.2",
+    "supplementary S4.1",
+    "EXP-001/EXP-002 reports 2, 8, 9, 11"
+   ],
+   "claims": [
+    "CL-010"
+   ]
+  },
+  {
+   "artifact_id": "EXPL-M4-CONFOUNDER",
+   "kind": "numbers",
+   "label": "exploratory (J-0023)",
+   "experiment_id": "EXP-003; EXP-005",
+   "run_ids": [
+    "EXP-003-20261124T234531Z-6cbcaa47",
+    "EXP-005-20261124T234554Z-4051f409"
+   ],
+   "metric_definition": "count of instances with R(UE) > 0.01 per cell; Spearman rank correlation of R(UE) with UE congestion metrics (primary cell); EXP-005 materiality counts and median effect",
+   "result_path": "results/exploratory/M4-confounder-checks.json",
+   "raw_path": "research/experiments/EXP-003/metrics.csv; research/experiments/EXP-005/analysis.json",
+   "generator_script": "scripts/m4_exploratory_checks.py",
+   "config_hash": {
+    "EXP-003": "6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a",
+    "EXP-005": "4051f409dd967b2aa465299c94fa02e9b1708d6258fa2366edde565ddee532d7"
+   },
+   "protocol_sha256": "n/a (exploratory, defined after results)",
+   "code_revision": "committed with the M4 records",
+   "used_in": [
+    "manuscript 5.5, 6.1, 6.2 Table 6",
+    "supplementary S4.2"
+   ],
+   "claims": [
+    "CL-011",
+    "CL-012"
+   ]
+  },
+  {
+   "artifact_id": "DERIVED",
+   "kind": "derived numbers",
+   "label": "derived by hand from stored values",
+   "items": [
+    {
+     "text": "10,626 records",
+     "derivation": "6 + 450 + 2,900 + 2,100 + 5,154 + 16 (n_records of the six analysis.json)",
+     "used_in": "manuscript 5"
+    },
+    {
+     "text": "about nine times",
+     "derivation": "0.2007 / 0.02317 = 8.66 (EXP-003 per_cell grid6 rho 2 paired FF - UE median over R(UE) median)",
+     "used_in": "manuscript 6.1"
+    },
+    {
+     "text": "margin of 0.0045 above delta",
+     "derivation": "0.01453 - 0.01 (EXP-006 replication.R_UE_rho2)",
+     "used_in": "manuscript 5.6, limitations 19"
+    },
+    {
+     "text": "2.3 percent",
+     "derivation": "0.02317 as a percentage",
+     "used_in": "abstract, 6.1, 9"
+    },
+    {
+     "text": "relative 1.1e-7",
+     "derivation": "6.19e-5 / 552 (EXP-001)",
+     "used_in": "claims register CL-001"
+    }
+   ]
+  },
+  {
+   "artifact_id": "EXTERNAL",
+   "kind": "external claims",
+   "items": [
+    {
+     "claim": "CL-E01",
+     "source": "braess2005; supernet_braess",
+     "level": "read"
+    },
+    {
+     "claim": "CL-E02",
+     "source": "roughgarden_tardos2002",
+     "level": "read (author preprint, abstract and introduction)"
+    },
+    {
+     "claim": "CL-E03",
+     "source": "youn2008",
+     "level": "abstract only"
+    },
+    {
+     "claim": "CL-E04",
+     "source": "TNTP root README (2026-11-24) and SiouxFalls/README.md (2026-11-25)",
+     "level": "read"
+    },
+    {
+     "claim": "CL-E05",
+     "source": "wardrop1952; beckmann1955; frank_wolfe1956; leblanc1975; roughgarden2004; harker1988",
+     "level": "metadata verified, attribution only"
+    }
+   ]
+  }
+ ]
 }

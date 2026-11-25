@@ -3,7 +3,7 @@
 
 ## 1. Identification
 
-- Experiment EXP-001. Report date 2026-11-25. Report version 1.0.
+- Experiment EXP-001. Report date 2026-11-25. Report version 1.1 (M4: exploratory 1e-10 check added beside the frozen verdict; version 1.0 was the M3 report).
 - **Status: CONFIRMATORY, complete (6 of 6 records). Verdict under the frozen rule: CONTRADICTED.** One of six arm and network combinations lies outside the 1e-6 tolerance.
 - Authorship: Mohamed Bechir Kefi (owner-approved, C3). An AI research and development assistant (Claude) is disclosed and is not an author.
 - Protocol `research/experiments/EXP-001/protocol.md`, sha256 `c431c303e5d12017b157ec37a722b527492c77a99ab49d6c72029d965bd8d4c7`. Umbrella `research/protocol.md` v1.0, sha256 `9f629b07b4c8e240c41236ff5c0cfd1abfde9681452c9f662f0175f316ecb97d` (frozen 2026-11-24, D-011).
@@ -29,7 +29,9 @@
 
 The frozen verdict is therefore "contradicted".
 
-**Principal caveat, disclosed.** The protocol text (item 5) states a relative gap of 1e-10 "for this run". The frozen config `experiments/EXP-001.json` uses 1e-6, and the run was made with the frozen config. The 1e-10 run and the item 17 sensitivity (1e-6 versus 1e-10) have no frozen config. Whether to rerun at 1e-10 is the owner's decision; it has not been made.
+**Principal caveat, disclosed.** The protocol text (item 5) states a relative gap of 1e-10 "for this run". The frozen config `experiments/EXP-001.json` uses 1e-6, and the run was made with the frozen config. The 1e-10 run and the item 17 sensitivity (1e-6 versus 1e-10) have no frozen config. The owner decided on 2026-11-25 ("Approve all recommendations, push then next", item 3) that the frozen verdict stands and that a 1e-10 rerun is reported beside it as a labelled exploratory check (section 8, "Exploratory check").
+
+**Exploratory check (M4, J-0022), beside the verdict.** The frozen config rerun with only `solver.tol` changed to 1e-10 and analysed with the frozen analysis code: largest difference 7.53e-9, frozen analysis result "reproduced". This is exploratory and post hoc; it does not change the frozen verdict above.
 
 ## 3. Research rationale and literature
 
@@ -100,6 +102,21 @@ Predictions (protocol item 5):
 - Source: `research/experiments/EXP-001/analysis.json`, field `max_abs_diff` = 6.19e-5.
 - No figure: the six exact comparisons are shown in full in the table, and no interval applies.
 
+**Exploratory check at `RG <= 1e-10` (M4, J-0022; not confirmatory).**
+- Authority: owner, 2026-11-25, "Approve all recommendations, push then next", item 3.
+- Config `experiments/exploratory/X-EXP-001-TOL1E-10.json`: the frozen config with only `experiment_id`, `label`, `description` and `solver.tol` (1e-10) changed; committed (`01c2b4b`) before the run.
+- Run `X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f`, canonical config hash `ae793d0fe516436cadbfe736ce002825b0be8b2538a7f4bd26522f466f327dbe`; 6 ok. The manifest records `dirty: true` because the analysis script `scripts/analyse_exploratory_tol.py` was untracked at run time; the runner does not import it.
+- Analysis: `scripts/analyse_exploratory_tol.py` calls the frozen `flow.confirmatory.analyse_exp001` unchanged. Output `results/exploratory/X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/exploratory_analysis.json`.
+
+| Quantity (UE with e) | Confirmatory, RG 1e-6 | Exploratory, RG 1e-10 | Analytic |
+|---|---|---|---|
+| Sweeps, final RG | 6, 7.29e-8 | 9, 1.77e-11 | |
+| TSTT | 551.9999380904 | 552.0000000075 | 552 |
+| Largest absolute difference (all six combinations) | 6.19e-5 | 7.53e-9 | |
+| Frozen analysis result | contradicted | reproduced | |
+
+The exploratory rerun meets the 1e-6 rule. It was defined after the confirmatory result was seen and **does not replace the frozen verdict**, which stays "contradicted".
+
 **Expected versus observed.**
 - Expected: all values within 1e-6.
 - Observed: the FF and SO arms and the UE without link e are exact. The UE with link e reproduces the published Braess effect (83 without e, 91.99999 with e) but misses the 1e-6 tolerance by a factor of about 60 in TSTT.
@@ -112,7 +129,8 @@ Predictions (protocol item 5):
   - the run stopped as soon as `RG` fell below 1e-6;
   - the outer path flows (2.0000008 each) and the zigzag flow (1.9999985) sit on either side of 2 and sum to the demand of 6;
   - the same stopping behaviour appears in EXP-002.
-- **What this run cannot exclude.** A small implementation error that shifts the equilibrium cannot be excluded by this run alone. A run at `RG <= 1e-10`, as protocol item 5 intended, would discriminate. It needs an owner decision because the frozen config cannot be changed.
+- **What this run cannot exclude.** A small implementation error that shifts the equilibrium cannot be excluded by this run alone. A run at `RG <= 1e-10`, as protocol item 5 intended, would discriminate.
+- **Exploratory evidence (M4).** The owner-approved exploratory rerun at `RG <= 1e-10` brings every value within 7.53e-9 of the analytic one. This favours the solver-tolerance reading over an implementation error. It is post hoc evidence and does not change the frozen verdict.
 
 ## 10. Threats to validity
 
@@ -125,7 +143,7 @@ Predictions (protocol item 5):
 
 - The registered hypothesis (exact reproduction within 1e-6) is contradicted for the UE with link e, by 6.19e-5 in TSTT, at the frozen tolerance.
 - All other combinations are exact, and the published 83 to 92 effect is reproduced to the solver tolerance.
-- Proposed follow-up, for the owner to decide: an amended, separately labelled rerun at `RG <= 1e-10` (protocol items 5 and 17).
+- The owner decided (2026-11-25b, item 3) that the frozen verdict stands and that the 1e-10 rerun is reported as exploratory; it meets the rule (section 8). A confirmatory check at the intended tolerance would need a new registered protocol.
 
 ## 12. Reproduction appendix
 

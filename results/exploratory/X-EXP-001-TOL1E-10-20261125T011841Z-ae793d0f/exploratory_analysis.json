@@ -1,0 +1,287 @@
+{
+ "analysed_as": "EXP-001",
+ "checks": [
+  {
+   "arm": "SO",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 498.0,
+     "computed": 498.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 1,
+   "pass": true,
+   "rel_gap": 0.0,
+   "status": "ok",
+   "with_link": false
+  },
+  {
+   "arm": "FF",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 696.0,
+     "computed": 696.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 116.0,
+     "computed": 116.0,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 116.0,
+     "computed": 116.0,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 6.0,
+     "computed": 6.0,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 0,
+   "pass": true,
+   "rel_gap": null,
+   "status": "ok",
+   "with_link": false
+  },
+  {
+   "arm": "UE",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 498.0,
+     "computed": 498.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 83.0,
+     "computed": 83.0,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 83.0,
+     "computed": 83.0,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 1,
+   "pass": true,
+   "rel_gap": 0.0,
+   "status": "ok",
+   "with_link": false
+  },
+  {
+   "arm": "SO",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 498.0,
+     "computed": 498.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 0.0,
+     "computed": 0.0,
+     "pass": true,
+     "quantity": "flow on link e",
+     "rel_diff": null
+    },
+    {
+     "abs_diff": 4.440892098500626e-16,
+     "analytic": 3.0,
+     "computed": 2.9999999999999996,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 1.4802973661668753e-16
+    },
+    {
+     "abs_diff": 4.440892098500626e-16,
+     "analytic": 3.0,
+     "computed": 3.0000000000000004,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 1.4802973661668753e-16
+    }
+   ],
+   "iterations": 2,
+   "pass": true,
+   "rel_gap": 0.0,
+   "status": "ok",
+   "with_link": true
+  },
+  {
+   "arm": "FF",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 816.0,
+     "computed": 816.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 136.0,
+     "computed": 136.0,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 136.0,
+     "computed": 136.0,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 6.0,
+     "computed": 6.0,
+     "pass": true,
+     "quantity": "path flow s-A-B-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 0,
+   "pass": true,
+   "rel_gap": null,
+   "status": "ok",
+   "with_link": true
+  },
+  {
+   "arm": "UE",
+   "items": [
+    {
+     "abs_diff": 7.526296030846424e-09,
+     "analytic": 552.0,
+     "computed": 552.0000000075263,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 1.3634594258779755e-11
+    },
+    {
+     "abs_diff": 1.2543779348561657e-09,
+     "analytic": 92.0,
+     "computed": 92.00000000125438,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 1.3634542770175713e-11
+    },
+    {
+     "abs_diff": 2.0697257241408806e-09,
+     "analytic": 92.0,
+     "computed": 92.00000000206973,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 2.2497018740661748e-11
+    },
+    {
+     "abs_diff": 1.8815438096453363e-10,
+     "analytic": 2.0,
+     "computed": 2.0000000001881544,
+     "pass": true,
+     "quantity": "path flow s-A-B-t",
+     "rel_diff": 9.407719048226681e-11
+    },
+    {
+     "abs_diff": 2.0526069732795804e-10,
+     "analytic": 2.0,
+     "computed": 1.9999999997947393,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 1.0263034866397902e-10
+    },
+    {
+     "abs_diff": 1.7106316363424412e-11,
+     "analytic": 2.0,
+     "computed": 2.0000000000171063,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 8.553158181712206e-12
+    }
+   ],
+   "iterations": 9,
+   "pass": true,
+   "rel_gap": 1.772526087235463e-11,
+   "status": "ok",
+   "with_link": true
+  }
+ ],
+ "experiment_id": "X-EXP-001-TOL1E-10",
+ "label": "EXPLORATORY (M4, owner item 3 of 2026-11-25b): frozen analysis applied to a rerun at relative gap 1e-10. Not a confirmatory result; the frozen verdict of the confirmatory run stands.",
+ "max_abs_diff": 7.526296030846424e-09,
+ "n_records": 6,
+ "run_dir": "results/exploratory/X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f",
+ "solver_iterations_max": 9,
+ "solver_rel_gap_max": 1.772526087235463e-11,
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 0,
+  "ok": 6
+ },
+ "tolerance_abs": 1e-06,
+ "verdict": "reproduced"
+}

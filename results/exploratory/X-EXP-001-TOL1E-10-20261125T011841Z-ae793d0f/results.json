@@ -1,0 +1,385 @@
+{
+ "config_hash": "ae793d0fe516436cadbfe736ce002825b0be8b2538a7f4bd26522f466f327dbe",
+ "experiment_id": "X-EXP-001-TOL1E-10",
+ "generated_utc": "2026-11-25T01:18:41.831497+00:00",
+ "label": "exploratory",
+ "records": [
+  {
+   "arm": "SO",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     3.0,
+     3.0,
+     3.0,
+     3.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 83.0,
+    "max_vc": null,
+    "mean_trip_time": 83.0,
+    "min_link_time": 30.0,
+    "n_used_paths": 2,
+    "p95_trip_time": 83.0,
+    "path_flows": [
+     [
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 498.0
+   },
+   "network": "braess-without-e",
+   "record_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/braess-d6/braess-wl0-d6.0/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.0007206669979495928,
+    "tol": 1e-10
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.3975903614457832,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     6.0,
+     0.0,
+     6.0,
+     0.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 116.0,
+    "max_vc": null,
+    "mean_trip_time": 116.0,
+    "min_link_time": 0.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 116.0,
+    "path_flows": [
+     [
+      {
+       "flow": 6.0,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 696.0
+   },
+   "network": "braess-without-e",
+   "record_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/braess-d6/braess-wl0-d6.0/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 9.058299474418163e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": false
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     3.0,
+     3.0,
+     3.0,
+     3.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 83.0,
+    "max_vc": null,
+    "mean_trip_time": 83.0,
+    "min_link_time": 30.0,
+    "n_used_paths": 2,
+    "p95_trip_time": 83.0,
+    "path_flows": [
+     [
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 3.0,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 498.0
+   },
+   "network": "braess-without-e",
+   "record_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/braess-d6/braess-wl0-d6.0/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 1,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.00014637500134995207,
+    "tol": 1e-10
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "SO",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.0,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     2.9999999999999996,
+     3.0000000000000004,
+     2.9999999999999996,
+     3.0000000000000004,
+     0.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 83.0,
+    "max_vc": null,
+    "mean_trip_time": 83.0,
+    "min_link_time": 10.0,
+    "n_used_paths": 2,
+    "p95_trip_time": 83.0,
+    "path_flows": [
+     [
+      {
+       "flow": 2.9999999999999996,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 3.0000000000000004,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 498.0
+   },
+   "network": "braess",
+   "record_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/braess-d6/braess-wl1-d6.0/SO",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 2,
+    "max_iter": 20000,
+    "rel_gap": 0.0,
+    "runtime_s": 0.00019683400023495778,
+    "tol": 1e-10
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "FF",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.6385542168674698,
+    "flow_weighted_vc": null,
+    "gini_stretch": 0.0,
+    "link_flow": [
+     6.0,
+     0.0,
+     0.0,
+     6.0,
+     6.0
+    ],
+    "max_node_imbalance": 0.0,
+    "max_trip_time": 136.0,
+    "max_vc": null,
+    "mean_trip_time": 136.0,
+    "min_link_time": 16.0,
+    "n_used_paths": 1,
+    "p95_trip_time": 136.0,
+    "path_flows": [
+     [
+      {
+       "flow": 6.0,
+       "path": [
+        0,
+        1,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 816.0
+   },
+   "network": "braess",
+   "record_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/braess-d6/braess-wl1-d6.0/FF",
+   "seed": null,
+   "solver": {
+    "algorithm": "all-or-nothing",
+    "converged": true,
+    "iterations": 0,
+    "max_iter": null,
+    "rel_gap": null,
+    "runtime_s": 6.154199945740402e-05,
+    "tol": null
+   },
+   "status": "ok"
+  },
+  {
+   "arm": "UE",
+   "cell": "braess-d6",
+   "error": null,
+   "factors": {
+    "demand": 6.0,
+    "with_link": true
+   },
+   "metrics": {
+    "R": 0.10843373495487207,
+    "flow_weighted_vc": null,
+    "gini_stretch": 5.908360220443645e-12,
+    "link_flow": [
+     3.9999999999828937,
+     2.0000000000171063,
+     1.9999999997947393,
+     4.000000000205262,
+     2.0000000001881544
+    ],
+    "max_node_imbalance": 8.881784197001252e-16,
+    "max_trip_time": 92.00000000206973,
+    "max_vc": null,
+    "mean_trip_time": 92.00000000125438,
+    "min_link_time": 12.000000000188155,
+    "n_used_paths": 3,
+    "p95_trip_time": 92.00000000206973,
+    "path_flows": [
+     [
+      {
+       "flow": 2.0000000001881544,
+       "path": [
+        0,
+        1,
+        2,
+        3
+       ]
+      },
+      {
+       "flow": 1.9999999997947393,
+       "path": [
+        0,
+        1,
+        3
+       ]
+      },
+      {
+       "flow": 2.0000000000171063,
+       "path": [
+        0,
+        2,
+        3
+       ]
+      }
+     ]
+    ],
+    "share_links_over_capacity": null,
+    "total_demand": 6.0,
+    "tstt": 552.0000000075263
+   },
+   "network": "braess",
+   "record_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f/braess-d6/braess-wl1-d6.0/UE",
+   "seed": null,
+   "solver": {
+    "algorithm": "gradient-projection",
+    "converged": true,
+    "iterations": 9,
+    "max_iter": 20000,
+    "rel_gap": 1.772526087235463e-11,
+    "runtime_s": 0.0005585840044659562,
+    "tol": 1e-10
+   },
+   "status": "ok"
+  }
+ ],
+ "run_id": "X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f",
+ "schema_version": "flow.result/1.0.0"
+}
