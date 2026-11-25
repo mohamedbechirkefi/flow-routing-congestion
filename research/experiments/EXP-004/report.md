@@ -16,6 +16,7 @@
 **Question.** How does the collective excess change when a fraction c of travellers follows system-optimal routing, and when every capacity is scaled?
 
 **Method.** The 100 EXP-003 6x6 instances at rho = 2, run for:
+
 - MIX(c) with c in {0, 0.25, 0.5, 0.75, 1};
 - capacity scales {0.8, 1.0, 1.2}, with total demand fixed at the scale-1.0 calibration;
 - FF and SO at each scale.
@@ -25,6 +26,7 @@ Gradient projection solves both the SO reference and the follower UE. A MIX reco
 **Rule.** H1 holds if every consecutive paired median difference `R(MIX(c_k)) - R(MIX(c_k+1))` has a one-sided 95 percent bootstrap lower bound above 0. The confirmatory test uses capacity scale 1.0 (D-012).
 
 **Outcome.**
+
 - At scale 1.0 the medians are 0.02317, 0.01824, 0.01254, 0.00496 and 0. All four lower bounds are positive (0.00343, 0.00442, 0.00652, 0.00445), so H1 is supported.
 - The same holds at scales 0.8 and 1.2 (descriptive).
 
@@ -97,10 +99,14 @@ Partial central control is studied in Stackelberg routing (Roughgarden 2004) and
 | MIX(0.75) | 1.0164 [1.0141, 1.0178] | 1.0132 [1.0120, 1.0144] | 1.0109 [1.0093, 1.0116] |
 
 **Figure** `figures/exp004_compliance.png`.
+
+![EXP-004 (confirmatory): median R of MIX(c) against compliance c at three capacity scales (left) and paired median differences between consecutive compliance levels at capacity 1.0 (right), with 95 percent bootstrap intervals.](figures/exp004_compliance.png){width=100%}
+
 - Caption: "Left: median R(MIX(c)) with 95% bootstrap CI against compliance c, for each capacity scale (n = 100). Right: paired median differences between consecutive compliance levels at capacity 1.0, with 95% CI."
 - Alt text: "Decreasing curves; all paired differences above zero."
 
 **Expected versus observed.**
+
 - Expected: a strict decrease with c, with possible re-equilibration offsets.
 - Observed: a strict decrease at every step and at every scale. The largest single step is 0.5 to 0.75. Compliant travellers' mean trip time is 0.4 to 1.6 percent longer than that of non-compliant travellers.
 

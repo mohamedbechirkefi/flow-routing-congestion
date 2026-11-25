@@ -3,7 +3,7 @@
 # Regenerate research/paper/manuscript.tex from the canonical Markdown (decision D-002).
 set -eu
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PANDOC="${PANDOC:-/Users/bechir/research/labs/.tools/pandoc}"
+PANDOC="${PANDOC:-$ROOT/../.tools/pandoc}"
 OUT="$ROOT/research/paper/manuscript.tex"
 TMP="$OUT.tmp"
 "$PANDOC" "$ROOT/research/paper/manuscript.md" -s -t latex -o "$TMP"

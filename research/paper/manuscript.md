@@ -45,8 +45,8 @@ No novelty is claimed for any theoretical statement.
 Only sources actually opened are used for content statements. Their reading level is given in brackets; sources whose text was not opened are cited for attribution only.
 
 - **The paradox.** Braess's 1968 paper, read in the English translation of Braess, Nagurney and Wakolbinger (2005) [read], gives a four-node network in which, at total flow 6, the equilibrium with an added link has path flows 2, 2 and 2 and travel time 92, while eliminating the link makes the equilibrium coincide with the optimal flow. The Supernetworks Center page (Nagurney, n.d.) [read] gives the link costs `10f_a`, `f_b + 50`, `f_c + 50`, `10f_d`, `f_e + 10` and the travel time 83 without the added link. EXP-001 reproduces this example.
-- **Price of anarchy.** Roughgarden and Tardos (2002) [author preprint, abstract and introduction read] show that with linear latencies the total latency of selfish routing is at most 4/3 of the minimum, and that with general continuous nondecreasing latencies it can be arbitrarily worse. Our primary metric `R(UE) + 1` is this ratio, measured instead of bounded.
-- **Empirical gaps.** Youn, Gastner and Jeong (2008) [abstract read] study the price of anarchy on city road networks and report that closing certain streets can reduce travel time. We make no city claim; EXP-005 asks the analogous question on synthetic grids.
+- **Price of anarchy.** Roughgarden and Tardos (2002) [author preprint; abstract, Section 1 and Theorem 4.5 checked] show that with linear latencies the total latency of selfish routing is at most 4/3 of the minimum, and that with general continuous nondecreasing latencies it can be arbitrarily worse. Our primary metric `R(UE) + 1` is this ratio, measured instead of bounded.
+- **Empirical gaps.** Youn, Gastner and Jeong (2008) [arXiv version 4 read in full] study the price of anarchy on city road networks and report that closing certain streets can reduce travel time. We make no city claim; EXP-005 asks the analogous question on synthetic grids.
 - **Formulations and methods.** The user-equilibrium and system-optimum principles are commonly attributed to Wardrop (1952), the convex equilibrium formulation to Beckmann, McGuire and Winsten (1955), and the Frank-Wolfe method to Frank and Wolfe (1956) and, for traffic assignment, LeBlanc, Morlok and Pierskalla (1975) [all four: metadata verified, text not read; attribution only]. Partial central control and mixed behaviour classes, related to our compliance arm, are studied by Roughgarden (2004) and Harker (1988) [metadata verified, text not read]; we do not claim that our MIX(c) arm matches either formulation.
 - **Data.** The Sioux Falls network of the Transportation Networks for Research collection [README files read] is described by its maintainers as "not considered as a realistic one", useful "for code debugging", and as carrying the "traditional" BPR value B = 0.15.
 
@@ -124,7 +124,9 @@ Every number in this section is read from the committed `analysis.json` of the e
 
 **EXP-001.** Free-flow and system-optimal values, and the UE without the extra link, matched the analytic values exactly (largest difference 4.4e-16). The UE with the link stopped after 6 sweeps at RG 7.29e-8 with TSTT 551.99993809, mean trip time 91.99998968 and zigzag path flow 1.99999845 against 552, 92 and 2. The 6.19e-5 TSTT difference exceeds the frozen absolute tolerance of 1e-6, so EXP-001 is **contradicted** under its frozen rule. The published effect (83 without the link, 92 with it) is reproduced to the solver's tolerance.
 
-**EXP-002.** Over 75 demand values, adding the link raised UE travel time at exactly the predicted points (main sweep: 2.75 to 8.75) and at none outside. The lower paradox boundary was recovered as 2.580645161290321 (80/31 within 1.3e-15). The two boundaries estimated from the middle regime, where UE uses three paths, were 8.888899966 (80/9, difference 1.11e-5) and 3.636354878 (40/11, difference 8.76e-6). EXP-002 is **contradicted** under its frozen rule. The largest per-point UE time error was 1.06e-3, at d = 3.64 just above the regime change (Figure `research/experiments/EXP-002/figures/exp002_sweep.png`).
+**EXP-002.** Over 75 demand values, adding the link raised UE travel time at exactly the predicted points (main sweep: 2.75 to 8.75) and at none outside. The lower paradox boundary was recovered as 2.580645161290321 (80/31 within 1.3e-15). The two boundaries estimated from the middle regime, where UE uses three paths, were 8.888899966 (80/9, difference 1.11e-5) and 3.636354878 (40/11, difference 8.76e-6). EXP-002 is **contradicted** under its frozen rule. The largest per-point UE time error was 1.06e-3, at d = 3.64 just above the regime change (Figure 1).
+
+![EXP-002 (confirmatory): equilibrium path time against total demand with and without link e, analytic and computed (left), and the difference in equilibrium total travel time with the predicted paradox interval shaded (right). Deterministic; no intervals. Source: `research/experiments/EXP-002/figures/exp002_sweep.png`.](../experiments/EXP-002/figures/exp002_sweep.png){width=100%}
 
 **Protocol and config mismatch (disclosed).** EXP-001 protocol item 5 states a relative gap of 1e-10 "for this run" and item 17 a 1e-6 versus 1e-10 sensitivity, but the frozen config runs at 1e-6, and EXP-002's frozen config also uses 1e-6 while its contradiction threshold is 1e-6. The confirmatory runs used the frozen configs. The owner decided on 2026-11-25 that the frozen verdicts stand and that a 1e-10 rerun be reported beside them as an exploratory check.
 
@@ -152,7 +154,9 @@ In the primary cell (6 by 6, rho = 2, n = 100, none excluded) the median `R(UE)`
 | 6x6 | 2 | 0.02317 [0.02075, 0.02559] | 0.2275 [0.2078, 0.2498] | 0.2007 [0.1782, 0.2202] |
 | 6x6 | 3 | 0.03744 [0.03295, 0.04152] | 1.2372 [1.1569, 1.3924] | 1.2101 [1.1188, 1.3400] |
 
-The equilibrium excess grows with demand at both sizes and is below delta at rho = 1. The free-flow baseline is close to UE at rho = 1 and far worse once demand is congested. Equilibrium routing raised the Gini coefficient of the stretch slightly over SO in every cell (6 by 6, rho = 2: paired median 0.00408, interval [0.00279, 0.00488]); p95 trip-time differences were small and of both signs (supplementary Table S3). Figure: `research/experiments/EXP-003/figures/exp003_R_by_cell.png`.
+The equilibrium excess grows with demand at both sizes and is below delta at rho = 1. The free-flow baseline is close to UE at rho = 1 and far worse once demand is congested. Equilibrium routing raised the Gini coefficient of the stretch slightly over SO in every cell (6 by 6, rho = 2: paired median 0.00408, interval [0.00279, 0.00488]); p95 trip-time differences were small and of both signs (supplementary Table S3). See Figure 2.
+
+![EXP-003 (confirmatory): per-instance R for UE and FF by demand level on 4 by 4 and 6 by 6 grids (grey), with medians and 95 percent bootstrap intervals (red); the dashed line is delta = 0.01; symmetric logarithmic vertical axis. Source: `research/experiments/EXP-003/figures/exp003_R_by_cell.png`.](../experiments/EXP-003/figures/exp003_R_by_cell.png){width=100%}
 
 **Table 3.** Sensitivity analyses on the primary cell (6 by 6, rho = 2). Source: `analysis.json` (`sensitivity`).
 
@@ -165,7 +169,9 @@ The equilibrium excess grows with demand at both sizes and is below delta at rho
 | S3, absolute calibration | 100 (0) | 0.02136 | 0.01847 | [0.01781, 0.02369] | yes |
 | S1, Frank-Wolfe reference (no decision) | 7 (93) | 0.01407 | 0.00981 | [0.00981, 0.02904] | n/a |
 
-Against the primary values, the paired median change was -9.9e-6 at RG 1e-4 and 5.3e-12 at RG 1e-8. The Frank-Wolfe reference converged on only 7 of 100 instances (SO) and provides no independent check. Figure: `research/experiments/EXP-003/figures/exp003_sensitivity.png`.
+Against the primary values, the paired median change was -9.9e-6 at RG 1e-4 and 5.3e-12 at RG 1e-8. The Frank-Wolfe reference converged on only 7 of 100 instances (SO) and provides no independent check. See Figure 3.
+
+![EXP-003 sensitivity analyses: median R(UE) on 6 by 6 grids at rho = 2 with 95 percent bootstrap intervals, for the primary analysis, the two solver tolerances, linear costs (S2), the Frank-Wolfe reference (converged instances only) and the alternative calibration (S3); the dashed line is delta = 0.01. Source: `research/experiments/EXP-003/figures/exp003_sensitivity.png`.](../experiments/EXP-003/figures/exp003_sensitivity.png){width=100%}
 
 ### 5.4 Compliance and capacity (EXP-004)
 
@@ -180,11 +186,15 @@ Against the primary values, the paired median change was -9.9e-6 at RG 1e-4 and 
 | MIX(0.75) | 0.00868 [0.00809, 0.00950] | 0.00496 [0.00432, 0.00600] | 0.00294 [0.00251, 0.00338] |
 | MIX(1) = SO | 0 | 0 | 0 |
 
-At capacity 1.0 the four consecutive paired median differences were 0.00415, 0.00539, 0.00725 and 0.00496, with one-sided lower bounds 0.00343, 0.00442, 0.00652 and 0.00445, all above 0: **H1 is supported**. Every step also passed at scales 0.8 and 1.2 (descriptive). The identity checks held: MIX(0) reproduced the EXP-003 UE TSTT on all 100 instances (largest relative difference 0.0) and MIX(1) gave `R = 0`. Compliant travellers' mean trip time exceeded that of the others by a median factor of 1.0051 at c = 0.25 and 1.0132 at c = 0.75 (capacity 1.0). Figure: `research/experiments/EXP-004/figures/exp004_compliance.png`.
+At capacity 1.0 the four consecutive paired median differences were 0.00415, 0.00539, 0.00725 and 0.00496, with one-sided lower bounds 0.00343, 0.00442, 0.00652 and 0.00445, all above 0: **H1 is supported**. Every step also passed at scales 0.8 and 1.2 (descriptive). The identity checks held: MIX(0) reproduced the EXP-003 UE TSTT on all 100 instances (largest relative difference 0.0) and MIX(1) gave `R = 0`. Compliant travellers' mean trip time exceeded that of the others by a median factor of 1.0051 at c = 0.25 and 1.0132 at c = 0.75 (capacity 1.0). See Figure 4.
+
+![EXP-004 (confirmatory): median R of MIX(c) against compliance c at three capacity scales (left) and paired median differences between consecutive compliance levels at capacity 1.0 (right), with 95 percent bootstrap intervals. Source: `research/experiments/EXP-004/figures/exp004_compliance.png`.](../experiments/EXP-004/figures/exp004_compliance.png){width=100%}
 
 ### 5.5 Braess links in 4 by 4 grids (EXP-005, optional)
 
-On the 100 EXP-003 4 by 4 instances at rho = 2, each of the 48 directed links was removed in turn (5,154 solves, no disconnecting removal). **77 of 100 instances** contained at least one link whose removal lowered TSTT_UE by more than 1e-4 relative (Wilson 95 percent [0.678, 0.842]); all 177 such links were confirmed at RG 1e-8. At the 1e-3 threshold the incidence was 67 of 100 ([0.573, 0.754]). The largest relative decrease was 0.0354 and the smallest flagged one 1.16e-4. **H1 is supported.** An exploratory materiality check (J-0023) found that 17 of 100 instances have a removal lowering TSTT_UE by more than 1e-2, and that the median effect over the 177 flagged links was 0.0030. Figure: `research/experiments/EXP-005/figures/exp005_removals.png`.
+On the 100 EXP-003 4 by 4 instances at rho = 2, each of the 48 directed links was removed in turn (5,154 solves, no disconnecting removal). **77 of 100 instances** contained at least one link whose removal lowered TSTT_UE by more than 1e-4 relative (Wilson 95 percent [0.678, 0.842]); all 177 such links were confirmed at RG 1e-8. At the 1e-3 threshold the incidence was 67 of 100 ([0.573, 0.754]). The largest relative decrease was 0.0354 and the smallest flagged one 1.16e-4. **H1 is supported.** An exploratory materiality check (J-0023) found that 17 of 100 instances have a removal lowering TSTT_UE by more than 1e-2, and that the median effect over the 177 flagged links was 0.0030. See Figure 5.
+
+![EXP-005 (confirmatory, optional): number of Braess links per instance at the 1e-4 threshold (left) and distribution of the relative decrease of TSTT_UE after removal, on a log10 scale (right). Source: `research/experiments/EXP-005/figures/exp005_removals.png`.](../experiments/EXP-005/figures/exp005_removals.png){width=100%}
 
 ### 5.6 One real test network (EXP-006)
 
@@ -199,7 +209,9 @@ The engine's UE link flows at the published Sioux Falls demand matched the TNTP 
 | rho = 3 | 0.03012 | 1.12283 | 0.0786 / 0.0557 / 0.4639 |
 | published (rho 5.788) | 0.03973 | 8.36129 | 0.1950 / 0.1774 / 0.7022 |
 
-At RG 1e-8, `R(UE)` was 0.01452 at rho = 2 and 0.03975 at the published level. The direction replicates at rho = 2 by a margin of 0.0045 above delta. Figure: `research/experiments/EXP-006/figures/exp006_R.png`.
+At RG 1e-8, `R(UE)` was 0.01452 at rho = 2 and 0.03975 at the published level. The direction replicates at rho = 2 by a margin of 0.0045 above delta. See Figure 6.
+
+![EXP-006 (confirmatory): R for UE and FF on the Sioux Falls network by demand level, including the published demand; one deterministic network, no interval; the dashed line is delta = 0.01. Source: `research/experiments/EXP-006/figures/exp006_R.png`.](../experiments/EXP-006/figures/exp006_R.png){width=100%}
 
 ### 5.7 Runtime
 
@@ -280,10 +292,10 @@ No funding. No competing interests. An AI system (Claude, Anthropic) acted as re
 - LeBlanc, L. J., Morlok, E. K., Pierskalla, W. P. (1975). An efficient approach to solving the road network equilibrium traffic assignment problem. *Transportation Research* 9(5), 309-318. doi:10.1016/0041-1647(75)90030-1 [metadata verified; text not read].
 - Nagurney, A. (n.d.). The Braess Paradox. Virtual Center for Supernetworks, UMass Amherst. https://supernet.isenberg.umass.edu/facts/braess.html [read 2026-11-24].
 - Roughgarden, T. (2004). Stackelberg scheduling strategies. *SIAM Journal on Computing* 33(2), 332-350. doi:10.1137/S0097539701397059 [metadata verified; text not read].
-- Roughgarden, T., Tardos, E. (2002). How bad is selfish routing? *Journal of the ACM* 49(2), 236-259. doi:10.1145/506147.506153 [author preprint of 5 December 2001, abstract and introduction read].
+- Roughgarden, T., Tardos, E. (2002). How bad is selfish routing? *Journal of the ACM* 49(2), 236-259. doi:10.1145/506147.506153 [author preprint of 5 December 2001; abstract (page 1), Section 1 "Our Results" (page 3) and Theorem 4.5 (page 17) checked; journal version not checked].
 - Transportation Networks for Research Core Team. Transportation Networks for Research (TNTP), repository README and SiouxFalls/README.md at commit d1639b4ef218c17928ba573e806ddf8ba5e7ae6d. https://github.com/bstabler/TransportationNetworks [read 2026-11-24 and 2026-11-25].
 - Wardrop, J. G. (1952). Some theoretical aspects of road traffic research. *Proceedings of the Institution of Civil Engineers* 1(3), 325-362. doi:10.1680/ipeds.1952.11259 [metadata verified; text not read].
-- Youn, H., Gastner, M. T., Jeong, H. (2008). Price of anarchy in transportation networks: efficiency and optimality control. *Physical Review Letters* 101(12), 128701. doi:10.1103/PhysRevLett.101.128701 [abstract read].
+- Youn, H., Gastner, M. T., Jeong, H. (2008). Price of anarchy in transportation networks: efficiency and optimality control. *Physical Review Letters* 101(12), 128701. doi:10.1103/PhysRevLett.101.128701 [arXiv:0712.1598 version 4 of 7 August 2008 read in full, pages 1 to 4; journal version not checked].
 
 ## Supplementary appendix
 

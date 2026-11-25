@@ -26,7 +26,7 @@ Labels: **Measured** (confirmatory), **Exploratory** (defined after results were
 
 ## Commands
 
-From the repository root, with Node from `/Users/bechir/research/helix/.tools/node/bin` on the path for the tests and the checker:
+From the repository root, with Node 22 on the path (on the development machine, the workspace's read-only copy in `../../helix/.tools/node/bin`) for the tests and the checker:
 
     .venv/bin/python scripts/export_demo_data.py && .venv/bin/python scripts/export_demo_sandbox.py
     .venv/bin/python scripts/build_demo.py

@@ -18,11 +18,11 @@ All values below come from commands run this session; the outputs are recorded i
 | Tool | Version | Path | Status |
 |---|---|---|---|
 | Python | 3.12.1 | `/usr/local/bin/python3` | Present |
-| uv | 0.9.5 | `/Users/bechir/research/labs/.tools/py/bin/uv` | Present; `uv lock` succeeded (20 packages) |
-| typst (Python package) | 0.15.0 | `/Users/bechir/research/labs/.tools/py/` | Present; exploratory smoke PDF compiled |
+| uv | 0.9.5 | `../.tools/py/bin/uv` (relative to the repository) | Present; `uv lock` succeeded (20 packages) |
+| typst (Python package) | 0.15.0 | `../.tools/py/` | Present; exploratory smoke PDF compiled |
 | pypdf, pillow | 6.20.0, 11.3.0 | same | Present |
-| pandoc | 3.6.3 | `/Users/bechir/research/labs/.tools/pandoc` | Present |
-| Node | 22.23.3 | `/Users/bechir/research/helix/.tools/node/bin` | Present; read-only use only |
+| pandoc | 3.6.3 | `../.tools/pandoc` | Present |
+| Node | 22.23.3 | `../../helix/.tools/node/bin` | Present; read-only use only |
 | git | 2.42.1 | system | Present |
 | TeX (tex, pdflatex, xelatex) | none | | **Absent**: decision D-002 |
 

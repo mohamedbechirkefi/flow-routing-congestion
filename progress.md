@@ -307,3 +307,52 @@ Offline after the initial load, responsive at 360 px, usable with the keyboard, 
 ### Next action
 
 M6 (release candidate): PDFs, clean-clone reproduction, owner review checklist.
+
+## 2026-11-25: Session 8 (M6, release candidate)
+
+**Authority.** Owner, 2026-11-25, "Next" (second) (`labs/_shared/owner-approvals-2026-11-25e.md`), under the coordinator's M6 brief; FLOW keeps its Python and plain static demo stack (D-018). No change to frozen protocols, configs, seeds or results; no confirmatory run; no push, tag or release; no paid service.
+
+### Starting state
+
+`git status`: clean; HEAD `9ce3092` (M5).
+
+### Clean clone (scratch directory outside the repository)
+
+- `git clone -q <repo> $S/clone`; `uv sync --frozen --all-groups --all-extras` -> 19 packages installed; rerun `Audited 19 packages in 3ms`.
+- `nice -n 10 .venv/bin/python -m pytest -q` -> `143 passed in 133.80s (0:02:13)`.
+- `scripts/analyse_exp.py` on the committed raw results of EXP-001 to EXP-005 (EXP-004 with `--exp003`) -> `git status --short` empty (byte-identical analysis files and figures). EXP-006: `cannot read result file ... results.json` because the TNTP-derived `results.json` is not committed (documented in its reproduction file).
+- `.venv/bin/flow run experiments/exploratory/X-EXP-001-TOL1E-10.json --out $S/smoke --quiet` -> 0.33 s; config `cmp` identical; `records 6 max abs diff (excl. runtime) 0 differing fields []`.
+- `scripts/build_demo.py` -> `export check: identical`, `sandbox export check: identical`, `built demo/dist: 8 files`; `node --test demo/tests/*.test.mjs` -> `# tests 33`, `# pass 33`, `# fail 0`; `node tools/a11y_check.mjs dist` -> nine PASS lines and `A11Y-CHECK PASS`.
+- `scripts/export_demo_data.py` and `scripts/export_demo_sandbox.py` -> `git status --short` empty (deterministic).
+
+### Findings and fixes (working repository)
+
+1. PDF title not set in metadata and printed as plain text: builder strips leading HTML comments and promotes the heading (`src/flow/report.py`).
+2. Table captions separated from their tables (unbreakable Typst figures): tables now break across pages.
+3. Table cells centred and justified, wrapped numbers spread across cells: left-aligned, unjustified, 8 pt, header rules.
+4. 21 bullet lists in the six reports printed as raw "- " text (no blank line before the list): blank lines inserted.
+5. Figures only referenced by path: the manuscript now embeds Figures 1 to 6 and each report its own figures (Typst root is the repository root).
+6. Absolute home-directory paths in six current files replaced by relative paths; kept in append-only records and committed logs (see the note below).
+7. Youn et al. (2008) read in full (arXiv v4); Roughgarden and Tardos (2002) passages checked (pages 1, 3, 17); labels updated; evidence audit section 6 appended.
+8. `CITATION.cff`: version `0.1.0-rc1`, `date-released` removed.
+
+### PDFs (built with `flow.report.build_pdf`, inspected as PNG at 60 ppi, page 6 also at 130 ppi)
+
+`manuscript.pdf` 12 pages (520,659 bytes), `supplementary.pdf` 5 (145,996), EXP-001 4 (129,424), EXP-002 4 (184,731), EXP-003 5 (224,322), EXP-004 3 (156,577), EXP-005 3 (127,420), EXP-006 4 (113,612). pypdf: title set in all eight, 0 e-mail addresses, 0 local paths. `bash scripts/build_manuscript_tex.sh` -> `wrote .../manuscript.tex` (6 `includegraphics`).
+
+### Checks (actual outputs)
+
+- `.venv/bin/python scripts/m6_checks.py all` -> `links: 12 relative links checked in 58 tracked Markdown files`, `PASS links`; `numbers: 46 decimal numbers checked in 4 files`, `PASS numbers`; `manifests: 109 artifact-manifest paths checked`, `3 of 3 data-manifest downloads present locally and checked`, `PASS manifests`; `cff: 8 top-level keys checked; version 0.1.0-rc1`, `PASS cff`.
+- `research/freeze.json`: 12 of 12 frozen file hashes match.
+- `scripts/evidence_audit.py` rerun: A1 27 checked, no mismatch; A2 all equal; A3 all match; A4 40 checked, no mismatch; untraced strings unchanged (DOIs, 128701, 10,626).
+- Scan of 275 tracked and new files: 0 e-mail addresses (one false positive, the text `user.email=...` in `CLAUDE.md`), 0 tokens or keys, 0 private-key headers, 0 `.env` files; home-directory paths in 11 files (30 lines) before the fix, 5 files after (append-only or committed logs).
+- SPDX: every file added since the initial commit has the header except `results/exploratory/X-SF-UE-CHECK/output.txt` (a result; not edited).
+- Licences: `research/publication/dependency_licences.md`; no runtime dependency is copyleft; flags: pandoc (GPL, build tool), embedded fonts (OFL, DejaVu), headless Chrome (test tool), hatchling (not read).
+
+### Note on append-only records (no edit made)
+
+This file (entries of 2026-11-24, lines 17 and 22) and `research/experiment_journal.jsonl` (J-0001) contain absolute home-directory paths of the development machine, as do the committed run logs `results/raw/logs/worker-A.log`, `results/raw/logs/worker-B.log` and `results/exploratory/session-M2-runs.log`. They are not rewritten; the owner decides before publication whether they are acceptable.
+
+### Owner placeholders and open items
+
+Listed with file and line in `research/publication/author_review.md`, section "Prepared for the owner (M6, 2026-11-25)": repository and demo URLs (9 places plus the generated `manuscript.tex`), the manuscript title, the CITATION title, blocker B5, the licence flags, and G-PUBLIC.

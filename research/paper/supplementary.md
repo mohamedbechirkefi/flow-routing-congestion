@@ -138,7 +138,7 @@ Confirmatory sensitivity results are in manuscript Table 3 (EXP-003 S1 to S3) an
 | EXP-005 | `research/experiments/EXP-005/report.md` | `research/experiments/EXP-005/reproduction.md` |
 | EXP-006 | `research/experiments/EXP-006/report.md` | `research/experiments/EXP-006/reproduction.md` |
 
-Report PDFs are generated locally at M6 and are not claimed to exist before then.
+Report PDFs (`report.pdf` beside each report) were compiled with `flow.report.build_pdf` and visually inspected at M6 (2026-11-25).
 
 ## S6. Deviations and owner decisions
 

@@ -17,12 +17,14 @@
 **Question.** Does the primary direction (equilibrium routing exceeds the system optimum by more than delta = 0.01) hold on one real road network?
 
 **Method.**
+
 - Data: TNTP Sioux Falls, used locally and SHA-256 checked.
 - Arms FF, UE and SO by gradient projection at `RG <= 1e-6`.
 - Demand levels: the published OD table (rho_SF = 5.788) and the published shares scaled to rho = 1, 2 and 3.
 - S1: the published level and rho = 2 re-solved at 1e-8.
 
 **Outcome.**
+
 - Validation gate: the UE link flows at the published demand match the TNTP best-known solution within 1.28e-4 of the largest flow (threshold 1e-3). The gate passes.
 - R(UE) at rho = 2 is 0.01453, so the direction replicates. At 1e-8 it is 0.01452.
 
@@ -85,10 +87,14 @@ R, mean trip times and the Gini of the stretch:
 - Validation gate: 1.28e-4 (pass, threshold 1e-3).
 - S1 at `RG <= 1e-8`: R(UE) 0.01452 at rho = 2 (UE 5 sweeps, SO 86); 0.03975 at the published level (UE 183 sweeps, SO 83).
 - Figure `figures/exp006_R.png`.
+
+![EXP-006 (confirmatory): R for UE and FF on the Sioux Falls network by demand level, including the published demand; one deterministic network, no interval; the dashed line is delta = 0.01.](figures/exp006_R.png){width=100%}
+
   - Caption: "R(UE) and R(FF) on Sioux Falls by demand level (symmetric-log axis); dashed line delta = 0.01; deterministic, one network, no interval."
   - Alt text: "UE bars above the dashed line from rho = 2 on; FF bars much higher."
 
 **Expected versus observed.**
+
 - Expected: R(UE) > 0.01 at rho = 2.
 - Observed: 0.01453, which is above the margin but close to it. R(UE) grows with demand, as on the grids.
 

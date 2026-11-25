@@ -84,7 +84,7 @@ def test_report_generation(run_dir):
     assert res["figures"] and all((run_dir / "figures" / f).exists() for f in res["figures"])
 
 
-@pytest.mark.skipif(not Path("/Users/bechir/research/labs/.tools/pandoc").exists(), reason="pandoc not available")
+@pytest.mark.skipif(not Path(__import__("flow.report", fromlist=["PANDOC"]).PANDOC).exists(), reason="pandoc not available")
 def test_report_pdf(run_dir, tmp_path):
     d = tmp_path / "copy"
     shutil.copytree(run_dir, d)

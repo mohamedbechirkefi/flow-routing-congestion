@@ -75,3 +75,23 @@ Every decimal number, and every integer above 100 that is not a year, in the doc
 | EXP-005 incidence (H1 supported) | Confirmatory (optional); effects mostly small | 4x4 grids, rho = 2 |
 | EXP-006 replication | Deterministic single comparison, small margin | One unrealistic test network |
 | EXP-001, EXP-002 (contradicted) | Confirmatory verdicts; exploratory evidence points to solver tolerance | Braess network |
+
+## 6. M6 addendum (2026-11-25): source levels re-checked
+
+Each entry of `research/paper/references.bib` (11 entries, all cited in the manuscript text before the reference list) is labelled below. Free, legal full texts were sought for the sources a content claim rests on; no paid access, login or shadow library was used.
+
+| Key | Level after M6 | Note |
+|---|---|---|
+| braess2005 | read in full | Author-hosted PDF, 2026-11-24 (CL-E01). |
+| supernet_braess | read in full | Web page, 2026-11-24 (CL-E01). |
+| tntp | read in full (README files) | Root README 2026-11-24; SiouxFalls/README.md 2026-11-25 (CL-E04). |
+| youn2008 | read in full (arXiv version) | arXiv:0712.1598v4 (7 August 2008, 4 pages, SHA-256 `53b5062c...b251b`) opened 2026-11-25. CL-E03 checked: Boston, London and New York principal-road networks (page 2); closing six, seven and twelve streets lowers the Nash-equilibrium delay (page 4, Figure 2). Previously abstract only. Journal version not checked. |
+| roughgarden_tardos2002 | full text opened; cited passages checked; remainder not read | Author preprint of 5 December 2001 (same SHA-256 as at M1, `886704f9...24a5`, 26 pages). CL-E02 checked: abstract (page 1), Section 1 "Our Results" (page 3) and Theorem 4.5 (page 17) state the 4/3 bound for linear latencies and that the ratio may be unbounded for continuous nondecreasing latencies. Journal version not checked. |
+| wardrop1952, beckmann1955, frank_wolfe1956, leblanc1975, harker1988 | unverified (metadata only; attribution) | No content statement rests on them (CL-E05). Not re-sought: attribution only. Beckmann et al. has a free RAND PDF (noncommercial use; reposting prohibited), which was not downloaded. |
+| roughgarden2004 | unverified (metadata only; attribution) | The author-hosted PDF was fetched on 2026-11-25 but its text layer could not be extracted (font encoding), so it was not read. |
+
+Counts: read in full 4 (braess2005, supernet_braess, tntp, youn2008); full text opened with the cited passages checked 1 (roughgarden_tardos2002); abstract only 0; unverified, metadata only 6 (all attribution-only, CL-E05).
+
+Claims qualified: none needed beyond the existing labels. The CL-E03 label moved from "abstract only" to "read in full (arXiv version)" and the CL-E02 label now names the passages checked, in the manuscript, `references.bib`, the claims register, the literature review and the EXP-003 and EXP-005 reports. The CL-E05 attribution sources stay labelled "metadata verified; text not read" in the manuscript.
+
+Other reference finding: the EXP-005 report cites Steinberg and Zangwill (1983) and Valiant and Roughgarden (2010) "at the metadata level only"; neither is cited in the manuscript, so neither is in `references.bib`. Not changed.

@@ -18,6 +18,7 @@
 **Method.** Frozen sweep: 48 demands from 0.25 to 12.0 in steps of 0.25, plus a fine cell of 27 demands at a 0.05 step around the predicted boundaries. Each point is solved with and without link e for the FF, UE and SO arms by gradient projection at `RG <= 1e-6`. Boundaries are computed from least-squares lines through the points strictly inside each predicted regime, with tolerance 1e-6 (D-012).
 
 **Outcome.**
+
 - At all 75 points the sign of `Delta(d) = TSTT_UE(with e) - TSTT_UE(without e)` agrees with the predicted interval (80/31, 80/9).
 - Computed paradox points of the main sweep: 2.75 to 8.75.
 - Boundaries:
@@ -101,11 +102,15 @@ UE path time with link e, by regime:
 
 - Largest per-point UE time error: 1.06e-3, at d = 3.64 in the fine cell, just above 40/11. There, computed `Delta = 59.5130` against an analytic 59.5224. At d = 4.0 the time error is 3.37e-4.
 - Figure: `figures/exp002_sweep.png`.
+
+![EXP-002 (confirmatory): equilibrium path time against total demand with and without link e, analytic and computed (left), and the difference in equilibrium total travel time with the predicted paradox interval shaded (right). Deterministic; no intervals.](figures/exp002_sweep.png){width=100%}
+
   - Caption: "UE path time with and without link e against total demand (left; lines analytic, markers computed) and Delta(d) = TSTT_UE(with e) - TSTT_UE(without e) (right), with the predicted paradox interval (80/31, 80/9) shaded. Deterministic: no intervals."
   - Alt text: "Two panels; computed points lie on the analytic curves; Delta is positive exactly inside the shaded band."
 - Full per-point values: `analysis.json` (`points`).
 
 **Exploratory check at `RG <= 1e-10` (M4, J-0022; not confirmatory).**
+
 - Authority: owner, 2026-11-25, "Approve all recommendations, push then next", item 3.
 - Config `experiments/exploratory/X-EXP-002-TOL1E-10.json`: the frozen config with only `experiment_id`, `label`, `description` and `solver.tol` (1e-10) changed; committed (`01c2b4b`) before the run.
 - Run `X-EXP-002-TOL1E-10-20261125T011841Z-5acef701`, canonical config hash `5acef70144c3e63e956a2ffb54099b74347644c74fccfb122ec006c473a82791`; 450 ok, at most 24 sweeps, largest final RG 9.59e-11. The manifest records `dirty: true` because the untracked analysis script existed at run time; the runner does not import it.
@@ -123,6 +128,7 @@ UE path time with link e, by regime:
 The exploratory rerun meets the frozen rule. Per-point time agreement is not part of the rule; the residual 3.37e-6 at d = 3.64, where the outer paths carry very little flow, is consistent with a flow-weighted gap criterion that loosely bounds the time of a nearly unused path (a model-dependent reading). The check was defined after the confirmatory result was seen and **does not replace the frozen verdict**, which stays "contradicted".
 
 **Expected versus observed.**
+
 - Expected: all three boundaries within 1e-6, and the sign agreeing everywhere.
 - Observed: the sign agrees everywhere and the lower boundary is exact. The two boundaries that come from the middle regime, where UE uses three paths, are off by about 1e-5.
 

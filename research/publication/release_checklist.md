@@ -1,18 +1,18 @@
 <!-- SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0 -->
 # Release checklist (M6)
 
-Status: not started. Every box is ticked only with the command and its recorded output in `progress.md`.
+Status (2026-11-25, M6): release candidate prepared, awaiting the owner's review and G-PUBLIC. Items are ticked only where this session verified them; the evidence follows each item. Commands and outputs are in `progress.md` (Session 8) and `research/publication/reproducibility_report.md`.
 
-- [ ] Owner froze every confirmatory protocol (hashes in `research/decision_log.md`).
-- [ ] Every registered experiment has a standalone report (status visible: completed, failed, null, exploratory or abandoned).
-- [ ] Clean clone into a separate directory; `uv sync --frozen`; `uv run pytest` passes (count recorded).
-- [ ] Smoke reproduction in the clean clone matches recorded results within tolerance.
-- [ ] Demo builds and works offline after first load.
-- [ ] `data/manifest.json` complete; no non-redistributable data bundled.
-- [ ] Claims audit complete (`claims_audit.md`); every number maps to a result id.
-- [ ] Manuscript and report PDFs compiled (pandoc to Typst) and visually inspected.
-- [ ] Links and cross-references checked.
-- [ ] Secret, e-mail and personal-identifier scan clean.
-- [ ] Licence headers present; third-party licences recorded.
+- [x] Owner froze every confirmatory protocol (hashes in `research/decision_log.md`). Evidence: `research/freeze.json` records the owner's approval of 2026-11-24; the SHA-256 of all 12 files in `frozen_files_sha256` match the current files (12 of 12, recomputed this session); EXP-005's config is recorded under `added_after_freeze` (D-012).
+- [x] Every registered experiment has a standalone report (status visible: completed, failed, null, exploratory or abandoned). Evidence: `research/experiment_registry.csv` lists EXP-001 to EXP-006; each has `report.md` and a compiled `report.pdf` whose first page states the status and the verdict (inspected).
+- [x] Clean clone into a separate directory; `uv sync --frozen`; `uv run pytest` passes (count recorded). Evidence: clone of `9ce3092` in the session scratch directory, `uv sync --frozen --all-groups --all-extras` (19 packages), `143 passed`; the fresh clone of the M6 commit is recorded in the reproducibility report, Part B.
+- [x] Smoke reproduction in the clean clone matches recorded results within tolerance. Evidence: re-analysis of the committed raw results of EXP-001 to EXP-005 regenerated every analysis file and figure byte for byte (`git status` empty); the exploratory 1e-10 EXP-001 run reproduced all 6 committed records exactly (largest difference 0, runtime excluded). EXP-006 cannot be re-analysed in a clone by design (TNTP-derived per-link results are not committed).
+- [x] Demo builds and works offline after first load. Evidence: `scripts/build_demo.py` (`built demo/dist: 8 files`, both export checks identical), `node --test` 33 of 33, checker nine PASS lines and `A11Y-CHECK PASS`, including "offline after first load".
+- [x] `data/manifest.json` complete; no non-redistributable data bundled. Evidence: `git ls-files data` lists only `data/manifest.json`; the three local Sioux Falls files match its SHA-256 and sizes (3 of 3); the EXP-006 `results.json` is not tracked; `scripts/m6_checks.py manifests` PASS.
+- [x] Claims audit complete (`claims_audit.md`); every number maps to a result id. Evidence: `scripts/evidence_audit.py` rerun this session: A1 27 of 27 hashes, A2 all equal, A3 all match, A4 40 of 40, and the only untraced number-like strings are DOIs, the article number 128701 and the derived sum 10,626 (as at M4).
+- [x] Manuscript and report PDFs compiled (pandoc to Typst) and visually inspected. Evidence: `manuscript.pdf` (12 pages), `supplementary.pdf` (5), six `report.pdf` (3 to 5 each), built with `flow.report.build_pdf`; every manuscript and supplementary page and the first and figure pages of each report inspected as PNG; title metadata set, no e-mail address and no local path in any PDF (pypdf); each file under 0.6 MB.
+- [x] Links and cross-references checked. Evidence: `scripts/m6_checks.py links` (all relative links in 58 tracked Markdown files resolve), `numbers` (46 decimal numbers in README and articles appear verbatim in the manuscript), `tests/test_m6_checks.py`; figure numbers 1 to 6 in the manuscript match their references.
+- [ ] Secret, e-mail and personal-identifier scan clean. Not ticked: the scan found 0 e-mail addresses, 0 keys or tokens, 0 private-key headers and 0 `.env` files, and the absolute home-directory paths were removed from six current files, but such paths remain in append-only records (`progress.md`, `research/experiment_journal.jsonl`) and in committed run logs (`results/raw/logs/worker-A.log`, `worker-B.log`, `results/exploratory/session-M2-runs.log`) that M6 may not edit. The owner decides whether they are acceptable.
+- [ ] Licence headers present; third-party licences recorded. Not ticked: third-party licences are recorded in `research/publication/dependency_licences.md` (four flags for the owner), and every file added since the initial commit carries the SPDX header except one committed result file, `results/exploratory/X-SF-UE-CHECK/output.txt`, which is a result and is not edited.
 - [ ] `author_review.md` completed by the owner.
 - [ ] Owner approval for any publication (G-PUBLIC). Nothing pushed before that.

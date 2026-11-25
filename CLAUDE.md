@@ -30,9 +30,9 @@ At session start: run `git status`, state the current milestone and the next bou
 
 ## 3. Toolchain (zero cost, recorded in decision D-002)
 
-- Python 3.12.1 at `/usr/local/bin/python3`; project environment managed by uv at `/Users/bechir/research/labs/.tools/py/bin/uv`.
-- PDFs: Markdown is canonical. `pandoc` (`/Users/bechir/research/labs/.tools/pandoc`) converts Markdown to Typst; the `typst` Python package (0.15.0, in `/Users/bechir/research/labs/.tools/py/`) compiles the PDF. `manuscript.tex` is generated from Markdown with pandoc. There is no TeX distribution on this machine; never claim a LaTeX-compiled PDF.
-- Node 22.23.3 at `/Users/bechir/research/helix/.tools/node/bin` may be used read-only for the demo build. Never modify that folder.
+- Python 3.12.1 at `/usr/local/bin/python3`; project environment managed by uv at `../.tools/py/bin/uv` (paths in this section are relative to the repository).
+- PDFs: Markdown is canonical. `pandoc` (`../.tools/pandoc`) converts Markdown to Typst; the `typst` Python package (0.15.0, in `../.tools/py/`) compiles the PDF. `manuscript.tex` is generated from Markdown with pandoc. There is no TeX distribution on this machine; never claim a LaTeX-compiled PDF.
+- Node 22.23.3 at `../../helix/.tools/node/bin` may be used read-only for the demo build. Never modify that folder.
 
 ## 4. Rules (all sessions)
 
@@ -44,7 +44,7 @@ At session start: run `git status`, state the current milestone and the next bou
 
 ### Scope
 - Work only inside this repository, except for read-only use of the tools listed in section 3.
-- Do not touch any other folder under `/Users/bechir/research` (hive, helix, cogkt, trading, the other labs).
+- Do not touch any other folder of the parent research workspace `../..` (hive, helix, cogkt, trading, the other labs).
 - Never kill processes you did not start. Never delete anything you did not create in the current session.
 
 ### Truthfulness

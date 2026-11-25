@@ -18,6 +18,7 @@
 **Method.** One deterministic run of the frozen config: gradient projection, stopping at relative gap `RG <= 1e-6` or 20,000 sweeps. The results are compared with the analytic values of protocol item 5 at an absolute tolerance of 1e-6 (D-012, fixed before the run).
 
 **Outcome.**
+
 - Five of six combinations match to within 4.4e-16.
 - The UE with link e stopped after 6 sweeps at `RG = 7.29e-8`:
 
@@ -103,6 +104,7 @@ Predictions (protocol item 5):
 - No figure: the six exact comparisons are shown in full in the table, and no interval applies.
 
 **Exploratory check at `RG <= 1e-10` (M4, J-0022; not confirmatory).**
+
 - Authority: owner, 2026-11-25, "Approve all recommendations, push then next", item 3.
 - Config `experiments/exploratory/X-EXP-001-TOL1E-10.json`: the frozen config with only `experiment_id`, `label`, `description` and `solver.tol` (1e-10) changed; committed (`01c2b4b`) before the run.
 - Run `X-EXP-001-TOL1E-10-20261125T011841Z-ae793d0f`, canonical config hash `ae793d0fe516436cadbfe736ce002825b0be8b2538a7f4bd26522f466f327dbe`; 6 ok. The manifest records `dirty: true` because the analysis script `scripts/analyse_exploratory_tol.py` was untracked at run time; the runner does not import it.
@@ -118,6 +120,7 @@ Predictions (protocol item 5):
 The exploratory rerun meets the 1e-6 rule. It was defined after the confirmatory result was seen and **does not replace the frozen verdict**, which stays "contradicted".
 
 **Expected versus observed.**
+
 - Expected: all values within 1e-6.
 - Observed: the FF and SO arms and the UE without link e are exact. The UE with link e reproduces the published Braess effect (83 without e, 91.99999 with e) but misses the 1e-6 tolerance by a factor of about 60 in TSTT.
 
@@ -148,5 +151,6 @@ The exploratory rerun meets the 1e-6 rule. It was defined after the confirmatory
 ## 12. Reproduction appendix
 
 See `research/experiments/EXP-001/reproduction.md`. References:
+
 - Braess, D., Nagurney, A., Wakolbinger, T. (2005). On a paradox of traffic planning. Transportation Science 39(4), 446-450. doi:10.1287/trsc.1050.0127 (read).
 - Supernet Braess paradox page, https://supernet.isenberg.umass.edu/facts/braess.html (read 2026-11-24).

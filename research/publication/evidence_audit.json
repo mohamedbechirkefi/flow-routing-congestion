@@ -445,9 +445,9 @@
  },
  "part_b": {
   "research/claims_register.csv": {
-   "n_checked": 116,
+   "n_checked": 118,
    "traced_to_protocol_or_config": 0,
-   "traced_to_results": 114,
+   "traced_to_results": 116,
    "untraced": [
     "10,626"
    ]
@@ -467,35 +467,35 @@
    "untraced": []
   },
   "research/experiments/EXP-003/report.md": {
-   "n_checked": 185,
+   "n_checked": 188,
    "traced_to_protocol_or_config": 0,
-   "traced_to_results": 184,
+   "traced_to_results": 187,
    "untraced": [
     "128701"
    ]
   },
   "research/experiments/EXP-004/report.md": {
-   "n_checked": 176,
+   "n_checked": 177,
    "traced_to_protocol_or_config": 0,
-   "traced_to_results": 176,
+   "traced_to_results": 177,
    "untraced": []
   },
   "research/experiments/EXP-005/report.md": {
-   "n_checked": 63,
+   "n_checked": 64,
    "traced_to_protocol_or_config": 0,
-   "traced_to_results": 63,
+   "traced_to_results": 64,
    "untraced": []
   },
   "research/experiments/EXP-006/report.md": {
-   "n_checked": 82,
+   "n_checked": 83,
    "traced_to_protocol_or_config": 1,
-   "traced_to_results": 81,
+   "traced_to_results": 82,
    "untraced": []
   },
   "research/paper/manuscript.md": {
-   "n_checked": 367,
+   "n_checked": 375,
    "traced_to_protocol_or_config": 0,
-   "traced_to_results": 357,
+   "traced_to_results": 365,
    "untraced": [
     "10,626",
     "10.1002",

@@ -19,12 +19,14 @@
 **Method.** 100 instances per grid size (4x4 seeds 1000-1099; 6x6 seeds 2000-2099) at demand levels rho = 1, 2 and 3. Arms FF, UE and SO, with UE and SO solved by gradient projection at `RG <= 1e-6`. Sensitivity cells S1, S2 and S3 on the 6x6, rho = 2 cell. Primary rule: reject H0 (theta <= 0.01) if the one-sided 95 percent percentile-bootstrap lower bound of the median R(UE) exceeds 0.01.
 
 **Outcome.**
+
 - Median R(UE) = 0.02317 over n = 100 instances, none excluded.
 - One-sided 95 percent lower bound 0.02134; two-sided 95 percent CI [0.02075, 0.02559].
 - H0 is rejected.
 - The decision is unchanged at tolerances 1e-4 and 1e-8 and under the absolute demand calibration (S3).
 
 **Principal caveats.**
+
 - With linear-in-flow costs (S2, beta = 1) the median falls to 0.00304, below delta.
 - The Frank-Wolfe reference converged on only 7 of 100 instances.
 - Exploratory values of this cell's analogue were seen before the freeze (C4, `research/freeze.json`).
@@ -32,7 +34,7 @@
 ## 3. Research rationale and literature
 
 - Roughgarden and Tardos (2002, preprint read): the ratio is at most 4/3 for linear latencies and unbounded for general latencies.
-- Youn et al. (2008, abstract read): city networks show a measurable gap.
+- Youn et al. (2008, arXiv version 4 read in full at M6): city networks show a measurable gap.
 
 This experiment measures the gap in a controlled synthetic family, with paired uncertainty.
 
@@ -134,14 +136,22 @@ This experiment measures the gap in a controlled synthetic family, with paired u
 - Mean runtime per solve, 6x6 at rho = 2: UE 0.022 s, SO 0.049 s.
 
 **Figures**
+
 - `figures/exp003_R_by_cell.png`.
+
+![EXP-003 (confirmatory): per-instance R for UE and FF by demand level on 4 by 4 and 6 by 6 grids (grey), with medians and 95 percent bootstrap intervals (red); the dashed line is delta = 0.01; symmetric logarithmic vertical axis.](figures/exp003_R_by_cell.png){width=100%}
+
   - Caption: "Per-instance R (grey dots), with the median and 95% bootstrap CI (red) for UE and FF by demand level, 4x4 (left) and 6x6 (right); symmetric-log axis; dashed line delta = 0.01; n = 100 instances per point."
   - Alt text: "Strip plots; UE medians are a few percent, FF grows to above 1 at rho = 3."
 - `figures/exp003_sensitivity.png`.
+
+![EXP-003 sensitivity analyses: median R(UE) on 6 by 6 grids at rho = 2 with 95 percent bootstrap intervals, for the primary analysis, the two solver tolerances, linear costs (S2), the Frank-Wolfe reference (converged instances only) and the alternative calibration (S3); the dashed line is delta = 0.01.](figures/exp003_sensitivity.png){width=100%}
+
   - Caption: "Median R(UE) with 95% bootstrap CI in the primary cell and each sensitivity cell; Frank-Wolfe reference on its 7 converged instances only; dashed delta = 0.01."
   - Alt text: "All cells except S2 lie above the dashed line."
 
 **Expected versus observed.**
+
 - Expected: a positive UE excess growing with congestion.
 - Observed: the median R(UE) in the primary cell is 2.3 percent of the system-optimal travel time, above the 1 percent margin with its whole interval. It grows with rho at both sizes. FF is far worse than UE once demand is congested, but close to UE at rho = 1.
 
@@ -169,4 +179,4 @@ This experiment measures the gap in a controlled synthetic family, with paired u
 
 ## 12. Reproduction appendix
 
-See `reproduction.md`. References: Roughgarden, T., Tardos, E. (2002), "How bad is selfish routing?", Journal of the ACM 49(2), 236-259 (preprint read). Youn, H., Gastner, M. T., Jeong, H. (2008), Physical Review Letters 101, 128701 (abstract read).
+See `reproduction.md`. References: Roughgarden, T., Tardos, E. (2002), "How bad is selfish routing?", Journal of the ACM 49(2), 236-259 (preprint read). Youn, H., Gastner, M. T., Jeong, H. (2008), Physical Review Letters 101, 128701 (arXiv:0712.1598v4 read in full at M6).

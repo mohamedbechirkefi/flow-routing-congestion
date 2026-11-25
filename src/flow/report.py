@@ -16,8 +16,18 @@ import numpy as np
 
 from .schema import load_result
 
-PANDOC = os.environ.get("FLOW_PANDOC", "/Users/bechir/research/labs/.tools/pandoc")
+PANDOC = os.environ.get("FLOW_PANDOC", str(Path(__file__).resolve().parents[3] / ".tools" / "pandoc"))  # labs/.tools/pandoc
 MAINFONT = "Libertinus Serif"
+# Typst rules added after pandoc's template (M6 visual inspection): tables may break across pages,
+# cells are left-aligned with rules above and below the header, and a figure's caption stays with it.
+TYPST_HEADER = "\n".join([
+    "#show figure: set block(breakable: true)",
+    "#set table(inset: 4pt, stroke: (x, y) => if y == 0 { (top: 0.6pt, bottom: 0.4pt) } else { (bottom: 0.2pt + luma(200)) })",
+    "#show table.cell: set align(left)",
+    "#show table.cell.where(y: 0): set text(weight: \"bold\")",
+    "#show table: set text(size: 8pt)",
+    "#show table: set par(justify: false)",
+])
 
 
 def _fmt(v, digits: int = 4) -> str:
@@ -170,17 +180,41 @@ def write_report(run_dir: Path, pdf: bool = True) -> dict:
     return result
 
 
+REPO_ROOT = Path(__file__).resolve().parents[2]
+
+
+def typst_source(md_path: Path) -> tuple[Path, Path]:
+    """pandoc Markdown -> Typst next to the Markdown file. Returns (typ path, Typst root).
+
+    The first-level heading becomes the document title (``--shift-heading-level-by=-1``), so the PDF
+    title metadata is set. Inside the repository the Typst root is the repository root, so a manuscript
+    can embed figures from ``research/experiments/``; elsewhere (tests) it is the Markdown folder.
+    """
+    md_path = Path(md_path).resolve()
+    typ = md_path.with_suffix(".typ")
+    text = md_path.read_text()
+    # Leading HTML comments (SPDX header, status note) would stop pandoc from promoting the heading.
+    while text.lstrip().startswith("<!--") and "-->" in text:
+        text = text.lstrip().split("-->", 1)[1]
+    subprocess.run(
+        [PANDOC, "-f", "markdown", "-s", "-t", "typst", "--shift-heading-level-by=-1",
+         "-V", f"mainfont={MAINFONT}", "-V", "fontsize=9pt", "-V", f"header-includes={TYPST_HEADER}",
+         "-o", str(typ)],
+        input=text, text=True, check=True, cwd=md_path.parent,
+    )
+    root = REPO_ROOT if md_path.is_relative_to(REPO_ROOT) else md_path.parent
+    return typ, root
+
+
 def build_pdf(md_path: Path) -> str:
     """pandoc -> Typst -> PDF. Raises on failure (never claims a PDF that was not built)."""
     md_path = Path(md_path).resolve()
-    typ = md_path.with_suffix(".typ")
     pdf = md_path.with_suffix(".pdf")
-    subprocess.run(
-        [PANDOC, str(md_path), "-s", "-t", "typst", "-V", f"mainfont={MAINFONT}", "-V", "fontsize=9pt", "-o", str(typ)],
-        check=True, cwd=md_path.parent,
-    )
+    typ, root = typst_source(md_path)
     import typst
 
-    typst.compile(str(typ), output=str(pdf), root=str(md_path.parent))
-    typ.unlink()
+    try:
+        typst.compile(str(typ), output=str(pdf), root=str(root))
+    finally:
+        typ.unlink()
     return str(pdf)

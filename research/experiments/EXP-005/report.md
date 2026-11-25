@@ -16,24 +16,27 @@
 **Question.** In 4x4 BPR grids at rho = 2, does removing a single directed link ever reduce UE total travel time (a Braess link)?
 
 **Method.**
+
 1. For each of the 100 EXP-003 4x4 instances (seeds 1000-1099), UE is solved on the full network.
 2. UE is then solved with each of the 48 directed links removed in turn, with the demand unchanged.
 3. Every removal that lowers TSTT_UE by more than 1e-4 relative is flagged.
 4. Each flagged removal is re-solved at `RG <= 1e-8`, together with the full network.
 
 **Outcome.**
+
 - 77 of 100 instances contain at least one Braess link: incidence 0.77, Wilson 95% [0.678, 0.842].
 - There are 177 such links. All 177 are confirmed at 1e-8.
 - At threshold 1e-3: 67/100 instances, Wilson 95% [0.573, 0.754].
 
 **Caveats.**
+
 - The effects are small: relative decreases range from 1.2e-4 to 0.035.
 - A test accidentally executed this config once before the official run; its output was not inspected (D-013).
 
 ## 3. Research rationale and literature
 
 - Steinberg and Zangwill (1983) and Valiant and Roughgarden (2010) are verified at the metadata level only.
-- Youn et al. (2008, abstract read) report street closures that reduce travel time on city networks.
+- Youn et al. (2008, arXiv version 4 read in full at M6; page 4) report street closures that reduce travel time on city networks.
 
 This experiment estimates how often Braess links occur in the EXP-003 grid family.
 
@@ -83,10 +86,14 @@ This experiment estimates how often Braess links occur in the EXP-003 grid famil
 - The largest relative decrease of TSTT_UE after one removal is 0.0354; the smallest flagged one is 1.16e-4.
 - Per-instance values: `analysis.json` (`per_instance`).
 - Figure `figures/exp005_removals.png`.
+
+![EXP-005 (confirmatory, optional): number of Braess links per instance at the 1e-4 threshold (left) and distribution of the relative decrease of TSTT_UE after removal, on a log10 scale (right).](figures/exp005_removals.png){width=100%}
+
   - Caption: "Left: number of Braess links per instance at threshold 1e-4 (n = 100). Right: log10 of the relative decrease of TSTT_UE for each Braess link, with the 1e-4 (red) and 1e-3 (grey) thresholds."
   - Alt text: "Most instances have zero to three Braess links; effects range from 1e-4 to a few percent."
 
 **Expected versus observed.**
+
 - Expected: incidence > 0.
 - Observed: a large majority of instances have at least one Braess link. The flagging was not a tolerance artefact: every flagged link persisted at 1e-8.
 
