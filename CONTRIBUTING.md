@@ -47,3 +47,13 @@ Requires Python 3.12 and uv. Dependencies are locked in `uv.lock` (only releases
     uv run flow smoke                     # EXPLORATORY smoke matrix -> results/exploratory/<run_id>/ with report
     uv run flow run <EXP-id|config.json>  # confirmatory configs are refused until the owner's freeze is recorded
     uv run flow report <run_dir>          # tables, figures, report.md and report.pdf from results.json
+
+## 7. Demo commands (M5)
+
+The demo is plain static files (decision D-018); no npm packages are installed. Node 22 is used read-only for tests and the checker.
+
+    .venv/bin/python scripts/export_demo_data.py      # demo/public/data/results.json from committed results
+    .venv/bin/python scripts/export_demo_sandbox.py   # sandbox networks and the engine fixture
+    .venv/bin/python scripts/build_demo.py            # checks the exports, writes demo/dist/ (not committed)
+    node --test demo/tests/*.test.mjs                 # loader and engine-port tests
+    cd demo && node tools/a11y_check.mjs dist --screenshots <dir>

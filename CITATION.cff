@@ -2,7 +2,7 @@
 # Licence: FLOW Source-Available Non-Commercial Research License v1.0 (custom, see LICENSE).
 # It is not an SPDX-listed licence, so no "license" field is given here.
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below. Status: protocol v1.0 frozen (owner-approved 2026-11-24), no results yet. An AI system was used as a research and development assistant; it is not an author."
+message: "If you use this work, please cite it as below. Status: protocol v1.0 frozen (owner-approved 2026-11-24); all six confirmatory experiments complete; manuscript draft, not peer-reviewed. Repository URL: [to be added on owner-approved release]. An AI system was used as a research and development assistant; it is not an author."
 title: "FLOW: Navigation and collective congestion"
 abstract: "An offline, reproducible simulation study of whether individually optimal routing can worsen collective travel time, on a Braess network and seeded grids, with a second test on the TNTP Sioux Falls network (not redistributed)."
 type: software

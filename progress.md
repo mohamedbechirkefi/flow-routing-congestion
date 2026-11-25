@@ -250,3 +250,60 @@ Not a placeholder, but owner-only: `research/publication/author_review.md` is st
 ### Next action
 
 M5: static offline demo page and article drafts from the verified results; then M6.
+
+## 2026-11-25: Session 7 (M5, interactive experience)
+
+**Authority.** Owner, 2026-11-25, "Next" (`labs/_shared/owner-approvals-2026-11-25d.md`); FLOW stack exception per D-018. No change to frozen protocols, configs, seeds or results; no run of any experiment; no push; no paid service.
+
+### Starting state
+
+`git status`: clean; HEAD `7f9ae53`. `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` -> `Audited 19 packages in 4ms`.
+
+### Work
+
+- `scripts/export_demo_data.py` -> `wrote demo/public/data/results.json` (schema `lab-demo-results` 1.0.0; nine entries: EXP-001 to EXP-006 measured, three exploratory; 158 display strings; source sha256 list; no timestamps).
+- `scripts/export_demo_sandbox.py` -> `wrote demo/public/data/sandbox.json (60862 bytes)`, `wrote demo/tests/fixtures/sandbox_fixture.json (24095 bytes)`; 0.10 s user time. Grid networks from exploratory seeds 9000 to 9009 only.
+- Page in `demo/site/` (plain HTML, CSS, JavaScript): overview with status label and evidence-label legend; animated Braess network (EXP-002 raw records) with demand slider, policy comparison, edge congestion and the paired before and after chart; published results (four charts with intervals and nine experiment panels); assumptions; method and limitations; sandbox in a Web Worker (engine port; network and seed, demand, compliance, run, cancel, reset).
+- `scripts/build_demo.py` -> `export check: identical`, `sandbox export check: identical`, `built demo/dist: 8 files`.
+- `docs/demo.png` (107,056 bytes) from a headless capture of the Braess explorer.
+- Text consistency (D-020): README, CITATION.cff, demo README, articles README, new `articles/medium.md` and `articles/linkedin.md`, `research/publication/author_review.md` status line; CONTRIBUTING section 7 appended.
+- Decisions D-019 and D-020. Roadmap M5 marked done.
+
+### Tests and checks (actual outputs)
+
+- `node --test demo/tests/*.test.mjs` (Node 22.23.3) -> `# tests 33`, `# pass 33`, `# fail 0` (16 engine-port and fixture tests, 17 loader tests). Largest port differences against the Python fixture: TSTT 3.7e-16 relative, link flows 2.8e-15 of the largest flow (stated tolerance 1e-9 and 1e-7).
+- `.venv/bin/python -m pytest -q tests/test_demo_export.py` -> `5 passed in 0.19s`.
+- Full suite: `nice -n 10 .venv/bin/python -m pytest -q` -> `143 passed in 98.67s (0:01:38)`.
+- `cd demo && node tools/a11y_check.mjs dist --screenshots <scratchpad>/flow/shots`:
+
+```
+PASS results render (no fail-closed panel): 9 experiment panels
+PASS text contrast, light scheme (WCAG AA)
+PASS text contrast, dark scheme (WCAG AA)
+PASS keyboard reaches every focusable element: 32 reached of 32
+PASS visible focus indicator
+PASS no horizontal page scroll at 360 px: overflow 0px
+PASS reduced motion: no running animations: 0 running
+PASS no request leaves the local origin
+PASS offline after first load: results stay, sandbox runs: Sandbox output (Braess network with link e, demand 6): R(UE) = 0.1084, R(FF) = 0
+A11Y-CHECK PASS
+```
+
+- Fail-closed check: with one estimate in `dist/data/results.json` corrupted, the checker printed `FAIL results render (no fail-closed panel): 0 experiment panels` and `A11Y-CHECK FAIL (2)`; `dist/` was then rebuilt.
+- Motion check (headless, scratch script): 9 running animations with default motion, 0 after the on-page toggle, 0 under reduced motion (checker).
+- Screenshots inspected (desktop light and dark, mobile, sandbox after a grid run). Fixed during the session: charts drawn before layout (now drawn on first width), a CSS class clash that enlarged the sandbox tag, overlapping value labels in the interval charts, cramped estimate tables on phones (now stacked), inline styles blocked by the page's CSP (now CSSOM), and duplicate focus keys.
+- Scans: no `REPLACE` marker in `demo/`; no em dash, e-mail address or missing SPDX header in the new files.
+
+### M5 gate
+
+Offline after the initial load, responsive at 360 px, usable with the keyboard, no fabricated data (every number exported from committed files and checked against the manuscript), no runtime service: the gate holds. M5 is **done**.
+
+### Owner placeholders and owner items
+
+1. Repository URL and demo URL: "[to be added on owner-approved release]" in the manuscript, README, CITATION.cff, articles, demo README and page footer (G-PUBLIC).
+2. The FLOW manuscript title was not in the post-M4 title approval list.
+3. Full-text review of the manuscript and articles, and `author_review.md` (no box ticked), belong to M6.
+
+### Next action
+
+M6 (release candidate): PDFs, clean-clone reproduction, owner review checklist.
