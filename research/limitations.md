@@ -11,3 +11,11 @@ Status at M0: no results exist. These are limitations known by design.
 6. **Solver error.** Gradient-projection (solver of record) and Frank-Wolfe (S1 reference) results are approximate within the relative-gap tolerance; small differences near the tolerance are not interpretable (sensitivity S1).
 7. **Compliance arm.** MIX(c) is one specific operationalisation (scaled system-optimal flow plus equilibrium of the rest). Other definitions of partial compliance could give different results.
 8. **Grid family.** Conclusions do not transfer to other topologies or sizes without new experiments.
+
+## Added at M3 (2026-11-25, from confirmatory results)
+
+9. **Exact checks limited by the frozen tolerance.** EXP-001 and EXP-002 ran at the frozen `RG <= 1e-6`; their residuals (up to 6.2e-5 in TSTT, about 1e-5 in the Braess regime boundaries) exceed the frozen absolute 1e-6 tolerance, so both are contradicted under their own rule even though signs, the lower paradox boundary and the published 83/92 values are reproduced. A `1e-10` rerun needs the owner's decision.
+10. **Cost curvature.** With `beta = 1` (S2) the median excess falls to 0.0030, below delta; the primary finding holds for the BPR curvature `beta = 4` only.
+11. **Frank-Wolfe reference.** The S1 Frank-Wolfe reference did not converge on 93 of 100 primary-cell instances; it gives no independent check of the gradient-projection values.
+12. **Untested sensitivities.** EXP-004 item 17 (link-flow instead of path-flow compliant scaling) and EXP-001 item 17 (`1e-10`) have no frozen config and were not run.
+13. **Small effects in EXP-005.** Braess links are common (77 of 100 instances) but their effects are small (median relative decrease 0.003, maximum 0.035).

@@ -144,3 +144,47 @@ Owner: decide B1-B6, in particular amendment A1, then freeze. Assistant after th
 ### Next action
 
 M3 after scheduling: download TNTP locally, `uv run flow run EXP-001` ... `EXP-006`, reports as each finishes.
+
+## 2026-11-25: Session 4 (M3, confirmatory runs)
+
+**Milestone.** M3 under the owner's "Start next" (2026-11-25) and the coordinator's M3 brief. No push, no paid service, no download.
+
+### Starting state and checks
+
+- `git status`: clean, HEAD `2f049d0`. Every frozen hash in `research/freeze.json` matched the files on disk; `data/manifest.json` hash matched; the three TNTP files were present with matching SHA-256 (no download needed).
+- `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` -> `Audited 19 packages`; editable `flow` points at this repository's `src/`.
+- `.venv/bin/python -m pytest -q` -> `127 passed in 98.13s`.
+
+### Preparation (before any confirmatory output), commit `5108a16`
+
+- `src/flow/confirmatory.py`, `scripts/analyse_exp.py`: frozen analyses and figures; interpretation rules fixed in D-012.
+- Runner: link flows recorded for Braess and Sioux Falls, Braess path flows; link-removal mode for EXP-005.
+- `experiments/EXP-005.json` (implements frozen EXP-005, added before any EXP-005 data; FREEZE line in D-012, `research/freeze.json` `added_after_freeze`).
+- Tests: `tests/test_confirmatory.py` (new), `tests/test_records.py` updated. While adapting tests, one old test executed the new EXP-005 config into a pytest temp directory; not inspected; disclosed as D-013.
+- Full suite: `138 passed in 226.94s`; after the runs and records: `138 passed in 94.64s`.
+
+### Smoke and metric validation (exploratory), commit `8dfc66c`
+
+- `flow run experiments/exploratory/X-SMOKE-GP.json` -> 26 ok (J-0013); `flow smoke` (Frank-Wolfe) -> 25 ok, 1 nonconverged (J-0014).
+- `scripts/validate_metrics.py` on both -> metric checks pass; Braess UE with link e differs from 552 by 6.2e-5 at the frozen 1e-6 tolerance (J-0015).
+
+### Confirmatory runs (revision `8dfc66c`), worker logs `results/raw/logs/`
+
+| EXP | Run id | Start to end (UTC) | Records ok / nc / failed | Verdict (frozen rule) |
+|---|---|---|---|---|
+| EXP-001 | EXP-001-20261124T234532Z-846e8c0f | 23:45:32 to 23:45:33 | 6 / 0 / 0 | contradicted (UE with e: 6.2e-5 > 1e-6) |
+| EXP-002 | EXP-002-20261124T234533Z-fcb88932 | 23:45:33 to 23:45:36 | 450 / 0 / 0 | contradicted (upper, middle boundary off by 1.1e-5, 8.8e-6) |
+| EXP-006 | EXP-006-20261124T234536Z-9a9669c8 | 23:45:36 to 23:45:54 | 16 / 0 / 0 | gate pass (1.28e-4); R(UE) rho 2 = 0.0145: replicates |
+| EXP-005 | EXP-005-20261124T234554Z-4051f409 | 23:45:54 to 23:46:45 | 5154 / 0 / 0 | incidence 77/100, Wilson [0.678, 0.842]: H1 supported |
+| EXP-003 | EXP-003-20261124T234531Z-6cbcaa47 | 23:45:31 to 00:22:35 | 2745 / 155 / 0 | median R(UE) 0.0232, one-sided LB 0.0213, CI [0.0208, 0.0256]: H0 rejected |
+| EXP-004 | EXP-004-20261125T002235Z-7a7c2692 | 00:22:35 to 00:22:53 | 2100 / 0 / 0 | strict decrease at every step: H1 supported |
+
+Sensitivity: S1 robust (1e-4: 0.0231, 1e-8: 0.0232); S2 beta = 1: 0.0030 (below delta); S3: 0.0214 (same decision); Frank-Wolfe reference nonconverged on 93/100. Analyses in `research/experiments/EXP-*/analysis.json`, figures in `research/experiments/EXP-*/figures/`, raw-file hashes in `results/M3-raw-manifest.json`. Raw results committed (all under 20 MB in total) except EXP-006 `results.json` (TNTP-derived per-link flows; hash recorded only).
+
+### Deviations and gaps (D-013, D-014)
+
+Stray EXP-005 execution by a test (not inspected); `dirty: true` in three manifests from untracked analysis outputs only; one figure fix after EXP-003 output (no analysis change); experiment reports not written (file tool refused; left unwritten on the coordinator's instruction); EXP-001 1e-10 and EXP-004 link-flow sensitivities have no frozen config.
+
+### Next action
+
+Owner: decide on a 1e-10 rerun of EXP-001/EXP-002 and on the EXP-004 sensitivity. Assistant: write the six 11.3 reports when permitted, then M4.

@@ -1,0 +1,45 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "siouxfalls",
+   "dataset": "siouxfalls",
+   "demand_levels": [
+    "published",
+    1.0,
+    2.0,
+    3.0
+   ],
+   "network": "tntp"
+  },
+  {
+   "arms": [
+    "UE",
+    "SO"
+   ],
+   "cell": "S1-tol1e-8",
+   "dataset": "siouxfalls",
+   "demand_levels": [
+    "published",
+    2.0
+   ],
+   "network": "tntp",
+   "solver": {
+    "tol": 1e-08
+   }
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "Second test on a real network: TNTP Sioux Falls (local, git-ignored, SHA-256 checked). UE validation gate against the TNTP best-known flow at the published demand. Frozen protocol v1.0 (owner-approved 2026-11-24, round 2).",
+ "experiment_id": "EXP-006",
+ "label": "confirmatory",
+ "solver": {
+  "algorithm": "gradient-projection",
+  "max_iter": 20000,
+  "tol": 1e-06
+ }
+}

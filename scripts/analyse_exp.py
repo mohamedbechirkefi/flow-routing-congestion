@@ -113,7 +113,7 @@ def fig_exp003(a: dict, doc: dict, d: Path) -> list[str]:
     for c, s in a["sensitivity"].items():
         labels.append(c)
         sums.append(s)
-    _ci_plot(ax, labels, sums, "EXP-003: median R(UE), 6x6 rho=2 cell and sensitivity cells, 95% bootstrap CI; dashed: delta = 0.01")
+    _ci_plot(ax, labels, sums, "EXP-003: median R(UE), 6x6 rho=2, 95% bootstrap CI\n(FW reference: converged instances only); dashed: delta = 0.01", ref=C.DELTA)
     ax.set_ylabel("median R(UE)")
     fig.tight_layout()
     fig.savefig(d / "exp003_sensitivity.png", dpi=150)

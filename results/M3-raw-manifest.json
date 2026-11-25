@@ -1,0 +1,167 @@
+{
+ "note": "M3 confirmatory raw outputs (2026-11-25). Provenance revision 8dfc66ca5c9635e160f38526843941716aadacd0. Committed with git add -f except EXP-006 results.json (per-link flows derived from TNTP Sioux Falls, local use only, never redistributed); its hash is recorded here.",
+ "files": [
+  {
+   "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/config.json",
+   "bytes": 524,
+   "sha256": "2d370c89c9775c921125dd9bc2eb29ba7c5b7d30514b15b75ae5d9de9766359a",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/metrics.csv",
+   "bytes": 1390,
+   "sha256": "a61e64e1517fb7a2c7782ae71a2161185e09fb2849592a2d57fc0a2636cdc84a",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/results.json",
+   "bytes": 7421,
+   "sha256": "4d0d2731e8c3b6d126d31bf77755f212b9a51699e951c071be90691b40d60351",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f/run_manifest.json",
+   "bytes": 1258,
+   "sha256": "d42a9578b93a6257a76a0a8f283741e09a1b673cc9bcbb387c9cadd4081a45ec",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/config.json",
+   "bytes": 1422,
+   "sha256": "79b8ea46587cad131ce41fcc89e0510d94c8be727e1f1aba85c9e3981a186bb7",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/metrics.csv",
+   "bytes": 90958,
+   "sha256": "97c143c1fb60c424ed90a8103a2e6a57e94b2eb496b9401a6c018cc230e00fe6",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/results.json",
+   "bytes": 534208,
+   "sha256": "697f1a954b73abbdf410473ee8bc7bce93477746851dd36c613221a3c645836c",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-002/EXP-002-20261124T234533Z-fcb88932/run_manifest.json",
+   "bytes": 1260,
+   "sha256": "76e1bd76d992e86ce6510e17419efefae544fa43585989400d82887bfb4877c3",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/config.json",
+   "bytes": 9108,
+   "sha256": "18a93abeb9fc10211b68bf177f47a167f596b79586bfb17b3f299cb0561ee740",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/metrics.csv",
+   "bytes": 1133022,
+   "sha256": "df97b4902a3c06cff25fe9a6951be852ae77e810dd035a5876f516580e0fde46",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/results.json",
+   "bytes": 3486130,
+   "sha256": "8b05b53be300205d26eff747f8adb9e42c0e5eb664ea040e52f8dbd3a069e7c4",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-003/EXP-003-20261124T234531Z-6cbcaa47/run_manifest.json",
+   "bytes": 2859,
+   "sha256": "0284a74dd89f183501c4e7fbcbaeb7247232b48ad2132500da7c824b5d2120d5",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/config.json",
+   "bytes": 1805,
+   "sha256": "6d354fb2ae0e28db5d585e67f571c48d09b090f0f5d98d7985c87cbd995388d5",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/metrics.csv",
+   "bytes": 841956,
+   "sha256": "ae68e1fc5b26b5cd255553ef8ff008ee3053432018258e805cbf9e1bd2566378",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/results.json",
+   "bytes": 2830457,
+   "sha256": "83e5924ef8102ab1b4430c385f9ed8f2e8f9ffba0d88682f1415d21957975525",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-004/EXP-004-20261125T002235Z-7a7c2692/run_manifest.json",
+   "bytes": 2060,
+   "sha256": "97a41505fd68b5d842139d6235f81875c409118d3a00aaa5a53301f4e96146ad",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/config.json",
+   "bytes": 2126,
+   "sha256": "d2dc655102b64c0834a7b46eec84d1c18cde85fd5f24703764b279e930f7a73c",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/metrics.csv",
+   "bytes": 2189848,
+   "sha256": "3461c5510d0691b8be8d797ff7092785c2da80af34ed4949763b47ddcc39a1e6",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/results.json",
+   "bytes": 6868086,
+   "sha256": "ff47676a3cbd54dad23e69962acab3c19b258ecd54b1cfdbfa795c04ee0032da",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/run_manifest.json",
+   "bytes": 2155,
+   "sha256": "47306fb3ada24dcd9728d9a15343672c98778b77c0557f92b6f8cdc9cb4dff13",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-005/EXP-005-20261124T234554Z-4051f409/skipped_removals.json",
+   "bytes": 3,
+   "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/config.json",
+   "bytes": 856,
+   "sha256": "8565a0049174f5e8200838f7967fc1a7902498622b2b05234c15ce3d64e9239b",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/metrics.csv",
+   "bytes": 6119,
+   "sha256": "814b210b2b0619d3a8936a2e570c971abc4ce4d6e61c68c9d542333e3f9f0a58",
+   "committed": true
+  },
+  {
+   "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/results.json",
+   "bytes": 47303,
+   "sha256": "3d2ae0c28a3f9c34edc9887be3f5d86510c931a37cc73a5a3a71a821b6e934d8",
+   "committed": false
+  },
+  {
+   "path": "results/raw/EXP-006/EXP-006-20261124T234536Z-9a9669c8/run_manifest.json",
+   "bytes": 1257,
+   "sha256": "e286d71f1b21246bb0f9f44d09e6e4aadabecfdd64ee9b3c207feb70be53bb7b",
+   "committed": true
+  },
+  {
+   "path": "results/raw/logs/worker-A.log",
+   "bytes": 724,
+   "sha256": "210d821e02a4478ae4494ebeebc9c1d966af1f2b31b2ad0ca502b89c1bb756ad",
+   "committed": true
+  },
+  {
+   "path": "results/raw/logs/worker-B.log",
+   "bytes": 560092,
+   "sha256": "12145b5af24051a7e9f854e5d80cf1432f10e0c15ea395fc10b0b9da1c83a060",
+   "committed": true
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "cells": [
+  {
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ],
+   "cell": "braess-d6",
+   "demand": [
+    6.0
+   ],
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ]
+  }
+ ],
+ "config_version": "flow.config/1",
+ "description": "Analytic Braess example. Solver: gradient projection (amendment A1). Frozen protocol v1.0 (owner-approved 2026-11-24, round 2).",
+ "experiment_id": "EXP-001",
+ "label": "confirmatory",
+ "solver": {
+  "algorithm": "gradient-projection",
+  "max_iter": 20000,
+  "tol": 1e-06
+ }
+}

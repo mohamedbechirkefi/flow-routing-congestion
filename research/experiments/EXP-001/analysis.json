@@ -1,0 +1,289 @@
+{
+ "checks": [
+  {
+   "arm": "SO",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 498.0,
+     "computed": 498.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 1,
+   "pass": true,
+   "rel_gap": 0.0,
+   "status": "ok",
+   "with_link": false
+  },
+  {
+   "arm": "FF",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 696.0,
+     "computed": 696.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 116.0,
+     "computed": 116.0,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 116.0,
+     "computed": 116.0,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 6.0,
+     "computed": 6.0,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 0,
+   "pass": true,
+   "rel_gap": null,
+   "status": "ok",
+   "with_link": false
+  },
+  {
+   "arm": "UE",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 498.0,
+     "computed": 498.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 83.0,
+     "computed": 83.0,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 83.0,
+     "computed": 83.0,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 3.0,
+     "computed": 3.0,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 1,
+   "pass": true,
+   "rel_gap": 0.0,
+   "status": "ok",
+   "with_link": false
+  },
+  {
+   "arm": "SO",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 498.0,
+     "computed": 498.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 0.0,
+     "computed": 0.0,
+     "pass": true,
+     "quantity": "flow on link e",
+     "rel_diff": null
+    },
+    {
+     "abs_diff": 4.440892098500626e-16,
+     "analytic": 3.0,
+     "computed": 2.9999999999999996,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 1.4802973661668753e-16
+    },
+    {
+     "abs_diff": 4.440892098500626e-16,
+     "analytic": 3.0,
+     "computed": 3.0000000000000004,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 1.4802973661668753e-16
+    }
+   ],
+   "iterations": 2,
+   "pass": true,
+   "rel_gap": 0.0,
+   "status": "ok",
+   "with_link": true
+  },
+  {
+   "arm": "FF",
+   "items": [
+    {
+     "abs_diff": 0.0,
+     "analytic": 816.0,
+     "computed": 816.0,
+     "pass": true,
+     "quantity": "TSTT",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 136.0,
+     "computed": 136.0,
+     "pass": true,
+     "quantity": "mean trip time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 136.0,
+     "computed": 136.0,
+     "pass": true,
+     "quantity": "max path time",
+     "rel_diff": 0.0
+    },
+    {
+     "abs_diff": 0.0,
+     "analytic": 6.0,
+     "computed": 6.0,
+     "pass": true,
+     "quantity": "path flow s-A-B-t",
+     "rel_diff": 0.0
+    }
+   ],
+   "iterations": 0,
+   "pass": true,
+   "rel_gap": null,
+   "status": "ok",
+   "with_link": true
+  },
+  {
+   "arm": "UE",
+   "items": [
+    {
+     "abs_diff": 6.190959652485617e-05,
+     "analytic": 552.0,
+     "computed": 551.9999380904035,
+     "pass": false,
+     "quantity": "TSTT",
+     "rel_diff": 1.121550661682177e-07
+    },
+    {
+     "abs_diff": 1.031826609221298e-05,
+     "analytic": 92.0,
+     "computed": 91.99998968173391,
+     "pass": false,
+     "quantity": "mean trip time",
+     "rel_diff": 1.121550662197063e-07
+    },
+    {
+     "abs_diff": 6.964831356981449e-06,
+     "analytic": 92.0,
+     "computed": 91.99999303516864,
+     "pass": false,
+     "quantity": "max path time",
+     "rel_diff": 7.570468866284184e-08
+    },
+    {
+     "abs_diff": 1.5477403025876413e-06,
+     "analytic": 2.0,
+     "computed": 1.9999984522596974,
+     "pass": false,
+     "quantity": "path flow s-A-B-t",
+     "rel_diff": 7.738701512938206e-07
+    },
+    {
+     "abs_diff": 7.73870151071776e-07,
+     "analytic": 2.0,
+     "computed": 2.000000773870151,
+     "pass": true,
+     "quantity": "path flow s-A-t",
+     "rel_diff": 3.86935075535888e-07
+    },
+    {
+     "abs_diff": 7.738701515158652e-07,
+     "analytic": 2.0,
+     "computed": 2.0000007738701515,
+     "pass": true,
+     "quantity": "path flow s-B-t",
+     "rel_diff": 3.869350757579326e-07
+    }
+   ],
+   "iterations": 6,
+   "pass": false,
+   "rel_gap": 7.290084762826174e-08,
+   "status": "ok",
+   "with_link": true
+  }
+ ],
+ "experiment_id": "EXP-001",
+ "figures": [],
+ "max_abs_diff": 6.190959652485617e-05,
+ "n_records": 6,
+ "source_run": {
+  "config_hash": "846e8c0f758caa6f4993798a0b18087b618054b6da44e727a06381cfeb3be6b4",
+  "path": "results/raw/EXP-001/EXP-001-20261124T234532Z-846e8c0f",
+  "results_sha256": "4d0d2731e8c3b6d126d31bf77755f212b9a51699e951c071be90691b40d60351",
+  "run_id": "EXP-001-20261124T234532Z-846e8c0f"
+ },
+ "status_counts": {
+  "failed": 0,
+  "nonconverged": 0,
+  "ok": 6
+ },
+ "tolerance_abs": 1e-06,
+ "verdict": "contradicted (at least one value outside tolerance or not converged)"
+}

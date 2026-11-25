@@ -1,0 +1,7 @@
+record_id,cell,network,seed,arm,status,demand,with_link,iterations,rel_gap,converged,runtime_s,tstt,R,mean_trip_time,p95_trip_time,gini_stretch,flow_weighted_vc,share_links_over_capacity,max_vc,max_node_imbalance,compliant_to_follower_time_ratio
+EXP-001-20261124T234532Z-846e8c0f/braess-d6/braess-wl0-d6.0/SO,braess-d6,braess-without-e,,SO,ok,6.0,False,1,0.0,True,0.000265041999227833,498.0,0.0,83.0,83.0,0.0,,,,0.0,
+EXP-001-20261124T234532Z-846e8c0f/braess-d6/braess-wl0-d6.0/FF,braess-d6,braess-without-e,,FF,ok,6.0,False,0,,True,8.104200242087245e-05,696.0,0.3975903614457832,116.0,116.0,0.0,,,,0.0,
+EXP-001-20261124T234532Z-846e8c0f/braess-d6/braess-wl0-d6.0/UE,braess-d6,braess-without-e,,UE,ok,6.0,False,1,0.0,True,0.00014379200001712888,498.0,0.0,83.0,83.0,0.0,,,,0.0,
+EXP-001-20261124T234532Z-846e8c0f/braess-d6/braess-wl1-d6.0/SO,braess-d6,braess,,SO,ok,6.0,True,2,0.0,True,0.00020004199905088171,498.0,0.0,83.0,83.0,0.0,,,,0.0,
+EXP-001-20261124T234532Z-846e8c0f/braess-d6/braess-wl1-d6.0/FF,braess-d6,braess,,FF,ok,6.0,True,0,,True,6.579199543921277e-05,816.0,0.6385542168674698,136.0,136.0,0.0,,,,0.0,
+EXP-001-20261124T234532Z-846e8c0f/braess-d6/braess-wl1-d6.0/UE,braess-d6,braess,,UE,ok,6.0,True,6,7.290084762826174e-08,True,0.00046883300092304125,551.9999380904035,0.10843361062330015,91.99998968173391,91.99999303516864,2.430026380351734e-08,,,,4.440892098500626e-16,
