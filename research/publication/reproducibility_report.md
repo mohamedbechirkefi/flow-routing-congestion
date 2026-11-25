@@ -45,3 +45,25 @@ Part A found no reproduction failure. The findings of this session concern the p
 
 - `.venv/bin/python scripts/m6_checks.py manifests`: `109 artifact-manifest paths checked`; `3 of 3 data-manifest downloads present locally and checked` (SHA-256 and byte size of the three git-ignored Sioux Falls files match `data/manifest.json`); `PASS manifests`.
 - In a clone the Sioux Falls files are absent (git-ignored, never redistributed), so the data-manifest hash check reports 0 of 3 present; `scripts/download_tntp.py` fetches them from the pinned commit and checks the same hashes. It was not run in the clone (network download).
+
+## Part B: fresh clone of the M6 commit `53a25e2`
+
+The fixes of this session were re-checked in a new clone (the Part A clone was deleted first).
+
+| Step | Actual output |
+|---|---|
+| `uv sync --frozen --all-groups --all-extras` | `Installed 19 packages in 45ms` |
+| `FLOW_PANDOC=<workspace pandoc> nice -n 10 .venv/bin/python -m pytest -q -rs` | `150 passed in 107.79s (0:01:47)`, no skip (143 earlier tests plus 7 in `tests/test_m6_checks.py`) |
+| Re-analysis of committed raw results, EXP-001 to EXP-005 | `git status --short`: 0 lines (byte-identical) |
+| `flow run experiments/exploratory/X-EXP-001-TOL1E-10.json --out $S/smoke --quiet`, compared with the committed run | `records 6 max abs diff (excl. runtime) 0 differing fields []` |
+| `scripts/build_demo.py` | `export check: identical`, `sandbox export check: identical`, `built demo/dist: 8 files` |
+| `node --test demo/tests/*.test.mjs` | `# tests 33`, `# pass 33`, `# fail 0` |
+| `cd demo && node tools/a11y_check.mjs dist` | nine PASS lines (as in Part A) and `A11Y-CHECK PASS` |
+| `scripts/export_demo_data.py`, `scripts/export_demo_sandbox.py` | same three `wrote` lines as Part A; `git status --short`: 0 lines |
+| `scripts/m6_checks.py all` | `PASS links`, `PASS numbers`, `PASS manifests` (0 of 3 Sioux Falls files present, as expected in a clone), `PASS cff` |
+| `build_pdf("research/paper/manuscript.md")` | 12 pages, title metadata set. The rebuilt file differs byte for byte from the committed one (`git status` shows it modified) because Typst records the build time in the PDF; the content is regenerated from the committed Markdown. |
+
+Notes:
+
+- Without `FLOW_PANDOC`, a clone outside the `labs/` workspace finds no pandoc at the default `../.tools/pandoc` and the PDF test (`tests/test_records.py::test_report_pdf`) is skipped, not failed. This is the effect of replacing the absolute default path at M6.
+- The scratch clone and smoke output were deleted at the end of the session.

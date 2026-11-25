@@ -356,3 +356,17 @@ This file (entries of 2026-11-24, lines 17 and 22) and `research/experiment_jour
 ### Owner placeholders and open items
 
 Listed with file and line in `research/publication/author_review.md`, section "Prepared for the owner (M6, 2026-11-25)": repository and demo URLs (9 places plus the generated `manuscript.tex`), the manuscript title, the CITATION title, blocker B5, the licence flags, and G-PUBLIC.
+
+### Fresh clone of the M6 commit (Session 8, continued)
+
+Clone of `53a25e2`: `Installed 19 packages in 45ms`; `FLOW_PANDOC=... pytest -q -rs` -> `150 passed in 107.79s (0:01:47)`; re-analysis of EXP-001 to EXP-005 byte-identical (0 changed files); X-EXP-001-TOL1E-10 rerun `records 6 max abs diff (excl. runtime) 0`; demo build identical, `# pass 33`, `# fail 0`, `A11Y-CHECK PASS`; exports deterministic (0 changed files); `m6_checks.py all` four PASS lines; manuscript PDF rebuilt (12 pages, title set; bytes differ only through the build time). Clone deleted. Recorded in `research/publication/reproducibility_report.md`, Part B.
+
+Working repository after commit `53a25e2`: `nice -n 10 .venv/bin/python -m pytest -q` -> `150 passed in 108.24s (0:01:48)`; `node --test demo/tests/*.test.mjs` -> `# tests 33`, `# pass 33`, `# fail 0`; `A11Y-CHECK PASS`.
+
+### M6 status
+
+Release candidate prepared, awaiting the owner's review (`research/publication/author_review.md`) and G-PUBLIC. M6 is not done until the owner signs off.
+
+### Next action
+
+Owner: review the PDFs and the checklist in `author_review.md`, decide the open items listed there, and approve or refuse publication.
