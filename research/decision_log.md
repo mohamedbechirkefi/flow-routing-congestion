@@ -156,3 +156,17 @@ FREEZE experiments/EXP-005.json sha256:7b58a93390e30d7f38e4d18899bba77b4dbc841d5
 - **Manuscript.** `research/paper/manuscript.md` and `supplementary.md` synthesised to master prompt 11.4; `manuscript.tex` regenerated with pandoc; `references.bib` filled with the cited entries and their reading levels. Second review pass `research/publication/review_pass_2.md`: six revisions (light-demand limit in abstract and conclusion; compliance qualified; real-network margin; pre-freeze Frank-Wolfe failures disclosed; underived runtime removed; delta described as a study convention).
 - **Claims register.** Rebuilt with run id, config hash, figure or table and manuscript section columns; CL-010 to CL-016 and external claims CL-E01 to CL-E05 added.
 - **Decided by.** The owner (item 3); the exploratory analyses, audit and manuscript by the assistant under the M4 brief.
+
+## D-017 (2026-11-25): Funding, competing-interest and AI-use statements owner-approved (post-M4 item 2)
+
+- **Decision.** Owner, 2026-11-25, "Approve all" (post-M4) (`labs/_shared/owner-approvals-2026-11-25c.md`, item 2): "The wording drafted in each manuscript is approved." and "Where a draft still has a placeholder that needs a fact only the owner knows, it stays a placeholder."
+- **Application in FLOW.** The section "Funding, competing interests and AI assistance" of `research/paper/manuscript.md` (and its generated copy in `manuscript.tex`) is owner-approved as drafted at M4 (commit `a4676a8`). No wording was changed.
+- **Remaining owner placeholders.** Listed in `progress.md` under "Owner placeholders for M5": one, the repository URL in the manuscript's data and code availability section, which stays a placeholder until an owner-approved release.
+- **Decided by.** The owner (approval); recorded by the assistant.
+
+## D-018 (2026-11-25): M5 demo stack, existing stack, static and offline (post-M4 item 6; resolves B4)
+
+- **Decision.** Owner, 2026-11-25, "Approve all" (post-M4) (`labs/_shared/owner-approvals-2026-11-25c.md`, item 6): "FLOW demo stack: the coordinator's default is the repo's existing stack, static and offline."
+- **Meaning in FLOW.** The repository's existing stack is Python (uv-locked) plus plain static files; it has no Node or npm project. The M5 demo is therefore a static page with no added framework or npm packages (the second option of blocker B4), whose data are precomputed by the existing Python code from committed, verified results. It runs offline, with no backend, runtime service, account or tracking. The master prompt's TypeScript/React/Vite default is not used; the master prompt allows simpler alternatives when justified, and the justification is the owner's default and the absence of any dependency to add.
+- **Not done.** Nothing was built in this session. The demo is M5 work.
+- **Decided by.** The owner (approval of the coordinator's default); recorded by the assistant.

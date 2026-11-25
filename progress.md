@@ -226,3 +226,27 @@ Every numerical claim in the manuscript maps to a claim row with result id, conf
 ### Next action
 
 M5 (interactive page) needs the owner's demo-stack choice (B4); M6 after that.
+
+## 2026-11-25: Session 6 (post-M4 owner decisions, items 2 and 6)
+
+**Authority.** Owner, 2026-11-25, "Approve all" (post-M4) (`labs/_shared/owner-approvals-2026-11-25c.md`), applied under the coordinator's post-M4 brief. No change to frozen protocols, configs, seeds or results; no run; no push.
+
+### Starting state
+
+`git status`: clean; HEAD `a4676a8` (M4).
+
+### Work
+
+- Item 2: decision D-017 records that the funding, competing-interest and AI-use wording of the manuscript is owner-approved. No wording changed.
+- Item 6: decision D-018 records that the M5 demo uses the repo's existing stack, static and offline; blocker B4 marked resolved in `roadmap.md`. Nothing built.
+- Tests: `nice -n 10 .venv/bin/python -m pytest -q` -> `138 passed in 100.09s (0:01:40)`.
+
+### Owner placeholders for M5
+
+1. Repository URL, `research/paper/manuscript.md` section "Data and code availability": "[to be added on owner-approved release]" (and its generated copy in `manuscript.tex`). Needs the owner's release decision (G-PUBLIC).
+
+Not a placeholder, but owner-only: `research/publication/author_review.md` is still to be completed by the owner before any publication.
+
+### Next action
+
+M5: static offline demo page and article drafts from the verified results; then M6.
