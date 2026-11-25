@@ -1,0 +1,29 @@
+{
+ "config_version": "flow.config/1",
+ "label": "exploratory",
+ "solver": {
+  "algorithm": "gradient-projection",
+  "tol": 1e-10,
+  "max_iter": 20000
+ },
+ "experiment_id": "X-EXP-001-TOL1E-10",
+ "description": "EXPLORATORY M4 check (owner, 2026-11-25, \"Approve all recommendations, push then next\", item 3): the frozen EXP-001 config unchanged except solver.tol = 1e-10 (the relative gap stated in EXP-001 protocol item 5). Never replaces the frozen confirmatory verdict of EXP-001.",
+ "cells": [
+  {
+   "cell": "braess-d6",
+   "network": "braess",
+   "with_link": [
+    false,
+    true
+   ],
+   "demand": [
+    6.0
+   ],
+   "arms": [
+    "FF",
+    "UE",
+    "SO"
+   ]
+  }
+ ]
+}
