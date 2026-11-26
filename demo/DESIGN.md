@@ -32,7 +32,9 @@ Congestion is a five-step ramp from pale amber to jam red, always paired with li
 ## Type
 
 - **Overpass** (Delve Withrington, Red Hat; an open interpretation of the Highway Gothic signage alphabet; OFL 1.1). Weights 400, 600 and 800. Headings, the sign, navigation, controls, chart labels, numbers with tabular figures.
-- **Source Serif 4** (Frank Griesshammer, Adobe; OFL 1.1). Weights 400, 400 italic and 600. Body prose, captions, limitations. The serif slows the reading of the method text and separates evidence prose from signage.
+- **PT Serif** (Alexandra Korolkova, Olga Umpeleva, Vladimir Yefimov; ParaType; OFL 1.1). Weights 400, 400 italic and 700 (the 700 cut also serves the 600 used by `strong`, so no synthetic bold). Body prose, captions, limitations. PT Serif was drawn for the Public Types of the Russian Federation project, a type family for public and civic print: sturdy wedge serifs and a large x-height that stay legible at small sizes, which fits the transit-map brief: the sign speaks in Overpass, the explanation in a plain public serif. It replaced Source Serif 4 on 2026-11-26 so that no two lab demos share a typeface (owner request).
+
+PT Serif has a larger x-height and wider letters than Source Serif 4, so the scale was re-tuned: body 16.5 px with 1.68 line-height (was 17 px, 1.65), hero answer clamp 1.08 to 1.25 rem with 1.58 line-height, footer 0.94 rem. PT Serif has no tabular figures; every aligned number (tables, key figures, readouts, chart labels) was already set in Overpass, which has them.
 
 Scale (1.25 ratio from 17 px body): 13.6, 17, 21.3, 26.6, 33.2, 41.5, then a fluid sign headline up to 64 px. Measure stays under 70 characters.
 

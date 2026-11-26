@@ -49,6 +49,6 @@ Fonts are installed with npm into a scratch folder (`npm_config_before=2026-11-1
 | Family | Package and version | Files used | Licence |
 |---|---|---|---|
 | Overpass (The Overpass Project Authors) | `@fontsource/overpass` 5.3.0 | latin 400, 600, 800 normal | SIL Open Font License 1.1 (`public/fonts/OFL-overpass.txt`) |
-| Source Serif 4 (Adobe) | `@fontsource/source-serif-4` 5.3.1 | latin 400 normal, 400 italic, 600 normal | SIL Open Font License 1.1 (`public/fonts/OFL-source-serif-4.txt`) |
+| PT Serif (ParaType) | `@fontsource/pt-serif` 5.3.0 | latin 400 normal, 400 italic, 700 normal | SIL Open Font License 1.1 (`public/fonts/OFL-pt-serif.txt`) |
 
 The wordmark "Flow" in the logo files is built from Overpass 800 outlines (converted to paths with fontTools), which the OFL permits.

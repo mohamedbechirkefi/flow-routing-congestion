@@ -432,3 +432,24 @@ Owner: B15 (articles), B16 (full-text review and sign-off), B18 (release), roadm
 ### Next action
 
 Coordinator: deploy `demo/dist` with `demo/wrangler.jsonc`. Owner: B15, B16, B18 as before.
+
+## 2026-11-26: unique typeface pair across the labs (owner request)
+
+Brief: `labs/_shared/FONT-UNIQUE-brief.md`, row FLOW (Overpass and PT Serif; change the serif face). No number, data, fixture, test expectation, accessible name or scientific wording changed.
+
+### Changes
+
+- `demo/public/fonts/`: Source Serif 4 files and licence removed; added `pt-serif-latin-400-normal.woff2`, `pt-serif-latin-400-italic.woff2`, `pt-serif-latin-700-normal.woff2` and `OFL-pt-serif.txt`, copied from `@fontsource/pt-serif` 5.3.0 (installed in a scratch folder with `npm_config_before=2026-11-12`, exact version).
+- `demo/site/style.css`: `@font-face` rules for PT Serif (the 700 cut declared for the 600 to 700 range so `strong` gets a real bold); `--serif` stack; body 16.5 px / 1.68, hero answer clamp 1.08 to 1.25 rem / 1.58, footer 0.94 rem. PT Serif has no `tnum`; aligned numbers were already in Overpass.
+- `demo/site/index.html`: footer font credit names PT Serif (ParaType).
+- `demo/DESIGN.md` (type section), `demo/README.md` (third-party font table). Logo, favicon and Open Graph image use Overpass only and were not redrawn.
+
+### Checks (actual results)
+
+- `.venv/bin/python scripts/build_demo.py`: export check identical, sandbox export check identical, 26 files; `demo/dist` 580 KB.
+- `node --test demo/tests/*.test.mjs`: 33 tests, 33 pass. `node demo/tools/a11y_check.mjs demo/dist`: A11Y-CHECK PASS. `.venv/bin/python -m pytest -q tests/test_demo_export.py`: 5 passed.
+- Screenshots through the DevTools protocol at 1440 px and 390 px (kept outside the repository): no horizontal page overflow; prose wraps cleanly.
+
+### Next action
+
+None for this brief. Deployment is the coordinator's.
