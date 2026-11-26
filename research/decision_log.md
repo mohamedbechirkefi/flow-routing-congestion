@@ -213,3 +213,10 @@ FREEZE experiments/EXP-005.json sha256:7b58a93390e30d7f38e4d18899bba77b4dbc841d5
 - **B10, B13, B14.** PDFs kept; release-note draft with the build-tool sentence added to `release_checklist.md`; source-level labels accepted (no text change). B5, B11, B12 and the single-repository items do not concern FLOW.
 - **Not changed.** No result, analysis, figure, config, seed, frozen protocol (12 of 12 hashes match), protocol hash or checksummed output. Still the owner's: B15, B16, B18 and roadmap blocker B5. No box ticked.
 - **Decided by.** The owner (answers); applied by the assistant.
+
+## D-023 (2026-11-26): own brand identity, motion and UI for the demo
+
+- **Authority.** Owner request of 2026-11-26 ("each website unique and branded, animations, transitions, premium UI"), applied under the coordinator's brief `labs/_shared/DEMO-BRAND-brief.md`. The earlier shared "Labs Instrument" look is rejected by the owner and is not used.
+- **Change.** The demo page gets the "Flow" brand (transit map and guide sign, `demo/DESIGN.md`): logo files, favicon and Open Graph image in `demo/public/brand/`; Overpass and Source Serif 4 self-hosted from `demo/public/fonts/` (OFL 1.1); a hero route-map illustration labelled "Illustration, not study data" (`demo/site/hero.js`); a sticky section bar, overview plates, experiments shown as stations on one line, chart reveals, a sliding policy marker and a sandbox progress rail, all with reduced-motion variants. `scripts/build_demo.py` copies the two new folders and allows two more footer links (manuscript, labs index); `tests/test_demo_export.py` accepts those two as `<a href>` targets.
+- **Not changed.** No number, result, exported data file, fixture, test expectation, test id or accessible name a check reads. The page still requests nothing beyond its own origin (Content-Security-Policy `default-src 'self'`, now with an explicit `font-src 'self'`). D-018 holds: plain static files, no npm project in the repository (npm is used only in a scratch folder to obtain the font files).
+- **Decided by.** The owner (request); designed and applied by the assistant.

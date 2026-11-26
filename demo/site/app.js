@@ -6,6 +6,7 @@
 // own origin and nothing is stored.
 import { loadResults, fmtEstimate, fmtInterval, ResultsError } from "./results.js";
 import { validateSandbox, EngineError } from "./engine.js";
+import { mountHero } from "./hero.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 
@@ -58,12 +59,55 @@ function motionToggle() {
 
 function seg(options, current, onPick, label) {
   const wrap = h("div", { class: "seg", role: "group", "aria-label": label });
+  // Lane marker: one bar that slides under the pressed button (transform only).
+  const marker = h("span", { class: "seg-marker", "aria-hidden": "true" });
+  const place = () => {
+    const on = buttons.find((b) => b.getAttribute("aria-pressed") === "true");
+    if (!on || !wrap.clientWidth) return;
+    marker.style.transform = `translate(${on.offsetLeft}px, ${on.offsetTop + on.offsetHeight - 4}px) scaleX(${on.offsetWidth / 100})`;
+  };
   const buttons = options.map(([value, text]) => h("button", { type: "button", "aria-pressed": String(value === current), onclick: () => {
     for (const b of buttons) b.setAttribute("aria-pressed", String(b === buttons[options.findIndex((o) => o[0] === value)]));
+    place();
     onPick(value);
   } }, text));
-  wrap.append(...buttons);
+  wrap.append(...buttons, marker);
+  new ResizeObserver(() => { wrap.classList.add("seg-still"); place(); requestAnimationFrame(() => wrap.classList.remove("seg-still")); }).observe(wrap);
   return wrap;
+}
+
+// Charts reveal once when scrolled into view (opacity and a short rise, CSS).
+const revealer = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+  for (const en of entries) if (en.isIntersecting) { en.target.classList.add("in"); revealer.unobserve(en.target); }
+}, { rootMargin: "0px 0px -8% 0px" }) : null;
+function reveal(el) {
+  if (!revealer || !motionOn) { el.classList.add("in"); return el; }
+  el.classList.add("reveal");
+  revealer.observe(el);
+  return el;
+}
+
+// Count-up for headline values that are plain decimals in the data. The last frame
+// is the manuscript's exact string; with reduced motion the string is shown at once.
+function countUp(el, text) {
+  el.textContent = text;
+  const m = /^(\d+)\.(\d+)$/.exec(text);
+  if (!m || !motionOn || !revealer) return el;
+  const target = Number(text), dp = m[2].length;
+  const io = new IntersectionObserver((entries) => {
+    if (!entries.some((en) => en.isIntersecting)) return;
+    io.disconnect();
+    const t0 = performance.now(), dur = 900;
+    const tick = (now) => {
+      const k = Math.min(1, (now - t0) / dur), e = 1 - (1 - k) ** 3;
+      el.textContent = k < 1 ? (target * e).toFixed(dp) : text;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    setTimeout(() => { el.textContent = text; }, dur + 200);
+  });
+  io.observe(el);
+  return el;
 }
 
 // Responsive charts: re-rendered from data when the container width changes.
@@ -350,14 +394,14 @@ function overview(r) {
     h("h2", { id: "h-overview", text: "Overview" }),
     h("p", { class: "status-label", text: r.status_label }),
     h("p", { class: "lede", text: r.question }),
-    h("div", { class: "tiles" },
-      h("div", { class: "tile" }, tag("measured"), h("p", { class: "big", text: fmtEstimate(prim) }),
+    h("div", { class: "plates" },
+      h("div", { class: "plate" }, tag("measured"), countUp(h("p", { class: "big" }), fmtEstimate(prim)),
         h("p", { text: "Median relative excess of equilibrium over system-optimal total travel time, 100 synthetic 6 by 6 grids at twice the saturation demand (primary, EXP-003)." }),
         h("p", { class: "meta", text: `95% bootstrap interval ${prim.interval_display}; one-sided lower bound ${lb.display}, above the 0.01 margin: H0 rejected.` })),
-      h("div", { class: "tile" }, tag("measured"), h("p", { class: "big", text: e1.verdict === e2.verdict ? `${e1.verdict}, both` : `${e1.verdict}; ${e2.verdict}` }),
+      h("div", { class: "plate" }, tag("measured"), h("p", { class: "big", text: e1.verdict === e2.verdict ? `${e1.verdict}, both` : `${e1.verdict}; ${e2.verdict}` }),
         h("p", { text: "Both exact checks on the Braess network failed their own frozen 1e-6 rule (EXP-001, EXP-002)." }),
         h("p", { class: "meta", text: "Residuals of 1e-5 to 6e-5 at the frozen solver tolerance. An exploratory rerun at 1e-10 met the rule; the frozen verdicts stand." })),
-      h("div", { class: "tile" }, tag("measured"), h("p", { class: "big", text: fmtEstimate(sf) }),
+      h("div", { class: "plate" }, tag("measured"), countUp(h("p", { class: "big" }), fmtEstimate(sf)),
         h("p", { text: "Equilibrium excess on one real test network, Sioux Falls, at rho = 2 (EXP-006): the direction replicates, by a small margin." }),
         h("p", { class: "meta", text: "One deterministic network, no interval; its maintainers describe it as not realistic." }))),
     h("ul", { class: "legend-labels", "aria-label": "Evidence labels used on this page" },
@@ -406,7 +450,7 @@ function experimentPanel(e) {
       h("table", { class: "stack" }, h("thead", {}, h("tr", {}, h("th", { scope: "col", text: "Quantity" }), h("th", { scope: "col", text: "Value" }), h("th", { scope: "col", text: "Interval" }))),
         h("tbody", {}, e.estimates.map((x) => h("tr", {}, h("th", { scope: "row", text: x.label }), h("td", { "data-label": "Value", text: fmtEstimate(x) }), h("td", { "data-label": "Interval", text: fmtInterval(x) })))))),
     e.notes.map((n) => h("p", { class: "note", text: n })),
-    h("p", { class: "meta" }, "Report: ", h("code", { text: e.report_path }), e.claim_ids.length ? ` · Claims: ${e.claim_ids.join(", ")}` : ""));
+    h("p", { class: "meta" }, "Report: ", h("code", { text: e.report_path }), e.claim_ids.length ? `. Claims: ${e.claim_ids.join(", ")}` : ""));
 }
 
 function published(r) {
@@ -416,7 +460,10 @@ function published(r) {
     h("h2", { id: "h-results", text: "Published results" }),
     h("p", { class: "note" }, "Every number below is printed exactly as the manuscript prints it, from the committed results of the confirmatory runs at revision ", h("code", { text: r.code_revision.slice(0, 7) }), " (exploratory runs at ", h("code", { text: r.exploratory_code_revision.slice(0, 7) }), "). Contradicted, null and exploratory results are shown with the same weight as supported ones. Nothing here comes from the sandbox."),
     charts(r),
-    h("div", { class: "exp-grid" }, r.experiments.map(experimentPanel))));
+    h("h3", { class: "line-title", text: "Every registered experiment, in registration order" }),
+    h("ol", { class: "route-line", "aria-label": "Confirmatory experiments" }, r.experiments.filter((e) => e.label === "measured").map((e) => h("li", { class: "stop" }, experimentPanel(e)))),
+    h("h3", { class: "line-title", text: "Exploratory branch: checks defined after the results were seen" }),
+    h("ol", { class: "route-line branch", "aria-label": "Exploratory checks" }, r.experiments.filter((e) => e.label !== "measured").map((e) => h("li", { class: "stop" }, experimentPanel(e))))));
   frag.append(h("section", { id: "assumptions", "aria-labelledby": "h-assumptions" },
     h("h2", { id: "h-assumptions" }, "Assumptions ", tag("assumption")),
     h("p", { class: "note", text: "These are modelling choices and conventions of the study. They are inputs, not findings." }),
@@ -445,6 +492,7 @@ function sandbox(sb) {
   const out = document.getElementById("sb-out");
   const progress = document.getElementById("sb-progress");
   const detail = document.getElementById("sb-detail");
+  const rail = document.getElementById("sb-rail");
 
   const options = [["braess-e", "Braess network, with link e"], ["braess", "Braess network, without link e"], ...sb.grids.map((g) => [`grid-${g.seed}`, `4 by 4 grid, seed ${g.seed}`])];
   scenario.replaceChildren(...options.map(([v, t]) => h("option", { value: v, text: t })));
@@ -474,7 +522,7 @@ function sandbox(sb) {
       const m = ev.data;
       if (m.id !== job) return;
       if (m.type === "progress") { progress.textContent = `Running: ${m.sweeps} solver sweeps so far.`; return; }
-      run.disabled = false; cancel.disabled = true;
+      run.disabled = false; cancel.disabled = true; rail.classList.remove("running");
       if (m.type === "done") { last = { ...pending, arms: m.arms }; progress.textContent = ""; render(); }
       if (m.type === "cancelled") { progress.textContent = ""; out.textContent = "Sandbox run cancelled; no output."; }
       if (m.type === "error") { progress.textContent = ""; out.textContent = `Sandbox run stopped with an error: ${m.message}`; }
@@ -503,7 +551,7 @@ function sandbox(sb) {
     out.textContent = "";
     detail.replaceChildren();
     progress.textContent = "Running.";
-    run.disabled = true; cancel.disabled = false;
+    run.disabled = true; cancel.disabled = false; rail.classList.add("running");
     worker.postMessage({ type: "run", id: job, network, demand: dem, mixC: c });
   });
   cancel.addEventListener("click", () => { worker.postMessage({ type: "cancel" }); });
@@ -511,7 +559,7 @@ function sandbox(sb) {
     worker.terminate(); job += 1; startWorker();
     scenario.value = "braess-e"; mix.value = "0.5"; setRange();
     out.textContent = ""; progress.textContent = ""; detail.replaceChildren(); last = null; view = "UE";
-    run.disabled = false; cancel.disabled = true;
+    run.disabled = false; cancel.disabled = true; rail.classList.remove("running");
   });
   setRange();
 
@@ -554,12 +602,36 @@ function sandbox(sb) {
 
 // ---------------------------------------------------------------------------
 
+// The nav marks the section in view (a lane marking under the link).
+function spy() {
+  if (!("IntersectionObserver" in window)) return;
+  const links = [...document.querySelectorAll("header.bar nav a")];
+  const io = new IntersectionObserver((entries) => {
+    for (const en of entries) if (en.isIntersecting) for (const a of links) a.classList.toggle("here", a.getAttribute("href") === `#${en.target.id}`);
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  for (const a of links) { const t = document.querySelector(a.getAttribute("href")); if (t) io.observe(t); }
+}
+
+function answer(r) {
+  const prim = est(r, "EXP-003", 0), lb = est(r, "EXP-003", 1);
+  const el = document.getElementById("answer");
+  el.replaceChildren("On congested synthetic grids, yes, by a small margin. At twice the saturation demand, the median excess of equilibrium over system-optimal total travel time was ",
+    h("strong", { text: fmtEstimate(prim) }), ` (one-sided lower bound ${lb.display}, above the 0.01 margin). It fell below the margin at light demand and with linear-in-flow costs.`);
+}
+
 async function main() {
   const host = document.getElementById("published");
   try {
+    mountHero(document.getElementById("hero-svg"), document.getElementById("hero-replay"), () => !motionOn);
+  } catch { /* the illustration is decorative; the page works without it */ }
+  try {
     const r = await loadResults();
     host.replaceChildren(published(r));
+    answer(r);
+    host.querySelectorAll("figure.chart").forEach(reveal);
+    spy();
   } catch (e) {
+    document.getElementById("answer").textContent = "The published results file failed validation, so no measured answer is shown.";
     host.replaceChildren(h("div", { role: "alert", class: "panel error" },
       h("h2", { text: "Results unavailable" }),
       h("p", { text: "The published results file failed validation, so no numbers are shown." }),

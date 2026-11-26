@@ -81,9 +81,12 @@ def test_sandbox_files_match_fresh_export():
 
 
 # Footer links the visitor may follow (navigation, not a load); owner, 2026-11-26, B1 and B2.
+# The manuscript and labs-index links were added with the brand redesign (owner request 2026-11-26).
 FOOTER_LINKS = (
     "https://github.com/mohamedbechirkefi/flow-routing-congestion",
     "https://flow-routing-congestion.kefimohamedbechir.workers.dev",
+    "https://github.com/mohamedbechirkefi/flow-routing-congestion/blob/main/research/paper/manuscript.md",
+    "https://labs.kefimohamedbechir.workers.dev",
 )
 
 
@@ -93,7 +96,9 @@ def test_demo_sources_reference_no_remote_host():
         text = p.read_text()
         if p.name == "index.html":
             for url in FOOTER_LINKS:
-                assert text.count(url) == text.count(f'<a href="{url}">') == 1, (p.name, url)
+                assert text.count(f'<a href="{url}">') == 1, (p.name, url)
+            # longest first, so the repository address is not matched inside the manuscript address
+            for url in sorted(FOOTER_LINKS, key=len, reverse=True):
                 text = text.replace(f'<a href="{url}">', "<a>")
         hits = {m for m in pattern.findall(text) if m != "http://www.w3.org"}
         assert hits == set(), (p.name, hits)

@@ -4,20 +4,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; form-action 'none'; base-uri 'none'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; form-action 'none'; base-uri 'none'" />
     <meta name="referrer" content="no-referrer" />
     <title>FLOW lab: individually optimal routing and collective travel time</title>
-    <link rel="icon" href="data:," />
+    <meta name="description" content="A preregistered simulation study: can individually optimal routing worsen collective travel time? Measured results on the Braess network, 100 seeded grids and Sioux Falls, with an in-browser sandbox." />
+    <meta name="theme-color" content="#13263B" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Flow: when every driver takes the fastest route" />
+    <meta property="og:description" content="Can individually optimal routing worsen collective travel time? A preregistered simulation study with every result, including the contradicted ones." />
+    <meta property="og:image" content="./brand/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./brand/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./brand/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="preload" href="./fonts/overpass-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="./style.css" />
     <script type="module" src="./app.js"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <header class="site">
-      <div class="wrap">
-        <p class="kicker">FLOW, a preregistered simulation study</p>
-        <h1>Can individually optimal routing worsen collective travel time?</h1>
-        <p class="dek">When every traveller takes the route that is best for them, total travel time can exceed what a coordinated assignment achieves. This page shows what the study measured, on what networks, and how sure it is.</p>
+    <header class="bar">
+      <div class="bar-in">
+        <a class="brand" href="#top" aria-label="Flow, back to the top"><img src="./brand/flow-mark-small.svg" alt="" width="28" height="28" /><span>Flow</span></a>
         <nav aria-label="Sections">
           <a href="#overview">Overview</a>
           <a href="#explorer">Braess network</a>
@@ -28,6 +37,25 @@
         </nav>
       </div>
     </header>
+    <div class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <div class="sign">
+            <h1>Can individually optimal routing worsen collective travel time?</h1>
+          </div>
+          <p class="answer" id="answer">Loading the measured answer.</p>
+          <p class="dek">When every traveller takes the route that is best for them, total travel time can exceed what a coordinated assignment achieves. FLOW is a preregistered simulation study of that gap. This page shows what it measured, on what networks, and how sure it is.</p>
+        </div>
+        <figure class="hero-map" id="hero-map">
+          <div class="hero-map-head">
+            <span class="illus-tag">Illustration, not study data</span>
+            <button type="button" id="hero-replay" class="ghost">Replay illustration</button>
+          </div>
+          <div id="hero-svg"></div>
+          <figcaption>Before, travellers split over the upper and lower routes. Then link e opens, every traveller switches to the route through it, and links a and d, whose time grows with traffic, jam for everyone.</figcaption>
+        </figure>
+      </div>
+    </div>
     <main id="main" class="wrap">
       <div id="published"><p role="status">Loading the published results.</p></div>
 
@@ -49,20 +77,31 @@
               <option value="0.75">0.75</option>
             </select>
           </label>
-          <button type="button" id="sb-run">Run sandbox</button>
-          <button type="button" id="sb-cancel" disabled>Cancel</button>
-          <button type="button" id="sb-reset">Reset</button>
+          <div class="actions">
+            <button type="button" id="sb-run" class="primary">Run sandbox</button>
+            <button type="button" id="sb-cancel" disabled>Cancel</button>
+            <button type="button" id="sb-reset">Reset</button>
+          </div>
         </div>
+        <div class="run-rail" id="sb-rail" aria-hidden="true"><span></span></div>
         <p id="sb-out" aria-live="polite" class="readout"></p>
         <p id="sb-progress" class="sandbox-progress"></p>
         <div id="sb-detail"></div>
       </section>
     </main>
     <footer class="site">
-      <div class="wrap">
-        <p>Runs offline after the first load. No data about visitors is collected, stored or sent anywhere; the page makes no request beyond its own files.</p>
-        <p>FLOW is source-available under the FLOW Source-Available Non-Commercial Research License v1.0; it is not open-source. Repository: <a href="https://github.com/mohamedbechirkefi/flow-routing-congestion">github.com/mohamedbechirkefi/flow-routing-congestion</a>. Demo: <a href="https://flow-routing-congestion.kefimohamedbechir.workers.dev">flow-routing-congestion.kefimohamedbechir.workers.dev</a>.</p>
-        <p>Mohamed Bechir Kefi, independent researcher.</p>
+      <div class="wrap foot-grid">
+        <div class="foot-brand">
+          <img src="./brand/flow-lockup-reversed.svg" alt="Flow" width="160" height="56" />
+          <p>Mohamed Bechir Kefi, independent researcher.</p>
+        </div>
+        <div>
+          <p>Repository: <a href="https://github.com/mohamedbechirkefi/flow-routing-congestion">github.com/mohamedbechirkefi/flow-routing-congestion</a>. Manuscript: <a href="https://github.com/mohamedbechirkefi/flow-routing-congestion/blob/main/research/paper/manuscript.md">research/paper/manuscript.md</a>. Demo: <a href="https://flow-routing-congestion.kefimohamedbechir.workers.dev">flow-routing-congestion.kefimohamedbechir.workers.dev</a>. More studies: <a href="https://labs.kefimohamedbechir.workers.dev">the labs index</a>.</p>
+          <p>FLOW is source-available under the FLOW Source-Available Non-Commercial Research License v1.0; it is not open-source.</p>
+          <p>An AI system (Claude, Anthropic) was used as a research and development assistant; it is not an author.</p>
+          <p>Runs offline after the first load. No data about visitors is collected, stored or sent anywhere; the page makes no request beyond its own files.</p>
+          <p class="credits">Type: Overpass (The Overpass Project Authors) and Source Serif 4 (Adobe), both under the SIL Open Font License 1.1, served from this site.</p>
+        </div>
       </div>
     </footer>
     <noscript>This page needs JavaScript. The results are also in research/paper/manuscript.md.</noscript>

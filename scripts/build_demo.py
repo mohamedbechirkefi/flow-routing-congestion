@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: LicenseRef-FLOW-NC-Research-1.0
 """Assemble the static M5 demo into demo/dist/ (FLOW D-018: plain static files, no npm).
 
-Copies demo/site/* and demo/public/data/*.json into demo/dist/, after three fail-closed
+Copies demo/site/*, demo/public/data/*.json, demo/public/brand/ and demo/public/fonts/
+into demo/dist/, after three fail-closed
 checks: the exported data files equal a fresh export (scripts/export_demo_data.py and
 scripts/export_demo_sandbox.py, --check), no site file references a remote host, and
 no REPLACE template marker is left. demo/dist/ is not committed (.gitignore).
@@ -21,6 +22,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "demo" / "site"
 DATA = ROOT / "demo" / "public" / "data"
+# Brand files (logo, favicon, Open Graph image) and self-hosted OFL fonts, copied as is.
+ASSET_DIRS = ("brand", "fonts")
 DIST = ROOT / "demo" / "dist"
 
 # The SVG namespace string is an identifier, not a request. The repository and demo
@@ -30,6 +33,8 @@ ALLOWED_URLS = {
     "http://www.w3.org/2000/svg",
     "https://github.com/mohamedbechirkefi/flow-routing-congestion",
     "https://flow-routing-congestion.kefimohamedbechir.workers.dev",
+    "https://github.com/mohamedbechirkefi/flow-routing-congestion/blob/main/research/paper/manuscript.md",
+    "https://labs.kefimohamedbechir.workers.dev",
 }
 URL = re.compile(r"(?:https?:)?//[A-Za-z0-9.-]+\.[A-Za-z]{2,}[^\s\"'`)]*")
 
@@ -58,6 +63,12 @@ def main() -> int:
         shutil.copy2(p, DIST / p.name)
     for p in sorted(DATA.glob("*.json")):
         shutil.copy2(p, DIST / "data" / p.name)
+    for d in ASSET_DIRS:
+        src = ROOT / "demo" / "public" / d
+        if not src.is_dir():
+            print(f"build refused: demo/public/{d}/ is missing", file=sys.stderr)
+            return 1
+        shutil.copytree(src, DIST / d)
     n = sum(1 for _ in DIST.rglob("*") if _.is_file())
     print(f"built {DIST.relative_to(ROOT)}: {n} files")
     return 0

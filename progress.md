@@ -402,3 +402,33 @@ Owner: review the PDFs and the checklist in `author_review.md`, decide the open 
 ### Next action
 
 Owner: B15 (articles), B16 (full-text review and sign-off), B18 (release), roadmap blocker B5 (licence wording). Coordinator: deploy `demo/dist` with `demo/wrangler.jsonc`.
+
+## 2026-11-26: Session 10 (demo brand identity, motion and UI redesign)
+
+**Authority.** Owner request of 2026-11-26, coordinator's brief `labs/_shared/DEMO-BRAND-brief.md`. Decision D-023. Demo presentation only: no result, exported data, fixture, test expectation, analysis or frozen file changed; no push, no deploy.
+
+### Starting state
+
+`git status`: clean; HEAD `1e20afc`.
+
+### Changes
+
+- `demo/DESIGN.md`: design plan (subject, audience, six named colours, Overpass and Source Serif 4, wireframe, motion plan, memorable thing), review against the generated-page tells, and the two screenshot critique passes.
+- `demo/public/brand/`: `flow-mark.svg`, `flow-mark-small.svg` (16 px cut, also `favicon.svg`), `flow-mark-mono.svg`, `flow-wordmark.svg`, `flow-lockup.svg`, `flow-lockup-reversed.svg`, `favicon-32.png`, `og.png` (1200 by 630, rendered from an HTML page with Chrome headless).
+- `demo/public/fonts/`: six WOFF2 files and two OFL texts (`@fontsource/overpass` 5.3.0, `@fontsource/source-serif-4` 5.3.1, installed in a scratch folder with `npm_config_before=2026-11-12`).
+- `demo/site/`: new `hero.js` (route-map illustration, Web Animations API on transform and opacity, labelled "Illustration, not study data", no number); `index.html` (sticky bar with the mark, guide-sign hero with the measured answer filled from `results.json`, meta description, theme colour, Open Graph tags, favicons, footer with manuscript, labs index, licence, AI-use and font credits); `style.css` rewritten (light only); `app.js` (overview plates with count-up ending on the exact data string, sliding policy marker, chart reveal once in view, experiments as stations on one line with an exploratory branch, nav marker for the section in view, sandbox progress rail).
+- `scripts/build_demo.py`: copies `demo/public/brand/` and `demo/public/fonts/`; two more allowed footer links. `tests/test_demo_export.py`: the two links accepted as `<a href>` targets (longest first, since the manuscript address contains the repository address). No number check changed.
+- `demo/README.md`: files table, brand line, third-party font notes.
+
+### Commands and outputs
+
+- `python3 -I svg_audit.py demo/public/brand/*.svg` -> no FAIL; scores 99 (marks), 92 (wordmark), 84 (lockups: warnings for white artwork on the green plate, deliberate, and for font-outline angles).
+- `.venv/bin/python scripts/build_demo.py` -> `export check: identical`, `sandbox export check: identical`, `built demo/dist: 26 files`; `demo/dist` 491,244 bytes in total (fonts 113,796; data 201,212; brand files including the 1200 by 630 Open Graph PNG).
+- `node --test demo/tests/*.test.mjs` -> `# tests 33`, `# pass 33`, `# fail 0`.
+- `cd demo && node tools/a11y_check.mjs dist` -> nine PASS lines (keyboard `38 reached of 38`, `no horizontal page scroll at 360 px: overflow 0px`, `reduced motion: no running animations: 0 running`, `no request leaves the local origin`) and `A11Y-CHECK PASS`.
+- `nice -n 10 .venv/bin/python -m pytest -q` -> `150 passed in 101.72s`; after the last markup change `pytest -q tests/test_demo_export.py` -> `5 passed`.
+- Screenshots (Chrome headless over the DevTools protocol, 1440 px and 390 px, after the hero played; also the brief's `--virtual-time-budget=4000` window and iframe captures) kept outside the repository.
+
+### Next action
+
+Coordinator: deploy `demo/dist` with `demo/wrangler.jsonc`. Owner: B15, B16, B18 as before.
