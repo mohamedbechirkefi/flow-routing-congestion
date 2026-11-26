@@ -23,8 +23,14 @@ SITE = ROOT / "demo" / "site"
 DATA = ROOT / "demo" / "public" / "data"
 DIST = ROOT / "demo" / "dist"
 
-# The SVG namespace string is an identifier, not a request.
-ALLOWED_URLS = {"http://www.w3.org/2000/svg"}
+# The SVG namespace string is an identifier, not a request. The repository and demo
+# addresses are footer links the visitor may follow (navigation, not a load); the
+# checker still confirms that the page requests nothing beyond its own origin.
+ALLOWED_URLS = {
+    "http://www.w3.org/2000/svg",
+    "https://github.com/mohamedbechirkefi/flow-routing-congestion",
+    "https://flow-routing-congestion.kefimohamedbechir.workers.dev",
+}
 URL = re.compile(r"(?:https?:)?//[A-Za-z0-9.-]+\.[A-Za-z]{2,}[^\s\"'`)]*")
 
 

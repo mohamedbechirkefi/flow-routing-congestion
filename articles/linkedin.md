@@ -9,7 +9,7 @@ One defensible finding: on 100 synthetic 6 by 6 grid networks with conventional 
 
 The caveats matter as much: with linear-in-flow costs or light demand the excess fell below 1 percent; two exact checks on the Braess network failed their own frozen tolerance rule and are reported as contradicted; and this is a simulation on synthetic networks, not a statement about any real city or navigation app.
 
-Repository: [to be added on owner-approved release]
-Demo: [to be added on owner-approved release]
+Repository: https://github.com/mohamedbechirkefi/flow-routing-congestion
+Demo: https://flow-routing-congestion.kefimohamedbechir.workers.dev
 
-An AI system (Claude, Anthropic) was used as a research and development assistant.
+Mohamed Bechir Kefi, independent researcher. An AI system (Claude, Anthropic) was used as a research and development assistant.

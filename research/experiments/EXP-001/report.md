@@ -5,7 +5,7 @@
 
 - Experiment EXP-001. Report date 2026-11-25. Report version 1.1 (M4: exploratory 1e-10 check added beside the frozen verdict; version 1.0 was the M3 report).
 - **Status: CONFIRMATORY, complete (6 of 6 records). Verdict under the frozen rule: CONTRADICTED.** One of six arm and network combinations lies outside the 1e-6 tolerance.
-- Authorship: Mohamed Bechir Kefi (owner-approved, C3). An AI research and development assistant (Claude) is disclosed and is not an author.
+- Authorship: Mohamed Bechir Kefi, independent researcher (owner-approved, C3; owner, 2026-11-26, decision sheet, B3). An AI research and development assistant (Claude) is disclosed and is not an author.
 - Protocol `research/experiments/EXP-001/protocol.md`, sha256 `c431c303e5d12017b157ec37a722b527492c77a99ab49d6c72029d965bd8d4c7`. Umbrella `research/protocol.md` v1.0, sha256 `9f629b07b4c8e240c41236ff5c0cfd1abfde9681452c9f662f0175f316ecb97d` (frozen 2026-11-24, D-011).
 - Config `experiments/EXP-001.json`, file sha256 `605ee995073ff319de450b9aff00bf1125a90ce1ad0849a053f5f8422d537aae`; canonical config hash `846e8c0f758caa6f4993798a0b18087b618054b6da44e727a06381cfeb3be6b4`.
 - Provenance revision `8dfc66ca5c9635e160f38526843941716aadacd0`. The manifest records `dirty: false`.

@@ -23,6 +23,7 @@ Labels: **Measured** (confirmatory), **Exploratory** (defined after results were
 | `tests/` | Node built-in test runner: loader tests and the engine port against `tests/fixtures/sandbox_fixture.json` (Python engine output) |
 | `tools/a11y_check.mjs` | offline and accessibility smoke check (Chrome DevTools Protocol) |
 | `dist/` | build output, not committed |
+| `wrangler.jsonc` | Cloudflare Workers static-assets configuration (assets only, directory `./dist`) |
 
 ## Commands
 
@@ -34,4 +35,4 @@ From the repository root, with Node 22 on the path (on the development machine, 
     node --test demo/tests/*.test.mjs
     cd demo && node tools/a11y_check.mjs dist --screenshots <dir>
 
-Demo URL: [to be added on owner-approved release].
+Demo: <https://flow-routing-congestion.kefimohamedbechir.workers.dev>. The page is hosted as Cloudflare Workers static assets on the free plan (owner, 2026-11-26, decision sheet, B2). `demo/wrangler.jsonc` names the built folder `./dist` as the assets directory; there is no Worker script. The deploy is made by the coordinator, not by any script of this repository. Source: <https://github.com/mohamedbechirkefi/flow-routing-congestion>.

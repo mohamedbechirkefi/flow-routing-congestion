@@ -3,7 +3,7 @@
 
 **Question.** Can individually optimal routing worsen collective travel time?
 
-**Status (2026-11-25).** Preregistered simulation study. Protocol v1.0 was frozen by the owner on 2026-11-24; all six confirmatory experiments are complete and reported; the manuscript is a draft, not peer-reviewed. The owner approved the funding, competing-interest and AI-use statements on 2026-11-25; the owner's full-text review of the manuscript is pending (M6). Nothing has been published.
+**Status (2026-11-25).** Preregistered simulation study. Protocol v1.0 was frozen by the owner on 2026-11-24; all six confirmatory experiments are complete and reported; the manuscript is a draft, not peer-reviewed. The owner approved the funding, competing-interest and AI-use statements on 2026-11-25; the owner's full-text review of the manuscript is pending (M6). The repository is public at <https://github.com/mohamedbechirkefi/flow-routing-congestion> since 2026-11-25; no release, tag, DOI or preprint exists.
 
 ## Why it matters
 
@@ -19,7 +19,7 @@ When every traveller takes the route that is best for them, the result need not 
 
 ![The Braess network explorer of the FLOW demo page: the network before and after adding link e at demand 6, with measured link flows, and below it the measured equilibrium mean trip time against demand with and without link e, the predicted paradox interval shaded.](docs/demo.png)
 
-A static, offline page in `demo/`: an animated Braess network with a demand slider over the measured EXP-002 points, a routing-policy comparison, edge congestion, paired before and after charts, every published result with its interval, the assumptions, the method and limitations, and a sandbox that runs a port of the engine in a Web Worker. Measured results, exploratory checks, assumptions and sandbox output are labelled separately. Demo URL: [to be added on owner-approved release].
+A static, offline page in `demo/`: an animated Braess network with a demand slider over the measured EXP-002 points, a routing-policy comparison, edge congestion, paired before and after charts, every published result with its interval, the assumptions, the method and limitations, and a sandbox that runs a port of the engine in a Web Worker. Measured results, exploratory checks, assumptions and sandbox output are labelled separately. Demo: <https://flow-routing-congestion.kefimohamedbechir.workers.dev>.
 
 Demo quick start (FLOW uses plain static files and the repository's Python, no npm project):
 
@@ -98,4 +98,4 @@ FLOW Source-Available Non-Commercial Research License v1.0 (`LicenseRef-FLOW-NC-
 
 ## Citation
 
-See `CITATION.cff`. Cite as an independent research manuscript draft, not peer-reviewed. Repository URL: [to be added on owner-approved release].
+See `CITATION.cff`. Cite as an independent research manuscript draft, not peer-reviewed. Author: Mohamed Bechir Kefi, independent researcher. Repository: <https://github.com/mohamedbechirkefi/flow-routing-congestion>.

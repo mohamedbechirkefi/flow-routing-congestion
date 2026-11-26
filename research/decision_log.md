@@ -199,3 +199,17 @@ FREEZE experiments/EXP-005.json sha256:7b58a93390e30d7f38e4d18899bba77b4dbc841d5
 - **Committed PDFs.** `manuscript.pdf`, `supplementary.pdf` and the six `report.pdf` files are committed: no `.gitignore` rule or decision excludes them, and each is under 0.6 MB.
 - **Not done, owner's.** No `author_review.md` box ticked; no push, tag, release or remote change; the manuscript title, the URLs, blocker B5 and the licence flags stay open (listed in `research/publication/author_review.md`).
 - **Decided by.** The owner (start of M6; date-released default); the assistant under the M6 brief.
+
+## D-022 (2026-11-26): owner answers of 2026-11-26 applied
+
+- **Authority.** Owner, 2026-11-26, decision sheet (`labs/_shared/owner-decision-sheet-2026-11-26.md`; answers in `labs/_shared/owner-approvals-2026-11-26.md`), applied under the coordinator's brief `labs/_shared/OWNER-ANSWERS-brief.md`.
+- **A1.** Out-of-date sentences corrected: `README.md` ("Nothing has been published" now states that the repository is public since 2026-11-25 and that no release, tag, DOI or preprint exists), `research/publication/author_review.md` (open decision 1) and `research/publication/release_checklist.md` (status and last box). Append-only records keep their dated wording.
+- **B1, B2.** Repository URL `https://github.com/mohamedbechirkefi/flow-routing-congestion` and demo URL `https://flow-routing-congestion.kefimohamedbechir.workers.dev` replace every "[to be added on owner-approved release]" (README, CITATION.cff, manuscript and its generated `.tex`, both articles, demo README, page footer). `CITATION.cff` gains `repository-code`. New `demo/wrangler.jsonc`: Cloudflare Workers static assets, free plan, assets directory `./dist` (the folder `scripts/build_demo.py` writes), no Worker script; deployed by the coordinator, not by this repository. The footer now carries two outbound links; `scripts/build_demo.py` allows exactly these two addresses and `tests/test_demo_export.py` accepts them only as `<a href>` targets in `index.html`. The checker still reports that no request leaves the local origin.
+- **B3.** "Mohamed Bechir Kefi, independent researcher" in the manuscript, supplementary, the six experiment reports (identification section only), README, both articles and the demo footer; `CITATION.cff` `affiliation: "Independent researcher"`. Frozen protocols not edited.
+- **B4.** Manuscript: "No funding was received. The author declares no competing interests."
+- **B6, B7.** Manuscript title approved as written; `CITATION.cff` `title` set to it.
+- **B8.** `0.1.0-rc1`, no `date-released`; the release step (`0.1.0`, release day, `pyproject.toml` stays `0.0.0`) is recorded in `release_checklist.md`.
+- **B9.** No editable file holds an absolute home path (scrubbed at M6, D-021); 18 lines in 5 append-only or result files remain, listed in `reproducibility_report.md`.
+- **B10, B13, B14.** PDFs kept; release-note draft with the build-tool sentence added to `release_checklist.md`; source-level labels accepted (no text change). B5, B11, B12 and the single-repository items do not concern FLOW.
+- **Not changed.** No result, analysis, figure, config, seed, frozen protocol (12 of 12 hashes match), protocol hash or checksummed output. Still the owner's: B15, B16, B18 and roadmap blocker B5. No box ticked.
+- **Decided by.** The owner (answers); applied by the assistant.

@@ -3,6 +3,8 @@
 
 # Supplementary material
 
+Mohamed Bechir Kefi, independent researcher.
+
 ## S1. Complete experimental matrix
 
 | EXP | Status | Networks | Factors | Arms | Instances | Records (ok / nonconverged / failed) | Run id |

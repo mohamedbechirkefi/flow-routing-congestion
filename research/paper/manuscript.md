@@ -7,7 +7,7 @@
 
 ## Author and affiliation metadata
 
-Mohamed Bechir Kefi (no affiliation; owner-approved metadata, freeze record C3). An AI system (Claude, Anthropic) was used as a research and development assistant; it is not an author (see the AI assistance statement).
+Mohamed Bechir Kefi, independent researcher (owner-approved metadata: freeze record C3; owner, 2026-11-26, decision sheet, B3). An AI system (Claude, Anthropic) was used as a research and development assistant; it is not an author (see the AI assistance statement).
 
 ## Abstract
 
@@ -277,11 +277,11 @@ Feasible extensions, each needing a new registered protocol: an independent seco
 
 ## Data and code availability
 
-All code, configs, frozen protocols, analyses, figures and confirmatory per-record tables are in this repository (paths given in each experiment report). The Sioux Falls files are not redistributed; `scripts/download_tntp.py` fetches them from the pinned commit and checks their SHA-256 values; the EXP-006 per-link results are kept local for the same reason. Repository URL: [to be added on owner-approved release].
+All code, configs, frozen protocols, analyses, figures and confirmatory per-record tables are in this repository (paths given in each experiment report). The Sioux Falls files are not redistributed; `scripts/download_tntp.py` fetches them from the pinned commit and checks their SHA-256 values; the EXP-006 per-link results are kept local for the same reason. Repository: <https://github.com/mohamedbechirkefi/flow-routing-congestion>. Interactive page: <https://flow-routing-congestion.kefimohamedbechir.workers.dev>.
 
 ## Funding, competing interests and AI assistance
 
-No funding. No competing interests. An AI system (Claude, Anthropic) acted as research and development assistant: it drafted protocols, implemented the engine and tests, ran the experiments and drafted the reports and this manuscript. The owner approved the protocol freeze, the amendments and every decision recorded as an owner decision. Numbers were checked by an automated trace against committed result files (`research/publication/evidence_audit.md`) and an internal second review pass (`research/publication/review_pass_2.md`). These are internal quality controls, not peer review.
+No funding was received. The author declares no competing interests. An AI system (Claude, Anthropic) acted as research and development assistant: it drafted protocols, implemented the engine and tests, ran the experiments and drafted the reports and this manuscript. The owner approved the protocol freeze, the amendments and every decision recorded as an owner decision. Numbers were checked by an automated trace against committed result files (`research/publication/evidence_audit.md`) and an internal second review pass (`research/publication/review_pass_2.md`). These are internal quality controls, not peer review.
 
 ## References
 

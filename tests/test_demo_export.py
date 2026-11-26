@@ -80,8 +80,20 @@ def test_sandbox_files_match_fresh_export():
     assert all(9000 <= s <= 9019 for s in seeds)  # exploratory seeds only
 
 
+# Footer links the visitor may follow (navigation, not a load); owner, 2026-11-26, B1 and B2.
+FOOTER_LINKS = (
+    "https://github.com/mohamedbechirkefi/flow-routing-congestion",
+    "https://flow-routing-congestion.kefimohamedbechir.workers.dev",
+)
+
+
 def test_demo_sources_reference_no_remote_host():
     pattern = re.compile(r"(?:https?:)?//[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
     for p in (ROOT / "demo" / "site").iterdir():
-        hits = {m for m in pattern.findall(p.read_text()) if m != "http://www.w3.org"}
+        text = p.read_text()
+        if p.name == "index.html":
+            for url in FOOTER_LINKS:
+                assert text.count(url) == text.count(f'<a href="{url}">') == 1, (p.name, url)
+                text = text.replace(f'<a href="{url}">', "<a>")
+        hits = {m for m in pattern.findall(text) if m != "http://www.w3.org"}
         assert hits == set(), (p.name, hits)

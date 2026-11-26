@@ -3,7 +3,7 @@
 
 # Can the fastest route make everyone slower? A small, preregistered simulation
 
-*Draft. Author: Mohamed Bechir Kefi. An AI system (Claude, Anthropic) was used as a research and development assistant; it is not an author.*
+*Draft. Author: Mohamed Bechir Kefi, independent researcher. An AI system (Claude, Anthropic) was used as a research and development assistant; it is not an author.*
 
 Most of us pick the route that gets us there fastest. A classical result of transport economics says that when everyone does this, the total time spent on the road can be larger than if traffic were coordinated, and that adding a road can even make every driver slower. That is Braess's paradox. How large is the gap in practice? FLOW asks a narrower question that a simulation can answer honestly: **can individually optimal routing worsen collective travel time, and by how much, in a controlled family of synthetic networks?**
 
@@ -38,4 +38,4 @@ Synthetic lattices with 12 origin-destination pairs; static, deterministic assig
 
 ## Reproduce it
 
-Everything is offline and free to rerun: code, frozen protocols, configs, per-record results, reports and an interactive page. Repository: [to be added on owner-approved release]. Demo: [to be added on owner-approved release]. Manuscript: `research/paper/manuscript.md` in the repository.
+Everything is offline and free to rerun: code, frozen protocols, configs, per-record results, reports and an interactive page. Repository: <https://github.com/mohamedbechirkefi/flow-routing-congestion>. Demo: <https://flow-routing-congestion.kefimohamedbechir.workers.dev>. Manuscript: `research/paper/manuscript.md` in the repository.

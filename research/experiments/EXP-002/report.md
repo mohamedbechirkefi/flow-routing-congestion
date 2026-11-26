@@ -5,7 +5,7 @@
 
 - Experiment EXP-002. Report date 2026-11-25. Report version 1.1 (M4: exploratory 1e-10 check added beside the frozen verdict; version 1.0 was the M3 report).
 - **Status: CONFIRMATORY, complete (450 of 450 records, 75 demand points). Verdict under the frozen rule: CONTRADICTED.** Two of three computed regime boundaries lie outside 1e-6; the lower paradox boundary and the paradox sign at all 75 points agree with the derivation.
-- Authorship: Mohamed Bechir Kefi (owner-approved). An AI assistant (Claude) is disclosed and is not an author.
+- Authorship: Mohamed Bechir Kefi, independent researcher (owner-approved; owner, 2026-11-26, decision sheet, B3). An AI assistant (Claude) is disclosed and is not an author.
 - Protocol sha256 `262a029df24996f1a82d8a2b517572af2765bec0a6551a3b911d00914a567963`. Umbrella protocol v1.0, sha256 `9f629b07...b97d`.
 - Config `experiments/EXP-002.json`, file sha256 `7b046213b1f1b2de7971b2b2740bf3c79526518c8cebae8d670a91aa91a4d877`; canonical hash `fcb88932cbe551ae87741488096fab36a2a071684088c075a47c887bb4fef3be`.
 - Provenance revision `8dfc66ca5c9635e160f38526843941716aadacd0`. The manifest records `dirty: false`.

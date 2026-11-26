@@ -5,7 +5,7 @@
 
 - Experiment EXP-005. **OPTIONAL experiment.** Report date 2026-11-25. Report version 1.0.
 - **Status: CONFIRMATORY (optional), complete (5,154 records). Verdict: H1 SUPPORTED. Incidence 77/100 instances, Wilson 95% [0.678, 0.842].**
-- Authorship: Mohamed Bechir Kefi (owner-approved). An AI assistant (Claude) is disclosed and is not an author.
+- Authorship: Mohamed Bechir Kefi, independent researcher (owner-approved; owner, 2026-11-26, decision sheet, B3). An AI assistant (Claude) is disclosed and is not an author.
 - Protocol sha256 `e8cb938022b1bc2c41af8712b0a3f26938f43ef84c369a77fd077d7b4fd93359` (frozen 2026-11-24).
 - Config `experiments/EXP-005.json`, file sha256 `7b58a93390e30d7f38e4d18899bba77b4dbc841d5d6487536fecbd4e3fca7e0b`, canonical hash `4051f409...`. It was added on 2026-11-25 under the M3 brief as "implements frozen EXP-005, added before any EXP-005 data". It chooses no parameter (D-012), and its FREEZE line is in D-012.
 - Revision `8dfc66ca5c9635e160f38526843941716aadacd0`. The manifest says `dirty: true` because of untracked analysis files only (D-014).

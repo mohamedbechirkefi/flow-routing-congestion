@@ -5,7 +5,7 @@
 
 - Experiment EXP-004. Report date 2026-11-25. Report version 1.0.
 - **Status: CONFIRMATORY, complete (2,100 of 2,100 records). Verdict: H1 SUPPORTED. The median R(MIX(c)) decreases strictly at every consecutive compliance step (capacity scale 1.0).**
-- Authorship: Mohamed Bechir Kefi (owner-approved). An AI assistant (Claude) is disclosed and is not an author.
+- Authorship: Mohamed Bechir Kefi, independent researcher (owner-approved; owner, 2026-11-26, decision sheet, B3). An AI assistant (Claude) is disclosed and is not an author.
 - Protocol sha256 `37e8e3281f4be0ce143989bed7acd0efb8a896000e7b4e4bf273bfe048f6de22`.
 - Config file sha256 `2e7b98037c5cede97ec570792f70c48ab18f9e4d58d4fe433e92753ead50988c`; canonical hash `7a7c26921a0225fce4d79fe05cfa88b874cc5d0d5926e651fbe818e2da3f7245`.
 - Revision `8dfc66ca5c9635e160f38526843941716aadacd0`. The manifest says `dirty: true` because of untracked analysis files only (D-014).

@@ -370,3 +370,35 @@ Release candidate prepared, awaiting the owner's review (`research/publication/a
 ### Next action
 
 Owner: review the PDFs and the checklist in `author_review.md`, decide the open items listed there, and approve or refuse publication.
+
+## 2026-11-26: Session 9 (owner answers of 2026-11-26 applied)
+
+**Authority.** Owner, 2026-11-26, decision sheet, under the coordinator's brief `labs/_shared/OWNER-ANSWERS-brief.md`. Decision D-022. Wording and configuration only: no result, analysis, figure, config, seed, frozen protocol, protocol hash or checksummed output changed; no push, no deploy, no box ticked.
+
+### Starting state
+
+`git status`: clean; HEAD `344fa61`.
+
+### Changes
+
+- Repository and demo URLs filled (8 files plus the generated `manuscript.tex`); `CITATION.cff`: manuscript title, `repository-code`, `affiliation: "Independent researcher"`, placeholder removed from `message`.
+- `demo/wrangler.jsonc` added (assets only, `./dist`); `demo/README.md` states the hosting (Cloudflare Workers static assets, free plan, deployed by the coordinator).
+- Author line "Mohamed Bechir Kefi, independent researcher" in manuscript, supplementary, six reports, README, articles and demo footer; manuscript funding and competing-interest sentences in the approved wording.
+- Footer links: `scripts/build_demo.py` allowlist and `tests/test_demo_export.py` accept the two addresses as `<a href>` targets only. A first build was refused by the remote-host check (link text repeated the full address); the link text now omits the scheme.
+- `author_review.md` (section "Owner answers recorded (2026-11-26)", placeholder list now empty), `release_checklist.md` (status, B9 note, release box, version at release, release notes draft), `reproducibility_report.md` (home paths remaining: 18 lines in 5 append-only or result files).
+
+### Commands and outputs
+
+- `sh scripts/build_manuscript_tex.sh` -> `wrote <repo>/research/paper/manuscript.tex`.
+- `flow.report.build_pdf` on manuscript, supplementary and the six reports (all eight sources changed) -> 12, 5, 4, 4, 5, 3, 3 and 4 pages (page counts from Typst PNG renders for the manuscript, supplementary and EXP-001; unchanged from M6). Inspected as PNG at 80 ppi: manuscript pages 1, 11 and 12 (author line, data availability with both URLs, funding and competing interests), supplementary page 1, EXP-001 page 1. No defect seen.
+- `.venv/bin/python scripts/m6_checks.py all` -> `PASS links` (24 links, 59 files), `PASS numbers` (46), `PASS manifests` (109 paths; 3 of 3 downloads), `PASS cff` (9 keys; version 0.1.0-rc1).
+- `scripts/evidence_audit.py` -> `evidence_audit.json` unchanged; untraced strings unchanged.
+- Frozen files: 12 of 12 hashes in `research/freeze.json` match.
+- `nice -n 10 .venv/bin/python -m pytest -q` -> first run `1 failed, 149 passed` (`test_demo_sources_reference_no_remote_host`, the footer links); after the test change `150 passed in 98.30s (0:01:38)`.
+- `.venv/bin/python scripts/build_demo.py` -> `export check: identical`, `sandbox export check: identical`, `built demo/dist: 8 files`.
+- `node --test demo/tests/*.test.mjs` -> `# tests 33`, `# pass 33`, `# fail 0`.
+- `cd demo && node tools/a11y_check.mjs dist` -> nine PASS lines (keyboard `34 reached of 34`, `no request leaves the local origin`) and `A11Y-CHECK PASS`. The only absolute addresses in `demo/dist/index.html` are the two footer links; the Content-Security-Policy is unchanged (`default-src 'self'`).
+
+### Next action
+
+Owner: B15 (articles), B16 (full-text review and sign-off), B18 (release), roadmap blocker B5 (licence wording). Coordinator: deploy `demo/dist` with `demo/wrangler.jsonc`.

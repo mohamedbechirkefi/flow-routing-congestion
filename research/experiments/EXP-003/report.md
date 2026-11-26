@@ -5,7 +5,7 @@
 
 - Experiment EXP-003, the primary experiment. Report date 2026-11-25. Report version 1.0.
 - **Status: CONFIRMATORY, complete (2,900 records). Primary verdict: H0 REJECTED, theta > 0.01.**
-- Authorship: Mohamed Bechir Kefi (owner-approved). An AI assistant (Claude) is disclosed and is not an author.
+- Authorship: Mohamed Bechir Kefi, independent researcher (owner-approved; owner, 2026-11-26, decision sheet, B3). An AI assistant (Claude) is disclosed and is not an author.
 - Protocol sha256 `b047a0b1ed00d0f8b464be83d6204f49970839522bcec3803529c7b507353eba`. Umbrella protocol v1.0, sha256 `9f629b07...b97d`.
 - Config `experiments/EXP-003.json`, file sha256 `51ad8fa44ae3d05e6132a7336b7f7e84fb2aee9855a3921f3db06720cbac8367`; canonical hash `6cbcaa47d6d0bfb800ecf8ff79398cd40275cf08124f682dab377d0df7bc7c4a`.
 - Provenance revision `8dfc66ca5c9635e160f38526843941716aadacd0`.

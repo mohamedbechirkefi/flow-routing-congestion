@@ -67,3 +67,15 @@ Notes:
 
 - Without `FLOW_PANDOC`, a clone outside the `labs/` workspace finds no pandoc at the default `../.tools/pandoc` and the PDF test (`tests/test_records.py::test_report_pdf`) is skipped, not failed. This is the effect of replacing the absolute default path at M6.
 - The scratch clone and smoke output were deleted at the end of the session.
+
+## Home paths remaining (2026-11-26)
+
+Owner, 2026-11-26, decision sheet, B9: scrub absolute home-directory paths from editable files in a new commit; frozen, append-only and checksummed files stay untouched; no history rewrite. A search of every tracked file (`git grep -c "/Users/"`) found no such path in any editable file (`CLAUDE.md`, README files, docs, scripts, source code and demo files were already relative since M6, D-021). 18 lines in 5 files remain, each kept on purpose:
+
+| File | Lines | Why it stays |
+|---|---|---|
+| `progress.md` | 2 | append-only session log (entries of 2026-11-24) |
+| `research/experiment_journal.jsonl` | 1 | append-only experiment journal (J-0001) |
+| `results/raw/logs/worker-A.log` | 4 | committed run log of the confirmatory runs (result file) |
+| `results/raw/logs/worker-B.log` | 2 | committed run log of the confirmatory runs (result file) |
+| `results/exploratory/session-M2-runs.log` | 9 | committed exploratory run log (result file) |

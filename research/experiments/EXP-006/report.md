@@ -5,7 +5,7 @@
 
 - Experiment EXP-006. Report date 2026-11-25. Report version 1.0.
 - **Status: CONFIRMATORY, complete (16 of 16 records). Verdict: validation gate PASSED; the direction REPLICATES, with R(UE) = 0.01453 > 0.01 at rho = 2.**
-- Authorship: Mohamed Bechir Kefi (owner-approved). An AI assistant (Claude) is disclosed and is not an author.
+- Authorship: Mohamed Bechir Kefi, independent researcher (owner-approved; owner, 2026-11-26, decision sheet, B3). An AI assistant (Claude) is disclosed and is not an author.
 - Protocol sha256 `efbca04ab25258af9ae710bc02c09a4e9de4e5f9081ee49444afe284406a37f2`.
 - Config file sha256 `a9719a5bdd9e6680be049c4af89a63abae40a3561c89b8f1a9fe7f1488db7d5a`; canonical hash `9a9669c8d4189347263dbd2fddcd979a3b4ce707371be85936cf669e828ebb62`.
 - Revision `8dfc66ca5c9635e160f38526843941716aadacd0`. The manifest records `dirty: false`.
